@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Network Operating Center (TKJ)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --card-bg: rgba(15, 23, 42, 0.65); /* Modern Glassmorphism Blur */
+            --card-border: rgba(56, 189, 248, 0.3);
+            --accent-blue: #0284c7;
+            --cyber-cyan: #38bdf8;
+            --neon-blue: #00f0ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(51, 65, 85, 0.5);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; font-family: 'Consolas', 'Fira Code', 'Segoe UI', monospace, sans-serif; }
+        
+        /* MODERN CYBER NETWORK BACKGROUND WITH ANIMATED GLOW */
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(2, 132, 199, 0.15) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(3, 7, 18, 0.88), rgba(15, 23, 42, 0.92)),
+                url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop'); /* Digital Matrix Network Data */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        /* TOAST NOTIFICATION */
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .toast {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 300px;
+            animation: slideIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid var(--card-border);
+            border-left: 5px solid var(--success);
+        }
+        .toast.error { border-left-color: var(--danger); box-shadow: 0 0 20px rgba(239, 68, 68, 0.2); }
+        .toast .toast-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--success);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .toast.error .toast-icon { background: var(--danger); }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* LOGIN STYLE WITH ULTRA GLASS EFFECT */
+        .login-wrapper {
+            max-width: 420px;
+            margin: 80px auto;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.15);
+        }
+        .login-header { text-align: center; margin-bottom: 30px; }
+        .login-header h2 { 
+            margin: 0 0 5px 0; 
+            color: var(--neon-blue); 
+            letter-spacing: 2px; 
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.6); 
+        }
+        .role-selector { display: flex; gap: 8px; margin-bottom: 25px; background: rgba(3, 7, 18, 0.6); padding: 6px; border-radius: 10px; border: 1px solid var(--border-color); }
+        .role-btn { flex: 1; padding: 10px; border: none; background: transparent; font-weight: bold; cursor: pointer; border-radius: 8px; color: var(--text-muted); transition: all 0.3s; }
+        .role-btn.active { background: var(--accent-blue); color: white; box-shadow: 0 0 15px rgba(2, 132, 199, 0.8); }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.85rem; color: var(--cyber-cyan); letter-spacing: 0.5px; }
+        .form-group input { width: 100%; padding: 12px; background: rgba(3, 7, 18, 0.7); border: 1px solid var(--border-color); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; transition: all 0.3s; }
+        .form-group input:focus { border-color: var(--neon-blue); box-shadow: 0 0 12px rgba(0, 240, 255, 0.4); }
+
+        .btn-action { width: 100%; padding: 12px; background: linear-gradient(90deg, #0284c7, #00f0ff); color: #030712; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-action:hover { box-shadow: 0 0 20px rgba(0, 240, 255, 0.7); transform: translateY(-1px); }
+
+        /* DASHBOARD STYLE WITH GLASS EFFECT */
+        header { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            color: white; 
+            padding: 20px; 
+            border-radius: 16px; 
+            margin-bottom: 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border: 1px solid var(--card-border); 
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        .card { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid var(--card-border); 
+            margin-bottom: 20px; 
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .stat-card { background: rgba(3, 7, 18, 0.6); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid var(--border-color); border-left: 4px solid var(--cyber-cyan); }
+        .stat-card h4 { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+        .stat-card .value { font-size: 1.6rem; font-weight: bold; margin-top: 8px; color: var(--neon-blue); text-shadow: 0 0 8px rgba(0, 240, 255, 0.4); }
+        
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); }
+        th { background: rgba(3, 7, 18, 0.8); color: var(--cyber-cyan); }
+        
+        select.status-select { background: rgba(3, 7, 18, 0.8); color: #fff; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border-color); font-weight: bold; outline: none; }
+        
+        .dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 768px) { .dashboard-grid { grid-template-columns: 2fr 1fr; } }
+        
+        .hidden { display: none !important; }
+        .btn-logout { background: var(--danger); color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        .btn-logout:hover { box-shadow: 0 0 12px rgba(239, 68, 68, 0.5); }
+        .btn-secondary { background: #334155; color: white; padding: 8px 14px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-success { background: var(--success); color: white; padding: 8px 14px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+        .realtime-badge {
+            background: rgba(3, 7, 18, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--cyber-cyan);
+            font-size: 0.88rem;
+            margin-top: 8px;
+        }
+
+        /* AREA CETAK */
+        #print-area { display: none; }
+
+        /* PRINT CSS */
+        @media print {
+            @page { size: A4 landscape; margin: 8mm; }
+            body { background: #ffffff !important; color: #000000 !important; padding: 0 !important; margin: 0 !important; font-family: Arial, sans-serif !important; }
+            .no-print, .container, #toast-container { display: none !important; }
+            #print-area { display: block !important; width: 100%; }
+            .print-header { text-align: center; margin-bottom: 12px; border-bottom: 2px solid #000; padding-bottom: 8px; }
+            .print-header h2 { margin: 0 0 4px 0; font-size: 16pt; font-weight: bold; }
+            .print-header p { margin: 2px 0; font-size: 10pt; }
+            #print-area table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+            #print-area th, #print-area td { border: 1.5px solid #000000 !important; padding: 5px 1px; text-align: center; color: #000000 !important; font-size: 8.5pt; font-weight: 600; }
+            #print-area th { background-color: #e2e8f0 !important; font-weight: bold; font-size: 9pt; }
+            #print-area td.text-left { text-align: left; padding-left: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .legend { margin-top: 12px; font-size: 9.5pt; display: flex; gap: 18px; font-weight: bold; }
+            .total-col { background-color: #f1f5f9 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="toast-container"></div>
+
+<div class="container">
+    <!-- LOGIN PAGE -->
+    <div id="login-page" class="login-wrapper">
+        <div class="login-header">
+            <h2>[ PORTAL TKJ ]</h2>
+            <small style="color: var(--text-muted);">Sistem Absensi Network Operations Center</small>
+        </div>
+
+        <div class="role-selector">
+            <button type="button" class="role-btn active" id="btn-role-siswa" onclick="switchRole('siswa')">Siswa</button>
+            <button type="button" class="role-btn" id="btn-role-guru" onclick="switchRole('guru')">Guru</button>
+        </div>
+
+        <form id="form-siswa" onsubmit="loginSiswa(event)">
+            <div class="form-group">
+                <label for="nis-input">&gt; NOMOR INDUK SISWA (NIS)</label>
+                <input type="text" id="nis-input" placeholder="Masukkan NIS..." required autocomplete="off">
+            </div>
+            <button type="submit" class="btn-action">Masuk Siswa</button>
+        </form>
+
+        <form id="form-guru" class="hidden" onsubmit="loginGuru(event)">
+            <div class="form-group">
+                <label>&gt; NAMA GURU</label>
+                <input type="text" id="guru-user" value="KUSNADI S.KOM" readonly style="color: var(--text-muted);">
+            </div>
+            <div class="form-group">
+                <label for="guru-pass">&gt; PASSWORD</label>
+                <input type="password" id="guru-pass" placeholder="Password...">
+            </div>
+            <button type="submit" class="btn-action">Masuk Guru</button>
+        </form>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboard-page" class="hidden">
+        <header>
+            <div>
+                <h3 id="user-title" style="margin: 0; color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);">Dashboard Network</h3>
+                <small id="user-subtitle" style="color: var(--text-muted);">Selamat datang</small>
+                <div>
+                    <div class="realtime-badge no-print">
+                        <span>🕒 <strong id="clock-display">--:--:-- WIB</strong></span>
+                        <span>|</span>
+                        <span>📅 <span id="date-display">--/--/----</span></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-logout no-print" onclick="logout()">Keluar</button>
+        </header>
+
+        <!-- SISWA DASHBOARD -->
+        <div id="view-siswa" class="card hidden">
+            <h3 style="color: var(--cyber-cyan); margin-top: 0;">Status Kehadiran Hari Ini</h3>
+            <div style="margin-bottom: 20px;">
+                <label style="color: var(--text-muted);">Tanggal: </label>
+                <input type="date" id="tgl-siswa" onchange="checkSiswaStatus()" style="background: rgba(3, 7, 18, 0.8); color: white; border: 1px solid var(--border-color); padding: 6px 10px; border-radius: 6px;">
+            </div>
+            <div style="padding: 20px; background: rgba(3, 7, 18, 0.6); border-radius: 10px; text-align: center; margin-bottom: 25px; border: 1px solid var(--border-color);">
+                <h2 id="siswa-nama-display" style="margin: 0 0 5px 0;">-</h2>
+                <p style="color: var(--text-muted); margin: 0 0 10px 0;">NIS: <span id="siswa-nis-display">-</span></p>
+                <div id="siswa-status-badge" style="font-size: 1.1rem; font-weight: bold;">-</div>
+            </div>
+
+            <h3 style="color: var(--cyber-cyan);">Rekap Kehadiran Siswa</h3>
+            <div class="stats-grid" id="siswa-stats-summary"></div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Status Kehadiran</th>
+                        </tr>
+                    </thead>
+                    <tbody id="siswa-rekap-history"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- GURU DASHBOARD -->
+        <div id="view-guru" class="hidden">
+            <div class="stats-grid" id="stats-container"></div>
+
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;" class="no-print">
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div>
+                            <label style="color: var(--text-muted);">Tanggal Harian: </label>
+                            <input type="date" id="tglAbsen" onchange="loadRecords()" style="background: rgba(3, 7, 18, 0.8); color: white; border: 1px solid var(--border-color); padding: 8px; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="color: var(--text-muted);">Cetak Bulan: </label>
+                            <input type="month" id="bulanCetak" style="background: rgba(3, 7, 18, 0.8); color: white; border: 1px solid var(--border-color); padding: 8px; border-radius: 6px;">
+                        </div>
+                    </div>
+                    <input type="text" id="cariNama" placeholder="Cari nama siswa..." onkeyup="filterNama()" style="background: rgba(3, 7, 18, 0.8); color: white; border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 6px; width: 180px;">
+                    <div style="display: flex; gap: 8px;">
+                        <button type="button" class="btn-secondary" onclick="setAllStatusDefault()">Set Semua Hadir</button>
+                        <button type="button" class="btn-success" onclick="simpanRekapLaporan()">Rekap Laporan</button>
+                        <button type="button" class="btn-action" style="width: auto; padding: 8px 14px;" onclick="cetakLaporanBulanan()">Cetak Laporan Bulanan</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>NIS</th>
+                                    <th>Nama Siswa</th>
+                                    <th>Status Kehadiran</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listSiswa"></tbody>
+                        </table>
+                    </div>
+                    <div class="no-print" style="background: rgba(3, 7, 18, 0.6); padding: 15px; border-radius: 10px; border: 1px solid var(--border-color);">
+                        <canvas id="attendanceChart" style="max-height: 250px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ELEMENT KHUSUS CETAK -->
+<div id="print-area">
+    <div class="print-header">
+        <h2>REKAPITULASI PRESENSI SISWA TKJ</h2>
+        <p><strong id="print-bulan-title">Bulan: -</strong> | Guru Pengampu: <strong>KUSNADI S.KOM</strong></p>
+    </div>
+    
+    <table>
+        <thead>
+            <tr id="print-table-header"></tr>
+        </thead>
+        <tbody id="print-table-body"></tbody>
+    </table>
+
+    <div class="legend">
+        <span>Keterangan Kode:</span>
+        <span>H = Hadir</span>
+        <span>I = Izin</span>
+        <span>S = Sakit</span>
+        <span>A = Alpha</span>
+        <span>- = Tidak ada Rekap</span>
+    </div>
+</div>
+
+<script>
+    let databaseSiswa = [];
+    let loggedSiswa = null;
+    let myChart = null;
+
+    const defaultStatusList = ['Hadir', 'Izin', 'Sakit', 'Alpha'];
+
+    function updateRealTimeClock() {
+        const now = new Date();
+        const timeOptions = { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const dateOptions = { timeZone: 'Asia/Jakarta', day: '2-digit', month: '2-digit', year: 'numeric' };
+
+        const timeString = now.toLocaleTimeString('id-ID', timeOptions).replace(/\./g, ':');
+        const dateString = now.toLocaleDateString('id-ID', dateOptions);
+
+        const clockEl = document.getElementById('clock-display');
+        const dateEl = document.getElementById('date-display');
+        
+        if (clockEl) clockEl.innerText = `${timeString} WIB`;
+        if (dateEl) dateEl.innerText = dateString;
+    }
+
+    function getTodayWIB() {
+        const now = new Date();
+        return now.toLocaleDateString('sv-SE', { timeZone: 'Asia/Jakarta' });
+    }
+
+    function initDefaultDate() {
+        const currentDateFormatted = getTodayWIB();
+        const currentMonthFormatted = currentDateFormatted.substring(0, 7);
+
+        const tglAbsen = document.getElementById('tglAbsen');
+        const tglSiswa = document.getElementById('tgl-siswa');
+        const bulanCetak = document.getElementById('bulanCetak');
+
+        if (tglAbsen) tglAbsen.value = currentDateFormatted;
+        if (tglSiswa) tglSiswa.value = currentDateFormatted;
+        if (bulanCetak) bulanCetak.value = currentMonthFormatted;
+    }
+
+    updateRealTimeClock();
+    setInterval(updateRealTimeClock, 1000);
+
+    fetch('data_siswa.json')
+        .then(res => res.json())
+        .then(data => { databaseSiswa = data; })
+        .catch(err => console.error("Gagal membaca file data_siswa.json:", err));
+
+    function showToast(message, isError = false) {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = `toast ${isError ? 'error' : ''}`;
+        
+        const icon = isError ? '&#10007;' : '&#10003;';
+        
+        toast.innerHTML = `
+            <div class="toast-icon">${icon}</div>
+            <div>${message}</div>
+        `;
+        
+        container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideIn 0.3s reverse forwards';
+            setTimeout(() => toast.remove(), 300);
+        }, 3500);
+    }
+
+    function switchRole(role) {
+        document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('form-siswa').classList.add('hidden');
+        document.getElementById('form-guru').classList.add('hidden');
+
+        document.getElementById(`btn-role-${role}`).classList.add('active');
+        document.getElementById(`form-${role}`).classList.remove('hidden');
+    }
+
+    function loginSiswa(e) {
+        e.preventDefault();
+        const nis = document.getElementById('nis-input').value.trim();
+        const found = databaseSiswa.find(s => s.nis === nis);
+
+        if (found) {
+            loggedSiswa = found;
+            showDashboard('Siswa', found.nama);
+            showToast(`Selamat datang, ${found.nama}!`);
+        } else {
+            showToast('NIS tidak ditemukan! Periksa NIS Anda.', true);
+        }
+    }
+
+    function loginGuru(e) {
+        e.preventDefault();
+        const pass = document.getElementById('guru-pass').value;
+        if (pass === '1009') {
+            showDashboard('Guru', 'KUSNADI S.KOM');
+            showToast('Berhasil masuk sebagai Guru!');
+        } else {
+            showToast('Password Guru salah!', true);
+        }
+    }
+
+    function showDashboard(role, name) {
+        document.getElementById('login-page').classList.add('hidden');
+        document.getElementById('dashboard-page').classList.remove('hidden');
+
+        document.getElementById('user-title').innerText = `Portal Absensi TKJ (${role})`;
+        document.getElementById('user-subtitle').innerText = `Pengguna: ${name}`;
+
+        initDefaultDate();
+
+        if (role === 'Siswa') {
+            document.getElementById('view-siswa').classList.remove('hidden');
+            document.getElementById('view-guru').classList.add('hidden');
+            checkSiswaStatus();
+            renderSiswaRekapHistory();
+        } else {
+            document.getElementById('view-siswa').classList.add('hidden');
+            document.getElementById('view-guru').classList.remove('hidden');
+
+            renderTabel();
+            loadRecords();
+        }
+    }
+
+    function logout() {
+        document.getElementById('login-page').classList.remove('hidden');
+        document.getElementById('dashboard-page').classList.add('hidden');
+        document.getElementById('nis-input').value = '';
+        document.getElementById('guru-pass').value = '';
+        loggedSiswa = null;
+        showToast('Berhasil keluar dari sistem.');
+    }
+
+    function checkSiswaStatus() {
+        if (!loggedSiswa) return;
+        const tgl = document.getElementById('tgl-siswa').value;
+        const rekapData = JSON.parse(localStorage.getItem(`rekap_absensi_${tgl}`));
+        
+        document.getElementById('siswa-nama-display').innerText = loggedSiswa.nama;
+        document.getElementById('siswa-nis-display').innerText = loggedSiswa.nis;
+
+        if (rekapData && rekapData[loggedSiswa.nama]) {
+            const st = rekapData[loggedSiswa.nama];
+            document.getElementById('siswa-status-badge').innerHTML = `Status: <span style="color: var(--neon-blue); text-shadow: 0 0 8px rgba(0,240,255,0.5);">${st}</span> <small style="color: var(--success); font-weight: normal;">&#10003; Sudah Direkap</small>`;
+        } else {
+            const savedData = JSON.parse(localStorage.getItem(`absensi_${tgl}`)) || {};
+            const status = savedData[loggedSiswa.nama] || 'Belum direkap guru';
+            document.getElementById('siswa-status-badge').innerHTML = `Status: <span style="color: var(--text-muted);">${status}</span>`;
+        }
+    }
+
+    function renderSiswaRekapHistory() {
+        if (!loggedSiswa) return;
+        const historyTable = document.getElementById('siswa-rekap-history');
+        const summaryContainer = document.getElementById('siswa-stats-summary');
+        historyTable.innerHTML = '';
+        summaryContainer.innerHTML = '';
+
+        let counts = { 'Hadir': 0, 'Izin': 0, 'Sakit': 0, 'Alpha': 0 };
+        let totalRekapHari = 0;
+        let historyHTML = '';
+
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('rekap_absensi_')) {
+                const dateStr = key.replace('rekap_absensi_', '');
+                const data = JSON.parse(localStorage.getItem(key));
+                
+                if (data && data[loggedSiswa.nama]) {
+                    const st = data[loggedSiswa.nama];
+                    totalRekapHari++;
+                    if (counts[st] !== undefined) counts[st]++;
+
+                    historyHTML += `
+                        <tr>
+                            <td>${totalRekapHari}</td>
+                            <td>${dateStr}</td>
+                            <td><span style="color: var(--neon-blue); font-weight: bold;">${st}</span></td>
+                        </tr>
+                    `;
+                }
+            }
+        });
+
+        if (totalRekapHari === 0) {
+            historyTable.innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">Belum ada rekap laporan dari Guru.</td></tr>`;
+        } else {
+            historyTable.innerHTML = historyHTML;
+        }
+
+        let summaryHTML = `
+            <div class="stat-card" style="border-left-color: var(--cyber-cyan);">
+                <h4>Total Rekap</h4>
+                <div class="value">${totalRekapHari}</div>
+            </div>
+        `;
+
+        const colors = ['var(--success)', 'var(--warning)', 'var(--accent-blue)', 'var(--danger)'];
+        defaultStatusList.forEach((opt, idx) => {
+            summaryHTML += `
+                <div class="stat-card" style="border-left-color: ${colors[idx]};">
+                    <h4>${opt}</h4>
+                    <div class="value">${counts[opt] || 0}</div>
+                </div>
+            `;
+        });
+
+        summaryContainer.innerHTML = summaryHTML;
+    }
+
+    function simpanRekapLaporan() {
+        const tgl = document.getElementById('tglAbsen').value;
+        if (!tgl) {
+            showToast('Pilih tanggal terlebih dahulu!', true);
+            return;
+        }
+
+        let data = JSON.parse(localStorage.getItem(`absensi_${tgl}`)) || {};
+
+        databaseSiswa.forEach(s => {
+            if (!data[s.nama]) {
+                data[s.nama] = 'Hadir';
+            }
+        });
+
+        localStorage.setItem(`rekap_absensi_${tgl}`, JSON.stringify(data));
+        localStorage.setItem(`absensi_${tgl}`, JSON.stringify(data));
+
+        showToast(`Rekap absensi ${tgl} berhasil disimpan & diterbitkan!`);
+    }
+
+    function renderTabel() {
+        const tbody = document.getElementById('listSiswa');
+        tbody.innerHTML = '';
+
+        databaseSiswa.forEach((s, idx) => {
+            const row = document.createElement('tr');
+            row.className = 'siswa-row';
+            
+            let optionsHTML = defaultStatusList.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+
+            row.innerHTML = `
+                <td>${idx + 1}</td>
+                <td>${s.nis}</td>
+                <td class="nama-siswa"><b>${s.nama}</b></td>
+                <td>
+                    <select class="status-select" id="status-${idx}" onchange="updateStatus('${s.nama}', this.value)">
+                        ${optionsHTML}
+                    </select>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function updateStatus(nama, status) {
+        const tgl = document.getElementById('tglAbsen').value;
+        let data = JSON.parse(localStorage.getItem(`absensi_${tgl}`)) || {};
+        data[nama] = status;
+        localStorage.setItem(`absensi_${tgl}`, JSON.stringify(data));
+        calculateStats();
+    }
+
+    function loadRecords() {
+        const tgl = document.getElementById('tglAbsen').value;
+        let data = JSON.parse(localStorage.getItem(`absensi_${tgl}`)) || {};
+
+        databaseSiswa.forEach((s, idx) => {
+            const status = data[s.nama] || 'Hadir';
+            const selectEl = document.getElementById(`status-${idx}`);
+            if (selectEl) {
+                selectEl.value = status;
+            }
+        });
+        calculateStats();
+    }
+
+    function setAllStatusDefault() {
+        const tgl = document.getElementById('tglAbsen').value;
+        let data = {};
+        databaseSiswa.forEach(s => data[s.nama] = 'Hadir');
+        localStorage.setItem(`absensi_${tgl}`, JSON.stringify(data));
+        loadRecords();
+        showToast('Semua siswa diset Hadir');
+    }
+
+    function calculateStats() {
+        const tgl = document.getElementById('tglAbsen').value;
+        let data = JSON.parse(localStorage.getItem(`absensi_${tgl}`)) || {};
+
+        let counts = { 'Hadir': 0, 'Izin': 0, 'Sakit': 0, 'Alpha': 0 };
+
+        databaseSiswa.forEach(item => {
+            const status = data[item.nama] || 'Hadir';
+            if (counts[status] !== undefined) counts[status]++;
+        });
+
+        const statsContainer = document.getElementById('stats-container');
+        statsContainer.innerHTML = `
+            <div class="stat-card" style="border-left-color: var(--cyber-cyan);">
+                <h4>Total Siswa</h4>
+                <div class="value">${databaseSiswa.length}</div>
+            </div>
+        `;
+
+        const colors = ['#10b981', '#f59e0b', '#0284c7', '#ef4444'];
+        
+        defaultStatusList.forEach((opt, idx) => {
+            const card = document.createElement('div');
+            card.className = 'stat-card';
+            card.style.borderLeftColor = colors[idx];
+            card.innerHTML = `
+                <h4>${opt}</h4>
+                <div class="value">${counts[opt] || 0}</div>
+            `;
+            statsContainer.appendChild(card);
+        });
+
+        renderChart(defaultStatusList, defaultStatusList.map(opt => counts[opt] || 0), colors);
+    }
+
+    function renderChart(labels, dataValues, colors) {
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        if (myChart) myChart.destroy();
+
+        myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: dataValues,
+                    backgroundColor: colors,
+                    borderColor: '#030712',
+                    borderWidth: 2
+                }]
+            },
+            options: { 
+                responsive: true, 
+                plugins: { 
+                    legend: { 
+                        position: 'bottom',
+                        labels: { color: '#f8fafc' }
+                    } 
+                } 
+            }
+        });
+    }
+
+    function filterNama() {
+        const keyword = document.getElementById('cariNama').value.toLowerCase();
+        document.querySelectorAll('.siswa-row').forEach(row => {
+            const nama = row.querySelector('.nama-siswa').innerText.toLowerCase();
+            row.style.display = nama.includes(keyword) ? '' : 'none';
+        });
+    }
+
+    function cetakLaporanBulanan() {
+        const selectedMonth = document.getElementById('bulanCetak').value;
+        if (!selectedMonth) {
+            showToast('Pilih bulan cetak terlebih dahulu!', true);
+            return;
+        }
+
+        const [year, month] = selectedMonth.split('-').map(Number);
+        const daysInMonth = new Date(year, month, 0).getDate();
+
+        const namaBulan = new Date(year, month - 1, 1).toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+        document.getElementById('print-bulan-title').innerText = `Bulan: ${namaBulan}`;
+
+        const headerTr = document.getElementById('print-table-header');
+        let headerHTML = `<th style="width: 3%;">NO</th><th style="width: 9%;">NIS</th><th style="width: 22%;">NAMA SISWA</th>`;
+        for (let d = 1; d <= daysInMonth; d++) {
+            headerHTML += `<th style="width: 2%;">${d}</th>`;
+        }
+        headerHTML += `<th class="total-col" style="width: 2.5%;">H</th><th class="total-col" style="width: 2.5%;">I</th><th class="total-col" style="width: 2.5%;">S</th><th class="total-col" style="width: 2.5%;">A</th>`;
+        headerTr.innerHTML = headerHTML;
+
+        let monthlyData = {};
+        for (let d = 1; d <= daysInMonth; d++) {
+            const dayStr = String(d).padStart(2, '0');
+            const dateKey = `${selectedMonth}-${dayStr}`;
+            const rekap = JSON.parse(localStorage.getItem(`rekap_absensi_${dateKey}`));
+            if (rekap) {
+                monthlyData[d] = rekap;
+            }
+        }
+
+        const bodyTbody = document.getElementById('print-table-body');
+        let bodyHTML = '';
+
+        databaseSiswa.forEach((siswa, index) => {
+            let rowHTML = `<tr>
+                <td>${index + 1}</td>
+                <td>${siswa.nis}</td>
+                <td class="text-left">${siswa.nama}</td>`;
+
+            let h = 0, i = 0, s = 0, a = 0;
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                if (monthlyData[d] && monthlyData[d][siswa.nama]) {
+                    const st = monthlyData[d][siswa.nama];
+                    let code = '-';
+                    if (st === 'Hadir') { code = 'H'; h++; }
+                    else if (st === 'Izin') { code = 'I'; i++; }
+                    else if (st === 'Sakit') { code = 'S'; s++; }
+                    else if (st === 'Alpha') { code = 'A'; a++; }
+                    rowHTML += `<td>${code}</td>`;
+                } else {
+                    rowHTML += `<td>-</td>`;
+                }
+            }
+
+            rowHTML += `
+                <td class="total-col"><b>${h}</b></td>
+                <td class="total-col"><b>${i}</b></td>
+                <td class="total-col"><b>${s}</b></td>
+                <td class="total-col"><b>${a}</b></td>
+            </tr>`;
+            bodyHTML += rowHTML;
+        });
+
+        bodyTbody.innerHTML = bodyHTML;
+        window.print();
+    }
+</script>
+
+</body>
+</html>

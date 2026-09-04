@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring & Rekap Absensi Digital Siswa</title>
+    <!-- Library Chart.js untuk Grafik Statistik -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --success: #16a34a;
+            --warning: #d97706;
+            --info: #0284c7;
+            --danger: #dc2626;
+            --bg: #f8fafc;
+        }
+
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg); margin: 0; padding: 15px; color: #334155; }
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        header { 
+            background: var(--primary); 
+            color: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            margin-bottom: 20px; 
+            text-align: center; 
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        /* Kartu Statistik Digital */
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 20px; 
+        }
+        .stat-card { 
+            background: #f1f5f9; 
+            padding: 15px; 
+            border-radius: 8px; 
+            text-align: center; 
+            border-left: 5px solid var(--accent); 
+        }
+        .stat-card h4 { margin: 0; font-size: 0.8rem; color: #64748b; text-transform: uppercase; }
+        .stat-card .value { font-size: 1.6rem; font-weight: bold; margin-top: 5px; color: var(--primary); }
+
+        /* Controls / Filter */
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="date"], input[type="text"] {
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        /* Responsive Grid untuk Tabel & Chart */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .dashboard-grid { grid-template-columns: 2fr 1fr; }
+        }
+
+        /* Tabel Data */
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f1f5f9; color: var(--primary); font-weight: 600; }
+
+        /* Pilihan Status */
+        select.status-select {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        select.status-select[data-status="Hadir"] { color: var(--success); border-color: var(--success); }
+        select.status-select[data-status="Izin"] { color: var(--warning); border-color: var(--warning); }
+        select.status-select[data-status="Sakit"] { color: var(--info); border-color: var(--info); }
+        select.status-select[data-status="Alpha"] { color: var(--danger); border-color: var(--danger); }
+
+        /* Tombol */
+        .btn-group { display: flex; gap: 10px; }
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+        .btn-set-all { background: #e2e8f0; color: #334155; }
+        .btn-print { background: var(--accent); color: white; }
+
+        /* Cetak Khusus Laporan */
+        @media print {
+            .no-print, .btn-group, select { display: none !important; }
+            .print-only { display: inline-block !important; font-weight: bold; }
+            body { background: white; padding: 0; }
+            .card { box-shadow: none; padding: 0; margin: 0; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            header { background: none; color: black; padding: 0; margin-bottom: 10px; }
+        }
+
+        .print-only { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h2 style="margin: 0;">Portal Absensi & Monitoring Guru</h2>
+        <small>Sistem Rekap Digital Kehadiran Siswa</small>
+    </header>
+
+    <!-- Kartu Statistik Digital Ringkas -->
+    <div class="stats-grid">
+        <div class="stat-card" style="border-color: var(--accent);">
+            <h4>Total Siswa</h4>
+            <div class="value" id="total-val">21</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--success);">
+            <h4>Hadir</h4>
+            <div class="value" id="hadir-val">0</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--warning);">
+            <h4>Izin</h4>
+            <div class="value" id="izin-val">0</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--info);">
+            <h4>Sakit</h4>
+            <div class="value" id="sakit-val">0</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--danger);">
+            <h4>Alpha</h4>
+            <div class="value" id="alpha-val">0</div>
+        </div>
+    </div>
+
+    <!-- Filter dan Aksi -->
+    <div class="card no-print">
+        <div class="controls">
+            <div class="control-group">
+                <label for="tglAbsen"><b>Tanggal:</b></label>
+                <input type="date" id="tglAbsen" onchange="loadRecords()">
+            </div>
+            <div class="control-group">
+                <input type="text" id="cariNama" placeholder="Cari nama siswa..." onkeyup="filterNama()">
+            </div>
+            <div class="btn-group">
+                <button class="btn-set-all" onclick="setAllHadir()">Set Semua Hadir</button>
+                <button class="btn-print" onclick="window.print()">🖨️ Cetak Laporan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layout Utama: Tabel & Grafik -->
+    <div class="dashboard-grid">
+        <!-- Tabel Monitoring Kehadiran -->
+        <div class="card">
+            <h3 style="margin-top: 0;">Rekap Kehadiran Harian</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">No</th>
+                            <th>Nama Siswa</th>
+                            <th style="width: 150px;">Status Kehadiran</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listSiswa">
+                        <!-- Data siswa disuntikkan lewat JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Grafik Statistik Digital -->
+        <div class="card">
+            <h3 style="margin-top: 0;">Persentase Digital</h3>
+            <canvas id="attendanceChart" style="max-height: 280px;"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Master List Nama Siswa
+    const daftarSiswa = [
+        "AINUN STA ADAH SAFITRI", "APRILIA HASANAH", "AURA FEBRY RISMA SARI",
+        "AZHAR KAEBY WEIN LUBIS", "BASMAN KINAWAN", "DIMAS RAMADHAN",
+        "FATHINAH GINA AFIYAH", "GIAN HANSEN PERMANA", "HABILT RAKA NAR FAHREZY",
+        "JURIANI RACHMAN", "M. RIDHO WAHYU SAPUTRA", "MUHAMMAD ADHI GUNAWAN",
+        "MUHAMMAD DZAKI", "MUHAMMAD HAIKAL KAMIL", "NAZLA AZRINA FIRZA",
+        "REVALDI PUTRA RAHARJO", "SABRINA CHOIRUNNISA", "SYAHRUL ZAKI",
+        "WULAN AGUSTINA", "ZASKIA DWILESTARI", "NABILA MIFTAHUL AINI"
+    ];
+
+    let myChart = null;
+    const inputTgl = document.getElementById('tglAbsen');
+
+    // Default Tanggal Hari Ini saat dibuka
+    inputTgl.valueAsDate = new Date();
+
+    // Render Awal Aplikasi
+    window.onload = function() {
+        renderTabel();
+        loadRecords();
+    };
+
+    // Render Struktur Tabel
+    function renderTabel() {
+        const tbody = document.getElementById('listSiswa');
+        tbody.innerHTML = '';
+
+        daftarSiswa.forEach((nama, idx) => {
+            const row = document.createElement('tr');
+            row.className = 'siswa-row';
+            row.innerHTML = `
+                <td>${idx + 1}</td>
+                <td class="nama-siswa"><b>${nama}</b></td>
+                <td>
+                    <select class="status-select" id="status-${idx}" onchange="updateStatus('${nama}', this.value, this)" data-status="Hadir">
+                        <option value="Hadir">Hadir</option>
+                        <option value="Izin">Izin</option>
+                        <option value="Sakit">Sakit</option>
+                        <option value="Alpha">Alpha</option>
+                    </select>
+                    <span class="print-only" id="print-text-${idx}">Hadir</span>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // Update Status Kehadiran ke LocalStorage
+    function updateStatus(nama, status, element) {
+        const tanggal = inputTgl.value;
+        if (!tanggal) return alert('Pilih tanggal terlebih dahulu!');
+
+        let key = `absensi_${tanggal}`;
+        let currentData = JSON.parse(localStorage.getItem(key)) || {};
+        
+        currentData[nama] = status;
+        localStorage.setItem(key, JSON.stringify(currentData));
+
+        if(element) element.setAttribute('data-status', status);
+        calculateStats();
+    }
+
+    // Memuat Data Berdasarkan Tanggal Terpilih
+    function loadRecords() {
+        const tanggal = inputTgl.value;
+        let key = `absensi_${tanggal}`;
+        let currentData = JSON.parse(localStorage.getItem(key)) || {};
+
+        daftarSiswa.forEach((nama, idx) => {
+            const status = currentData[nama] || 'Hadir'; // Default 'Hadir' jika belum diisi
+            const selectEl = document.getElementById(`status-${idx}`);
+            const printTextEl = document.getElementById(`print-text-${idx}`);
+
+            if (selectEl) {
+                selectEl.value = status;
+                selectEl.setAttribute('data-status', status);
+            }
+            if (printTextEl) {
+                printTextEl.innerText = status;
+            }
+        });
+
+        calculateStats();
+    }
+
+    // Tombol Cepat: Set Semua Kehadiran Jadi Hadir
+    function setAllHadir() {
+        const tanggal = inputTgl.value;
+        if (!tanggal) return alert('Pilih tanggal terlebih dahulu!');
+
+        let currentData = {};
+        daftarSiswa.forEach((nama) => {
+            currentData[nama] = 'Hadir';
+        });
+
+        localStorage.setItem(`absensi_${tanggal}`, JSON.stringify(currentData));
+        loadRecords();
+    }
+
+    // Hitung Angka Statistik dan Render Chart
+    function calculateStats() {
+        const tanggal = inputTgl.value;
+        let key = `absensi_${tanggal}`;
+        let currentData = JSON.parse(localStorage.getItem(key)) || {};
+
+        let h = 0, i = 0, s = 0, a = 0;
+
+        daftarSiswa.forEach((nama, idx) => {
+            const status = currentData[nama] || 'Hadir';
+            if (status === 'Hadir') h++;
+            else if (status === 'Izin') i++;
+            else if (status === 'Sakit') s++;
+            else if (status === 'Alpha') a++;
+
+            // Sinkronisasi Teks Cetak Laporan
+            const printTextEl = document.getElementById(`print-text-${idx}`);
+            if(printTextEl) printTextEl.innerText = status;
+        });
+
+        // Update Kartu Angka Ringskas
+        document.getElementById('total-val').innerText = daftarSiswa.length;
+        document.getElementById('hadir-val').innerText = h;
+        document.getElementById('izin-val').innerText = i;
+        document.getElementById('sakit-val').innerText = s;
+        document.getElementById('alpha-val').innerText = a;
+
+        renderChart(h, i, s, a);
+    }
+
+    // Render Chart Visualisasi Statistik Digital
+    function renderChart(h, i, s, a) {
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        if (myChart) myChart.destroy();
+
+        myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Hadir', 'Izin', 'Sakit', 'Alpha'],
+                datasets: [{
+                    data: [h, i, s, a],
+                    backgroundColor: ['#16a34a', '#d97706', '#0284c7', '#dc2626']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+    }
+
+    // Pencarian Cepat Nama Siswa
+    function filterNama() {
+        const keyword = document.getElementById('cariNama').value.toLowerCase();
+        const rows = document.querySelectorAll('.siswa-row');
+
+        rows.forEach(row => {
+            const nama = row.querySelector('.nama-siswa').innerText.toLowerCase();
+            row.style.display = nama.includes(keyword) ? '' : 'none';
+        });
+    }
+</script>
+
+</body>
+</html>
