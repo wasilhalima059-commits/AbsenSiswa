@@ -1,279 +1,2036 @@
 {
   "X TITL": [
-    { "no": 1, "nis": "262710001", "nisn": "012847273", "nama": "AGNA ACHYARA", "jk": "L" },
-    { "no": 2, "nis": "262710002", "nisn": "0101632379", "nama": "BAYU SEGARA", "jk": "L" },
-    { "no": 3, "nis": "262710003", "nisn": "0108892227", "nama": "ILHAM ADITYA PUTRA", "jk": "L" },
-    { "no": 4, "nis": "262710004", "nisn": "0094589563", "nama": "LAULA UZ ZIKRA", "jk": "L" },
-    { "no": 5, "nis": "262710005", "nisn": "0119838557", "nama": "MOHAMAD FACHRIE RASYIIDIN", "jk": "L" },
-    { "no": 6, "nis": "262710006", "nisn": "0119571033", "nama": "MUHAMMAD FADLY", "jk": "L" },
-    { "no": 7, "nis": "262710007", "nisn": "0099735075", "nama": "MUHAMMAD PANDU PERMADI", "jk": "L" },
-    { "no": 8, "nis": "262710008", "nisn": "0115798950", "nama": "MUHAMMAD REGAS ALBAQI", "jk": "L" },
-    { "no": 9, "nis": "262710009", "nisn": "0107797277", "nama": "NATHANIA STEVEN", "jk": "L" },
-    { "no": 10, "nis": "262710010", "nisn": "0105884997", "nama": "RISKI PUTRA SEPTIAN", "jk": "L" },
-    { "no": 11, "nis": "262710011", "nisn": "3099346567", "nama": "RIZKY AKBAR", "jk": "L" },
-    { "no": 12, "nis": "262710012", "nisn": "", "nama": "SYAHRIZAL ARFANDI", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "eaa9a678e9633c8df69e17bf85117e2944ab486aea2e08281e7992c82200aeb2",
+      "nis_hash": "fdcfc29864d97e89511ac83a1b33aa83ce90593ca52bad9faebdd7bf75ca9797",
+      "nisn_hash": "27608fd9a2065098edf198fbbe92bdb94bd65bc62fc03513b4dc483b1226bdf9",
+      "nama": "AGNA ACHYARA",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "f92b4ab19d8b31afe7c05af95a2edaaabeadcd4d98f7011ef68f5e97afbe44ec",
+      "nis_hash": "d0e6aba6fb519eb9f4307465b18a71df2b002a082808dc3ee495373567f77b0d",
+      "nisn_hash": "2b9b7078095634af73695861b457ab20bc922b35d00c1e0cf16e5fb7d1ea6586",
+      "nama": "BAYU SEGARA",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "7497832561f7a515fe34c18d7808cb1ef7743296f4029a0856b9ec6cffb1d070",
+      "nis_hash": "78c0ebfca14791579c4d7d0a84885be2d23df0617a58e84966a06dc2edc6cd9b",
+      "nisn_hash": "dde193b993edf61f54b29ce3b91d94a9a88dfb2df5b6e834a101c4ed32e8e5fd",
+      "nama": "ILHAM ADITYA PUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "2ebdc5eb9702f608db5c1644dc4a98941075eda1de29cfd5d652a9049eba8e34",
+      "nis_hash": "20f17e2ebb3206766a673158e05060fcb1e7208e034d3f04e2373719f02f2c6f",
+      "nisn_hash": "8aeb90d18a78f2d30ec9c449600d3b0c45e1edd384803310425cabc1862a25a8",
+      "nama": "LAULA UZ ZIKRA",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "130d1f396aa67109a38bde26c938f9c9ed952a1f778e16f21fdb8c1ae5419211",
+      "nis_hash": "e90b72a6d3d9e9bdbef9f10432854bdcd24b8172cbcfc6313cf5e6a9e4a78f18",
+      "nisn_hash": "da5770fac485c0dedfd10ee9ec575587b5808bb0100e9b3b36e0d912c7af3d86",
+      "nama": "MOHAMAD FACHRIE RASYIIDIN",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "9f4d89dfea854358dfec77aa51e118d3d935b7d0d60a4bc15cece49a4f2acf90",
+      "nis_hash": "cfae0b2b13699c6ea541f77bd0126d382c49f3d7149403df17531e554796fd56",
+      "nisn_hash": "e30170311c215746105a0da3afe92d19b1d59b7c2ed356fd39dbfb69816b3148",
+      "nama": "MUHAMMAD FADLY",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "f5779253a9dadf3198aec030fb5674b7f5228e9cd9d30ceccdba537122b14a4c",
+      "nis_hash": "667244eb0f07c6b72246acbbef0469a08339570b9782c3c18a1b2510339d9201",
+      "nisn_hash": "ba440e849939521b7920ddfebd4e273a1e0acff47a67ee7652fbb4177e50c0d4",
+      "nama": "MUHAMMAD PANDU PERMADI",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "5081b9c57e6100abd5b86130e046ac834a28331c1c92fc35ca8bfc1e909d3774",
+      "nis_hash": "279d9b8bf19ab106b38446191337d12c9570230a4018a336c1429b638b706496",
+      "nisn_hash": "885f983cf0bd4578e3fbecce2d1f6a2476114d43b55935871e7ba274e2935501",
+      "nama": "MUHAMMAD REGAS ALBAQI",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "009c1b3476157b44c472705579631e74386c669f5b67ae5e0eb4d0b6d733a281",
+      "nis_hash": "26b73be56a8932c50fbd41e204774975755e55be23bfe38297d79a5c43ef2d4e",
+      "nisn_hash": "944abcb9ec8ba35d59da0f50d6221b18b6f480c5892d2af2ecc7ecbf0a428777",
+      "nama": "NATHANIA STEVEN",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "6d8f798ef389e669609bfcccb67d21afa30920ca9b44bd838dae013ae2a14bdd",
+      "nis_hash": "8faacb077d54b463e62127fbad80700e8fc0ed59f6d1aa560dc166705d3930aa",
+      "nisn_hash": "c3396ca339a9631b12a52e8674d2435511944a357e7c18bd2c9cd537c9b291bc",
+      "nama": "RISKI PUTRA SEPTIAN",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "0c1efe82fbfc9ef322d740166d728520a615723564713c860cc929fecef58654",
+      "nis_hash": "f26956b655c98da3cbeb05acc60e0fe629c4db7dbe8785bf912b312690da1244",
+      "nisn_hash": "13a1ba769b4c9e885d87c3ef8fa5149ce71554ffd2e305cfae8ad2f79ccbdc8b",
+      "nama": "RIZKY AKBAR",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "bc4d19c27976c035b9d5c5ce9e48369c22829afa3614b0d75f52a5ff57103bfc",
+      "nis_hash": "fed277346d60b6315af0fb2b0aa5358b78cbbd2e777fc09a0dbd828913b5e947",
+      "nisn_hash": "",
+      "nama": "SYAHRIZAL ARFANDI",
+      "jk": "L"
+    }
   ],
   "X TKJ": [
-    { "no": 1, "nis": "262710013", "nisn": "0119628327", "nama": "ANGGA FIRDAUS", "jk": "L" },
-    { "no": 2, "nis": "262710014", "nisn": "0109839122", "nama": "ANUGRAH SAKTI RAMADHAN", "jk": "L" },
-    { "no": 3, "nis": "262710015", "nisn": "0118148951", "nama": "BALQIS LAILATUL JAMILAH", "jk": "P" },
-    { "no": 4, "nis": "262710016", "nisn": "01196166312", "nama": "BAYU NURYADI AOLA", "jk": "L" },
-    { "no": 5, "nis": "262710017", "nisn": "0115241317", "nama": "DEA FITRIYANI DENISAH", "jk": "P" },
-    { "no": 6, "nis": "262710018", "nisn": "0115837674", "nama": "DEFFA DWI ARDIANTO", "jk": "L" },
-    { "no": 7, "nis": "262710019", "nisn": "0105231847", "nama": "DHIRA ACA SEPTIANSYAH YAHMAD", "jk": "L" },
-    { "no": 8, "nis": "262710020", "nisn": "0104990927", "nama": "FATHIR PUTRA ABDULLAH", "jk": "L" },
-    { "no": 9, "nis": "262710021", "nisn": "0111938376", "nama": "HAIKAL ABDULLOH", "jk": "L" },
-    { "no": 10, "nis": "262710022", "nisn": "0111166303", "nama": "HANNA FAUZIAH", "jk": "P" },
-    { "no": 11, "nis": "262710023", "nisn": "0116925469", "nama": "KHOIRUN NISA", "jk": "P" },
-    { "no": 12, "nis": "262710024", "nisn": "0117024832", "nama": "MUHAMMAD NUR ALVIANSYAH", "jk": "L" },
-    { "no": 13, "nis": "262710025", "nisn": "0114115357", "nama": "MUHAMMAD QIYAN AL - ZIDAN", "jk": "L" },
-    { "no": 14, "nis": "262710026", "nisn": "0112788882", "nama": "MUHAMMAD RIZKY MAULANA", "jk": "L" },
-    { "no": 15, "nis": "262710027", "nisn": "0106293211", "nama": "NANDITA DWI RIVIYANI", "jk": "P" },
-    { "no": 16, "nis": "262710028", "nisn": "3110589219", "nama": "PUTRA ASKHA RADITYA", "jk": "L" },
-    { "no": 17, "nis": "262710029", "nisn": "0117579896", "nama": "RAHMAN HAKIM", "jk": "L" },
-    { "no": 18, "nis": "262710030", "nisn": "0118267654", "nama": "RAISYA FELDA FAZILA", "jk": "P" },
-    { "no": 19, "nis": "262710031", "nisn": "0111767296", "nama": "RANDY ADITYA SAPUTRA", "jk": "L" },
-    { "no": 20, "nis": "262710032", "nisn": "0111890681", "nama": "RECHITA PUTRI RAMADHANI", "jk": "P" },
-    { "no": 21, "nis": "262710033", "nisn": "0112974867", "nama": "RENDI SIAHAAN", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "4d92da0b208d2608cc2918b091efaa7b43b6e4bbdb7f8b4f23052ca2e34f9d0f",
+      "nis_hash": "b3ab41075f9972f66e7d07e89bcd1209bd7034050a2874970021a0999fcf94cb",
+      "nisn_hash": "d643385054a647fecad7830dff86bcf0d7d77bc4c00a9df10aed0aa420727213",
+      "nama": "ANGGA FIRDAUS",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "66486e2bc8cdc1ec24ad8e900cc266bf98206a05b59a9b1c54dff8b953b4c788",
+      "nis_hash": "0a47690569b7a6ed1e60defb89a9ccef6c762044f7fd3830d2142e48a2826c73",
+      "nisn_hash": "05804b942d236d3d184e93efa676f987e2ea8ca6d24948268e368d84e0be2c25",
+      "nama": "ANUGRAH SAKTI RAMADHAN",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "b47c546110769d328a1e2273b58c0a7e20d8eeb8a2c05f01119bee4319333c38",
+      "nis_hash": "6a50e17c6bac10dbf11807b77ee2a116b385c90f8ed1ab34419ab8a6a99d9f65",
+      "nisn_hash": "e879952473a1f3fb390a2908680f1fbef827d063aa35e953a7b095cf5d66364b",
+      "nama": "BALQIS LAILATUL JAMILAH",
+      "jk": "P"
+    },
+    {
+      "no": 4,
+      "uid": "b4a01719c9ca02d287ef67496cd71cb6dd85be85161e5f1c68ad5ccd4cf4a6bf",
+      "nis_hash": "08f67dd860bc7387c37f14b0182949efced0ab07754b49cda379c3585aa8df13",
+      "nisn_hash": "ca93900ace3cc0fb5272d83fa5d140ed2c97ef791df2b7351e698739aac17d65",
+      "nama": "BAYU NURYADI AOLA",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "90bda2b12ce43c45a296ab05995e7cefc2f2f3bb450b9a3f848279cce4028f32",
+      "nis_hash": "9d4960aafefdfc55bcb9610c326bd11d1a8b9dd0781361baa4c7e82ae20bfc66",
+      "nisn_hash": "db9bdc24b7758eae9c5dbcd94189feaf80f2d7decbb986ab6908258fe63fac1a",
+      "nama": "DEA FITRIYANI DENISAH",
+      "jk": "P"
+    },
+    {
+      "no": 6,
+      "uid": "02a5bea7038886ccc4d1601e5d865b8849c3b7d0c52173ba4a92984cdabfd1a7",
+      "nis_hash": "fdb2198158955c75fa59881b1d72868d8987537c54644f99eb4d8369368ce0d9",
+      "nisn_hash": "1cd758a12c8c8b2b9efc117df8c34b362964e9b66f22f7924822f66f6527250a",
+      "nama": "DEFFA DWI ARDIANTO",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "976819f28072a244051825012f6c326f6aecc09662415f202ebacfc5c95d1d7d",
+      "nis_hash": "593885710caffda595bac67426a290337b069fc2c6e53f4c5a5e830381371a33",
+      "nisn_hash": "525527b8ad0b6ff8cf49a14ae77531c2ed688d55b2031a065dfcfd91429291bb",
+      "nama": "DHIRA ACA SEPTIANSYAH YAHMAD",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "7c56a8e0120b477f101846c356e9819759a21259b9daea75858c1db99205d56f",
+      "nis_hash": "37348b2099f9126a4fdd5ffad384c2a3ed14de0f7c25ea09e63ad6a7aaf672ec",
+      "nisn_hash": "96f158247eef9a67e5d052ed1e5f6e6c2b86dd8ed4f1f7bfd6d8d47a2e25b30e",
+      "nama": "FATHIR PUTRA ABDULLAH",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "178a2e9ce6a24bc43556178840b87491b9935d0b1e7dbabf713fd76f10f33d54",
+      "nis_hash": "323b5148f5bbdb1bdc4bc5a0796ea16f0b0aaca002d6629b23823caf92e0251b",
+      "nisn_hash": "2e3f372cd11676d860e0ae59eea2d86f9ff964604e51754bc8859c646006f950",
+      "nama": "HAIKAL ABDULLOH",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "64b78f7a56f8073dbfbc550afa9cbba537bcaeb17b86e78f631e437551405646",
+      "nis_hash": "4b9712b304b330e02884b7fa4976f0ae9ab13ae12792591cda8bfa96b8161962",
+      "nisn_hash": "ad7c39bc63f56faa86982f2a97e3b20b984a291a5eeef83b9019fffe09e15127",
+      "nama": "HANNA FAUZIAH",
+      "jk": "P"
+    },
+    {
+      "no": 11,
+      "uid": "3465eae1ecbac810a82c8cd309e7ad943da0fa8be533ab0300bf66414a5fb69a",
+      "nis_hash": "8b847ce149a0756be6ca558a446a3db4b70cf47f05fe693b9b60d21edf0c25fb",
+      "nisn_hash": "3f5bb37f12e7aa1a5fadb1e205f3aa972f858b99baea2e6475cc5158bd08e2bc",
+      "nama": "KHOIRUN NISA",
+      "jk": "P"
+    },
+    {
+      "no": 12,
+      "uid": "3db1ec9b8f39078eda614f5c29eb926b71a485f53703561d10f4da2b7c88ed1a",
+      "nis_hash": "e92172c20dd9d10906cd480ecf484713287ee042e9965704121c38c80530af94",
+      "nisn_hash": "f03803d093ff0ee1e05d7e5b841f82aded30c0a813e7e0a39babf088c1e25dcd",
+      "nama": "MUHAMMAD NUR ALVIANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "0eb483eecca1803201fab9eb66bcd1755cdd538822f37fe3d0bb645350f3f862",
+      "nis_hash": "07835fba8599b8b20c9c322d8a3cf95c715bbb8832cba49c23c1d5886f7f769b",
+      "nisn_hash": "1054260ffd8e217ecd749ba2aad44a2f11d1f49df6884f29e7024a0782eabb1c",
+      "nama": "MUHAMMAD QIYAN AL - ZIDAN",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "b1ed256aea49b8204e156c55d965fb56ab4a3a8756ed815ba30a64ea8bd9044b",
+      "nis_hash": "b5aa41885278af3dff7cab14495a779f012171d1b79d6d7be0ea2bafc7511edc",
+      "nisn_hash": "3852be4515009e2fe3aacdd37761610c9856214e059d696172785c5c0fcc08f6",
+      "nama": "MUHAMMAD RIZKY MAULANA",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "7671f2b43ba21afc872eedc6bb571340c6086a736102c55e232efb8b79df5c79",
+      "nis_hash": "e787e5fe139d136e1bbf36cba9c1d75c62da348c549f3d96a3701ec1a9447800",
+      "nisn_hash": "9ae0f0b3c9d953125288e0779c5f3e9d85d1941c9dce2acd0c84415b01cbcbf3",
+      "nama": "NANDITA DWI RIVIYANI",
+      "jk": "P"
+    },
+    {
+      "no": 16,
+      "uid": "3370cd25d901747fbdebeb6833e9b3ebd3ab85b54c34ffe84a2150d5bb7096b2",
+      "nis_hash": "4384b2ee9cf5da37406ad7579943694655db6be921672ad85169074db27c86e5",
+      "nisn_hash": "4aa4bf68cb12d40d426a609daf6a19cd8e82c72c1425d0f458e738a88486af3d",
+      "nama": "PUTRA ASKHA RADITYA",
+      "jk": "L"
+    },
+    {
+      "no": 17,
+      "uid": "3eb32b323e5ca2f6fc82057aace804dbbe5ed6423ea5d92ba66947506636b198",
+      "nis_hash": "efe915efc46c3fe047bc3c1fe63748d67fe6fbe1be8827b3b84a4b3c2a621c47",
+      "nisn_hash": "0a1d7b22ab3f4101e59dd828f709abf9a95b6bca6c728273da9d1507c8809191",
+      "nama": "RAHMAN HAKIM",
+      "jk": "L"
+    },
+    {
+      "no": 18,
+      "uid": "1ab3b3e9fc5379236bd94ab5693bbd7c842ab96a76fe487695df09337fda20da",
+      "nis_hash": "0b1541bae729bea59123f1ed7d9f9ec6869e37e2da63731e1963da3315ab8cdf",
+      "nisn_hash": "18476a5e606f320825e842b654a1e9eebd230e4d83f567e54ddac1434049f3d0",
+      "nama": "RAISYA FELDA FAZILA",
+      "jk": "P"
+    },
+    {
+      "no": 19,
+      "uid": "cbfc07548aaa1d5c429e5e2e7c91aba4492ab048703d8352540446f2941016fd",
+      "nis_hash": "16e5f3d2f10dfc3fa3a325500e5aa8fe5c76888e2387f83a2ab7f117491d2ef1",
+      "nisn_hash": "4f6e7571cbae04fc40aba14454067a629d565c2a9aedd53afca763df8d71e8c6",
+      "nama": "RANDY ADITYA SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 20,
+      "uid": "f0f273720655031d30394403585c9e1618ab7594118c30206a0d6fd672466ea1",
+      "nis_hash": "a8fb3260caac3f6f3c94ed750caa6abd09d7e5c63c625b41686ac74a5a582e7e",
+      "nisn_hash": "f73199a9bfc7cee05b1f81237815e7d9b45cfaabdbe274fc7371dee46dbebee0",
+      "nama": "RECHITA PUTRI RAMADHANI",
+      "jk": "P"
+    },
+    {
+      "no": 21,
+      "uid": "d7fe7f1f3f85212d9faab3426883856dc0be4c4c7d7e62b3f76e340ddd724299",
+      "nis_hash": "edc0368c4fb15f2e82348c1cf7813b1eb563b513469b4e89dd503e62c7c3dcbe",
+      "nisn_hash": "cf24f1eadd283cb9a3cc371c0a414146246bc5c4a3d0a427ab857c4d68072972",
+      "nama": "RENDI SIAHAAN",
+      "jk": "L"
+    }
   ],
   "X TKR": [
-    { "no": 1, "nis": "252610039", "nisn": "0107221214", "nama": "LUTFI SAKHI ZAIDAN", "jk": "L" },
-    { "no": 2, "nis": "262710034", "nisn": "3100159905", "nama": "ABDUL KAFFA SYABANI", "jk": "L" },
-    { "no": 3, "nis": "262710035", "nisn": "0112230092", "nama": "AFRIZAL RIZQI MAULANA", "jk": "L" },
-    { "no": 4, "nis": "262710036", "nisn": "0113194636", "nama": "AHMAD MAULANA ZAKARIA", "jk": "L" },
-    { "no": 5, "nis": "262710037", "nisn": "0103526137", "nama": "ALFAN RAHMATUL AKBAR", "jk": "L" },
-    { "no": 6, "nis": "262710038", "nisn": "0117455266", "nama": "AMERTA ARDIWANA RINJANI", "jk": "L" },
-    { "no": 7, "nis": "262710039", "nisn": "0094093987", "nama": "ARIF FIRMANSYAH", "jk": "L" },
-    { "no": 8, "nis": "262710040", "nisn": "0113131321", "nama": "DIMAS HASWIYAN SAPUTRA", "jk": "L" },
-    { "no": 9, "nis": "262710041", "nisn": "0104247612", "nama": "FADLI YANSYAH", "jk": "L" },
-    { "no": 10, "nis": "262710042", "nisn": "0113250486", "nama": "GEOVANDY PUTRA PRASETYO", "jk": "L" },
-    { "no": 11, "nis": "262710043", "nisn": "0105446758", "nama": "IDRIS ALFARIZI", "jk": "L" },
-    { "no": 12, "nis": "262710044", "nisn": "0102423261", "nama": "IQBAL NURFAHMI RAMDANI", "jk": "L" },
-    { "no": 13, "nis": "262710045", "nisn": "0109348405", "nama": "KEYREN ADITYA PUTRA", "jk": "L" },
-    { "no": 14, "nis": "262710046", "nisn": "0119829730", "nama": "LUTFI ADITIYA", "jk": "L" },
-    { "no": 15, "nis": "262710047", "nisn": "0111479766", "nama": "MHD.SAMSAMI LUBIS", "jk": "L" },
-    { "no": 16, "nis": "262710048", "nisn": "3114090128", "nama": "MUHAMMAD ARIS SETIAWAN", "jk": "L" },
-    { "no": 17, "nis": "262710049", "nisn": "0118877633", "nama": "MUHAMMAD ATHAR", "jk": "L" },
-    { "no": 18, "nis": "262710050", "nisn": "0117092017", "nama": "MUHAMMAD DAFFA", "jk": "L" },
-    { "no": 19, "nis": "262710051", "nisn": "0117049874", "nama": "MUHAMMAD EZAR ALANA", "jk": "L" },
-    { "no": 20, "nis": "262710052", "nisn": "0116890776", "nama": "MUHAMMAD SABILILAH ABHIZAR RAFANSYAH", "jk": "L" },
-    { "no": 21, "nis": "262710053", "nisn": "", "nama": "MUZHAKKY AL FATHIR", "jk": "L" },
-    { "no": 22, "nis": "262710054", "nisn": "0117640582", "nama": "NABIIL MUYASSAR ARIFIN", "jk": "L" },
-    { "no": 23, "nis": "262710055", "nisn": "0098561521", "nama": "NAFSIHHARUDIN", "jk": "L" },
-    { "no": 24, "nis": "262710056", "nisn": "0102056523", "nama": "RAFANSYAH ANHAR SETIAWAN", "jk": "L" },
-    { "no": 25, "nis": "262710057", "nisn": "0101406529", "nama": "RAFLI SYAHHERO", "jk": "L" },
-    { "no": 26, "nis": "262710058", "nisn": "0107031813", "nama": "RAKA JULIANO", "jk": "L" },
-    { "no": 27, "nis": "262710059", "nisn": "0109550474", "nama": "RIFA'AT RAKA ANDHIKA", "jk": "L" },
-    { "no": 28, "nis": "262710060", "nisn": "0117284969", "nama": "RIFQIANSYAH RAMDANU", "jk": "L" },
-    { "no": 29, "nis": "262710061", "nisn": "3113735972", "nama": "RIKI NUR RAMADHANI", "jk": "L" },
-    { "no": 30, "nis": "262710062", "nisn": "0108475712", "nama": "RIZKY ADHA FADHILAH", "jk": "L" },
-    { "no": 31, "nis": "262710063", "nisn": "3090316448", "nama": "ZACKY HAFIZ ALHABSY", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "0c769b54d92c1d57188c4fb82fdf426d8347178f2444228e856cf4c4f6220d00",
+      "nis_hash": "e3d284aa33e100065f648329b711b2d1aa33d03d1365d81171b2704ce491b182",
+      "nisn_hash": "7ce5a168675ad621762f60b36aac584061e3639165586d54a87d37be92114e00",
+      "nama": "LUTFI SAKHI ZAIDAN",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "1a8d873c1e8aa8b2b03cbb286488879df033030bd5d647757554ffb9bc020c7b",
+      "nis_hash": "2885c4392a57af50259d0905de95da270cfcf2e379b4525c718b78f809a0d8fc",
+      "nisn_hash": "fc312133a3580b944681465b656cf8cc80a34f23dddd1db85545f7bfefde0b17",
+      "nama": "ABDUL KAFFA SYABANI",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "1d2a6c4179ec1ed14813b794c9b1538e433c40bd4385110f83e23d1b845538d4",
+      "nis_hash": "ae80b8cbf2c86bc429092f77c6d737b528627abe0ed05f0e954ecc2a249315f3",
+      "nisn_hash": "7635a943f2f9884665443e943930c29a2108927ff5fdef07165092e1093abec7",
+      "nama": "AFRIZAL RIZQI MAULANA",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "2885fe9e4d6eff63791add6a84836925c787337173c800bb25edf252fa553be6",
+      "nis_hash": "dee3928511f2482a4bab9dec8ebe42ebc7a3b2e30bc06d9b831f7298ba2743f0",
+      "nisn_hash": "9783d548401a9d3c0fc82994939ccbf8d4a82862617b78a8d91cd9e377e2618a",
+      "nama": "AHMAD MAULANA ZAKARIA",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "53fe10c5804e7c74a556d0768d4fcf5294b5d262f764299779405255ccb13f27",
+      "nis_hash": "e4791c69436b79b22f7c544a97a9bb57eb5b891b6b92a528a6cfad4c6504cd04",
+      "nisn_hash": "20aa377890ca21f13b1cd92147f760fc8bf2f617ab5ff4c0c036b0e1364b3cf5",
+      "nama": "ALFAN RAHMATUL AKBAR",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "676604b59a1d1a4381a24cc4f1c5c353fa949c3c757ea2476e5dfe8f9ead24b7",
+      "nis_hash": "7fe3ab0265facc38891520e6b3f5fb560bb68b816803a10d33072c291a727869",
+      "nisn_hash": "919244da20f38d19f72872d566d37e34fdedf565c511042e93a0908f6a41eecd",
+      "nama": "AMERTA ARDIWANA RINJANI",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "62b923fa2345705e590b0c6a9c64aecf8fb53823a330a4d28503dcc194e3ddbd",
+      "nis_hash": "a561ecc82de0a5abfd35b6608e5e38b16ed729179095ad53d83120fcf47ff000",
+      "nisn_hash": "1035b957f4dbd5fc508814ea0bcaccb8bd27b0f03f437bb3bfe3b58fa0129eb6",
+      "nama": "ARIF FIRMANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "817c32529bbaac946a7da36f0df60a659a4ed90780769edb4aa6978dbef1d21f",
+      "nis_hash": "2986d14a3689128ad209f870be3b24bf37ac625f5920542d97ca13e8aede0b97",
+      "nisn_hash": "433f635e35ccb836452f8d5a88c2bb5d063e43db6b299d00ef435ab14da230a5",
+      "nama": "DIMAS HASWIYAN SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "ffef508e809a0651b4252605c2ae5156aeb94875abcb7a1d5c76cf15e8e0b1b5",
+      "nis_hash": "ea572c20201be5c9e234711ea70012af130d626d3d26e9bbcb721a6e227c06eb",
+      "nisn_hash": "b9a20734cefe2dbfaa4175dea00bf6d2f10af5217765233bc571079ebc93bd01",
+      "nama": "FADLI YANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "13eea132245dc523d2d7c65de0940a21c2e5c0547ae8cc0a4b38b16e4e86d24c",
+      "nis_hash": "76145657147a67a508604f60740478ed080191f1d2c7ef93a1e287617315ef05",
+      "nisn_hash": "a5b395323459aaba4a0a261ce82dbc7f534b12f7e7aa98e3ad530124ac6075aa",
+      "nama": "GEOVANDY PUTRA PRASETYO",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "98b24f920707a64e07b1438a98935b56277602b688d50dd80221419b3bef39b6",
+      "nis_hash": "5f8ca51083cece8420eee2ba1741517188c969d0a82fef40262f9b6a892a72f2",
+      "nisn_hash": "2da52ab3b913b1079724400d41da71645d132e91876f38938a4c2ee04ee2bf53",
+      "nama": "IDRIS ALFARIZI",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "24fcec85375ac680eb5272be13ba9c0b060738e3c7bb9033bdeb13e4aeb12242",
+      "nis_hash": "a9b71de63f3439a0fc575229f80af305f25cda51d880cfe87675a0fc30f55703",
+      "nisn_hash": "0ef400918087f1ca1ad13e93210bf8a2f9c77806ad2289a55f303fb8148708a5",
+      "nama": "IQBAL NURFAHMI RAMDANI",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "87c2510e37faf20b6ddad71a1a0d5db8fee372371bed7ee5ea0450119fce3210",
+      "nis_hash": "a66a4cb6e410dffde5cb94509df4828ba3191a54a4e06a79d815fd831b2ad9f7",
+      "nisn_hash": "9751f62922efeac1be47921b43a1f16a6dd7e7f8c8b41466c173f177bc3a07d8",
+      "nama": "KEYREN ADITYA PUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "260dbff2b0f767a9a17fa185f26a990238f3a84edd1a8b010272b46d3cbbbc21",
+      "nis_hash": "5494a79e36966e688c93acee008d87927406213e5c5f92b8237f33818e3910c6",
+      "nisn_hash": "d854d16552ae043d5ebbc091a193fb7b06e25942142cd231555cdcf65a96e510",
+      "nama": "LUTFI ADITIYA",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "a2912663fade1640f7f64191d527a4e6cf856ee3489f7a5d8d96ae7960e0e307",
+      "nis_hash": "92a7085a2040fea39049a95c02dcaba1e1e407726ae3991ce1989bc6570452ef",
+      "nisn_hash": "1218a5d74368a78fb5f30e5d118393116e8485457e920440e792fd12faa312a4",
+      "nama": "MHD.SAMSAMI LUBIS",
+      "jk": "L"
+    },
+    {
+      "no": 16,
+      "uid": "133ec758c9510b65cabcf5e3ad456434e9b55da073ff8f0be14b542cd7df1ae9",
+      "nis_hash": "63f2ff37b2a8c55953fdf707a0844a3491ed50ae41e8a642fadf54533aaac209",
+      "nisn_hash": "a66ffe30d693695ce0995734612d1281b363de5ac0a08e44bbde320a8bfc0841",
+      "nama": "MUHAMMAD ARIS SETIAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 17,
+      "uid": "e6e63c71436119148d8a617198ddaa07c4990176cecd214517fab0c5bf4ac2d8",
+      "nis_hash": "50bdefbe835dac37540e7d83f255768a94159e21998752135e140c4841201290",
+      "nisn_hash": "8b18e7a786fa5f0f9ea0501ae94dee656b0767cba0f516dab933136869f04ef4",
+      "nama": "MUHAMMAD ATHAR",
+      "jk": "L"
+    },
+    {
+      "no": 18,
+      "uid": "d2dc382ca99ba300afd9248665feaf162c3c5690aa4996dec0ad3757d6754e93",
+      "nis_hash": "cc105f6d1ad25234b221fffa0bf63ad295b13181542c80bc1cde58f4e02e3fb0",
+      "nisn_hash": "b5ad002b2a838e9786f2f7b1a8670a1d3a05d48bbf7ca22db5d71ebc82e53866",
+      "nama": "MUHAMMAD DAFFA",
+      "jk": "L"
+    },
+    {
+      "no": 19,
+      "uid": "ae4bc4d73ad1ca9a34b230804ea396ecfe0ce0592e441b64ea634d1521040182",
+      "nis_hash": "b5a6e4d236ff4573c1ab25f5cbe6fd561fe1fccb01770920bd5d0d82a6f1d30e",
+      "nisn_hash": "06c21c5dae865d32fbc7d29db458d51e5913c33ea9c4416e259c76b5cd188d0b",
+      "nama": "MUHAMMAD EZAR ALANA",
+      "jk": "L"
+    },
+    {
+      "no": 20,
+      "uid": "5afd7cc5d110163bd45a75e9b7f058e65e8222d865104356e1eb88b1f2366e7c",
+      "nis_hash": "30243e82c28aa2666b6606ea301d8dcbf4f669f9ff28c888ee113a71bc387720",
+      "nisn_hash": "b80c935bb4578085e3960504fd57f6cce63761ced3c0455e1ed1124c4aee7aa3",
+      "nama": "MUHAMMAD SABILILAH ABHIZAR RAFANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 21,
+      "uid": "314791b168b8b6a07bb36da4945393303e76b0b8f0a8d3620d1f66b9fd10e246",
+      "nis_hash": "d911bccaa1533d665f543831f963bc11aa53bfb3a00a9638be8f87b4cd78a910",
+      "nisn_hash": "",
+      "nama": "MUZHAKKY AL FATHIR",
+      "jk": "L"
+    },
+    {
+      "no": 22,
+      "uid": "bc8a0dad0b834d79a5a36b2bc1ac8c32a04de0576f50f96eb4fd91feeef003b4",
+      "nis_hash": "f52a8eedc0fec21381dbb6b5f30217422bbda0425eb4cd6478cdd43218565a05",
+      "nisn_hash": "c7acfcefe13227a45f1a8ea24a5e131a61a809ccc340fcdb5683f3f1e6ff0972",
+      "nama": "NABIIL MUYASSAR ARIFIN",
+      "jk": "L"
+    },
+    {
+      "no": 23,
+      "uid": "3eb5bc8c7389c39de727cdd3efc6d55e704a67f98e33a429a602c284bd8937d7",
+      "nis_hash": "ac7faebb4935c0ae59017622237ba3c2f49390a9cc183bcc7539d158bc113e9f",
+      "nisn_hash": "662bdb9b05650f000aae10c96ca6b6cc5221235002db4114b1ce22d0c219b86d",
+      "nama": "NAFSIHHARUDIN",
+      "jk": "L"
+    },
+    {
+      "no": 24,
+      "uid": "e304437313d1bd4d5e342b8d54f313251390c170ec86ca71eac71ef8086a6a9a",
+      "nis_hash": "f8c00bba4467c43cdf5185e8105a4f78806792692b176e959570f62dfbf0b8a6",
+      "nisn_hash": "4df93c8b591dbe7e80b027f2e0b173eff33601d1b1d57ea23fb91ded2f57411e",
+      "nama": "RAFANSYAH ANHAR SETIAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 25,
+      "uid": "ee085cd440d1b796aade6103714385f199b1a2e0a3a7b3b854bea62f1b7f9ae5",
+      "nis_hash": "4564b726033fdb06b56c593c2a6b9d6bb9d72cd200ffb2b728f0a21ef26e9fb9",
+      "nisn_hash": "e6c061fcb5d192e6658adf8a34520fbb3b26f953fa6a127c04ebceec6ba58abf",
+      "nama": "RAFLI SYAHHERO",
+      "jk": "L"
+    },
+    {
+      "no": 26,
+      "uid": "ca0566faf5441c81a6c62993cbdefa6bfab8878018de34ba7cc91a25e805c3cd",
+      "nis_hash": "10f8824aaf9e23a45e0bf1bc663c42d73d1d1c7d14483099a4264e8d8e8c7ee9",
+      "nisn_hash": "0cc0b55e42b6f0b32fab89023b26b9bba8f715fe9e0e74806d460b34bb4934aa",
+      "nama": "RAKA JULIANO",
+      "jk": "L"
+    },
+    {
+      "no": 27,
+      "uid": "719d0b38278f0904bbeab59f6037e4cd528aaba2ea32a75672e90c4578a506be",
+      "nis_hash": "6df68f61a12637e36df7e0e618fb08a938f35dde5c330a396a825f572d948352",
+      "nisn_hash": "5984cfc3b97da0f76e4307b1a193ccb3afe2d30b8506e71d9ca4dbf7967fda4d",
+      "nama": "RIFA'AT RAKA ANDHIKA",
+      "jk": "L"
+    },
+    {
+      "no": 28,
+      "uid": "970b39e8d833e83771b75d0392e7f46a7300152e6e05b607e6c844a52cabeea1",
+      "nis_hash": "9899ea5e02b6ca839a11282cff60b2f8a49fe42e1d58ec6951f63aa5f5d8ffb9",
+      "nisn_hash": "150be49fffc48825b5e7b387e83d611928593c8acfc9e0c8e2b22533fe1d3be3",
+      "nama": "RIFQIANSYAH RAMDANU",
+      "jk": "L"
+    },
+    {
+      "no": 29,
+      "uid": "599b0249860fab0fc46be19d2da1ceab976921d4785c79f3d880c89c11ac3042",
+      "nis_hash": "b1d2b9bf40177866aace555f30adda83e0e6ab4da623f335331cef520bd62f26",
+      "nisn_hash": "b1d608585f829d0512d353dc3661e7ccb3178432787be432c1c8c9763c42c12f",
+      "nama": "RIKI NUR RAMADHANI",
+      "jk": "L"
+    },
+    {
+      "no": 30,
+      "uid": "a08e0f3e669fbf98212d114a1144c408d3897c53934a9a5750d7a9f0f9c47b3d",
+      "nis_hash": "d9f65aa4b8dc5a421c73666c0324513e69e965a97624f50a1a16ff0a507b37fc",
+      "nisn_hash": "437279e284522455953e8cd1a2e92f1d4c4961d42e14f0beb8e7dd7ac65bac56",
+      "nama": "RIZKY ADHA FADHILAH",
+      "jk": "L"
+    },
+    {
+      "no": 31,
+      "uid": "2df543b199613cad39e8d2a8d85cdef6dc9214637a892fd45da75129409e95c2",
+      "nis_hash": "8ab92504cab400333be2c3e8764b91af0c719108a67b35d92e8dba4deba67e52",
+      "nisn_hash": "76b6460728db0389cb65e658fa21bffcc337c7e4e8712b6e3a78aeb9b8eaf69a",
+      "nama": "ZACKY HAFIZ ALHABSY",
+      "jk": "L"
+    }
   ],
   "X TP": [
-    { "no": 1, "nis": "262710064", "nisn": "0115782582", "nama": "ABIZAR ZAHWA PUTRA PRATAMA", "jk": "L" },
-    { "no": 2, "nis": "262710065", "nisn": "0114702910", "nama": "FIAN ANDI PRATAMA", "jk": "L" },
-    { "no": 3, "nis": "262710066", "nisn": "0111521734", "nama": "GARA PRAMUJA PRAMONO", "jk": "L" },
-    { "no": 4, "nis": "262710067", "nisn": "0105321443", "nama": "GILANG PUTRA KUSUMA", "jk": "L" },
-    { "no": 5, "nis": "262710068", "nisn": "0111054391", "nama": "KHUSNUL PISABILILLAH", "jk": "L" },
-    { "no": 6, "nis": "262710069", "nisn": "0115425280", "nama": "MAULANA MALIK IBRAHIM", "jk": "L" },
-    { "no": 7, "nis": "262710070", "nisn": "0107596290", "nama": "MOHD.ADAM HAMIDI", "jk": "L" },
-    { "no": 8, "nis": "262710071", "nisn": "0115362586", "nama": "MUHAMMAD HILMI", "jk": "L" },
-    { "no": 9, "nis": "262710072", "nisn": "0105461443", "nama": "MUHAMMAD RIZKI PRATAMA", "jk": "L" },
-    { "no": 10, "nis": "262710073", "nisn": "00945923612", "nama": "RAFKA RAMADHAN", "jk": "L" },
-    { "no": 11, "nis": "262710074", "nisn": "0111166762", "nama": "RAYYAN NAIZAR AL FARRAS", "jk": "L" },
-    { "no": 12, "nis": "262710075", "nisn": "0105416277", "nama": "RIFKY DANAR LEGOWO", "jk": "L" },
-    { "no": 13, "nis": "262710076", "nisn": "0102202311", "nama": "YUSUF DWI RAIHAN DONO", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "38a9f39f501dd3cba478e2d64ebf3e56fa546791d537f45681acb44ed31358fa",
+      "nis_hash": "7e6212bbb8b5680620ae8d78ec4fd06c5ae9d7975f7348ccd2438c5009ca8672",
+      "nisn_hash": "44d94d76047d4d1f24daaa49ce69c91314ccc48e6085d83fd2aed8ff49709f9d",
+      "nama": "ABIZAR ZAHWA PUTRA PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "19ac91427075e28ba9163bfb36ce7bc90022d933c876a29359ae22cbc867f54c",
+      "nis_hash": "e38df7818566e02620537453eb8bf410b899b7a3e9de9282993685d8d5abaf2a",
+      "nisn_hash": "5d59711bfbf84a2f03683e4987f933e056194259b8619eb9e35c71c479a4ecbd",
+      "nama": "FIAN ANDI PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "1853ffe61bd4d203f4c4f736f5e9b9d2afe6febef5fe184e5253206a709689b2",
+      "nis_hash": "9df8b1d7df9bd0ddd665e13d53e65f9b81b88f30f00944cde2e1f5276db83576",
+      "nisn_hash": "7b671901604829c60942ce459eb93b7eb341e108cba36775b12e5a1dcb0e0ae8",
+      "nama": "GARA PRAMUJA PRAMONO",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "12e8a18a0117b61f9c0da0929c727bb63f2a1356d6bdfbf6855674ab0de2933d",
+      "nis_hash": "2fc719bc0c73f53f0fe26d1fd51f734489a8128e2b8fa7d3c8660dd439664b0a",
+      "nisn_hash": "e54ed42e5407b7a09c1fd4927e7e669ff94ebb0965f592c077e4ce842c2952c6",
+      "nama": "GILANG PUTRA KUSUMA",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "d649e90f636587c88e5ce1f33d201d2ce4e101e07f8e304ee72a68e2a8d9bb8f",
+      "nis_hash": "d56badae26a0ee9f259a30a614d24c50d3a20d2946c23929fa7393b9860f2159",
+      "nisn_hash": "f78b14f762831fe3d4f875c9a312591f337839d4469685b426f7117dcf95c50f",
+      "nama": "KHUSNUL PISABILILLAH",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "97fe22d13dfc77f52d3446a3728408e8508acfeb77208d69f836b4d41d493ecf",
+      "nis_hash": "20ff1c8c199c2a46edfce91ecaa7c41d5b98edfde663dd086f381629862cd853",
+      "nisn_hash": "1714fceae9bf92dd26b191eb341c529c592ef3f9b0568d3c16f098041af534f8",
+      "nama": "MAULANA MALIK IBRAHIM",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "fa3c3cd0049613c772b2f7d4cf7e16f6dc6564c30ec84ebc328b0897ece6ad00",
+      "nis_hash": "9adce96b2aa650d01a75dcc29d2137ee1926c6d5aa107dc86ab896c12806d0dc",
+      "nisn_hash": "4d7f8048024f33986790357fc2f19f3ceff8e79432798a932b794218cdcd7346",
+      "nama": "MOHD.ADAM HAMIDI",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "c9ced78224daab3b1c6e8a820e8cde8c21db8c63f049f276cb618b34b42b39fc",
+      "nis_hash": "e2a74af43a3f8776d4e594f5a39b7fd935d5efff1f4de2fb3c5a983818519c63",
+      "nisn_hash": "127f869072d7901f7dc1d0db27b860266600a90b9d391fe0d3e7165f1c2719f8",
+      "nama": "MUHAMMAD HILMI",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "9abf29d52d365e27b4045a50f90aabb1612f2f396aec2bfd53c1fd3279e1b74b",
+      "nis_hash": "5fe028af798012333e639be9e41b98c7926b380945a7faacd808e5fb0b4c7597",
+      "nisn_hash": "a04dea57239c8f47ddaedc5873c5211912ed27c67069b2f71293270e24d351c5",
+      "nama": "MUHAMMAD RIZKI PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "99cf21395796748c5ae6fc40bf0a0468847e4af158ce6fd0cf5094a49ee89089",
+      "nis_hash": "e903f550205a992398d95e336dee95b4bf6f75ac02acd1d4e53d5cc38c118e5c",
+      "nisn_hash": "0b131e3e29bb7fe8f560621b2a5676aadd80c01e510c717b4c42be50b84ca35c",
+      "nama": "RAFKA RAMADHAN",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "293874cd315c2d773aa6466841e2570257fe3cf7eedf700ca4d40e9214e5a2ea",
+      "nis_hash": "0de72394285d087f6f444f64fdbd86065749a704117acba85e662fc972b08c6d",
+      "nisn_hash": "6e9177ffc75b1fb80d66be95bf1933ba1341f6e57e700a4aaff73d11a5d50ad1",
+      "nama": "RAYYAN NAIZAR AL FARRAS",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "e3209786d1759a38442e0c37f976cd11f295b94615ec4fd97dfada8031c137ab",
+      "nis_hash": "de1d5ecbe6ed257fa6fa78d1919f61662e7505d9d5ccdf4f9a8ed5f65b0aa334",
+      "nisn_hash": "b0b79cfe5e2c44db476b6206c3f287097ef85ecfe165348c986ad18b44b25400",
+      "nama": "RIFKY DANAR LEGOWO",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "c241a66f4c8fd5831335a351fd074c9f627f6c698ba401964d5c6bef13f2214f",
+      "nis_hash": "9cae14e20d1a4c21e00521a3c728294d98496f950a34c6e0e5e6b428204a0e20",
+      "nisn_hash": "13b9d46bd7540fd609e7157770a5a3e7f51ab4f6c80dc185aec8ef7d72cf27a4",
+      "nama": "YUSUF DWI RAIHAN DONO",
+      "jk": "L"
+    }
   ],
   "XI TITL": [
-    { "no": 1, "nis": "252610001", "nisn": "0107680605", "nama": "ABDIE FADHILAH HUMAIDI", "jk": "L" },
-    { "no": 2, "nis": "252610002", "nisn": "0102896167", "nama": "AHMAD AL FARIZI", "jk": "L" },
-    { "no": 3, "nis": "252610003", "nisn": "0095194836", "nama": "AHMAD ARJU NAJA", "jk": "L" },
-    { "no": 4, "nis": "252610004", "nisn": "0166123628", "nama": "ALVIN ALBUCHORY", "jk": "L" },
-    { "no": 5, "nis": "252610005", "nisn": "0105994800", "nama": "ARYA MUSTOFA ZHAFRAN", "jk": "L" },
-    { "no": 6, "nis": "252610006", "nisn": "0101323276", "nama": "MIFTAHUDDIN AL MA'RUF", "jk": "L" },
-    { "no": 7, "nis": "252610007", "nisn": "3100109234", "nama": "MUHAMAD ADIL ZAINUL AZAM", "jk": "L" },
-    { "no": 8, "nis": "252610008", "nisn": "0102603068", "nama": "MUHAMAD AZRIEL", "jk": "L" },
-    { "no": 9, "nis": "252610009", "nisn": "0093287611", "nama": "MUHAMAD YUSUF KB", "jk": "L" },
-    { "no": 10, "nis": "252610010", "nisn": "0108769351", "nama": "SANDI BAHTIAR", "jk": "L" },
-    { "no": 11, "nis": "252610011", "nisn": "3096208471", "nama": "WILDAN MAURIDIL AFFAN", "jk": "L" },
-    { "no": 12, "nis": "252610012", "nisn": "0102652288", "nama": "ZIDAN REZKY PRATAMA", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "f9d245c2b48ddc5020a5ffee48af7169ace7a2424de92c55e7fcb8e9583f2e00",
+      "nis_hash": "48eec6f462f2cabd3af5dfd6f8cc33625c76e803bc8ebaa302f8b2088cd8dd4b",
+      "nisn_hash": "4c81fb6a9b8b3318e525958663de643c7076d06d5bd61dfee15c4e38186a5b5d",
+      "nama": "ABDIE FADHILAH HUMAIDI",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "e9cdf0637e7b21b12c3b379de5d7403c55b12ae0efd22f9989b43530e25427a1",
+      "nis_hash": "86fabe67b4a09809117f09c051f2e75f6103d2e311faceb7005c8af27f6baf7e",
+      "nisn_hash": "f1fcaca3a0e3a1b52d56ab1bc3cbd1c93b44193262d9507680fd78f5096f1fac",
+      "nama": "AHMAD AL FARIZI",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "3f694ab65705500997a5000d647c25ed3b7e52ab55f55af1de2a80d80b5948b8",
+      "nis_hash": "40d0eea31a0cf24f5bf9d81fe344934b66291e735eadb415b6fd519b041c00a9",
+      "nisn_hash": "3137ac8f7148b410eb61348e04dae52ddf3f9d40ea4737a4693b478b53749011",
+      "nama": "AHMAD ARJU NAJA",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "f56918284a340120294241814267e983a94b7c2411b20f47b92c1a5c59da846a",
+      "nis_hash": "60be60317762c93351302e8742d7fbdec93b85dbadbf00b1a20f6cc2b23610f4",
+      "nisn_hash": "b6cb10c0b597d186b448cd85d49bcb81dcf039dcde373e9f386075605b61c202",
+      "nama": "ALVIN ALBUCHORY",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "4a81e8bf4803373e24d51444ba0144968d3bfbca90a0ecc24bb878cd412ead8a",
+      "nis_hash": "1b2c51c37182acb7fb249f98a41ea3df54432bd802d01e60b52e902f5def75d8",
+      "nisn_hash": "d1f2e9e874bb285c220d0ed8391e41e1ae2e80c1b9e43209bc86223cc1f09864",
+      "nama": "ARYA MUSTOFA ZHAFRAN",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "24863c459c5357de9c7f0c1cbddb9db67c8d52be067bb212c418631cff8806b8",
+      "nis_hash": "ffab51e339122b4974512e336ce65a1a2b2b26f79ea89a76a266976dd201d26c",
+      "nisn_hash": "e00b491c13ba01e8e4021accab142e47c0bd529cb7d74c781e44800247fcc0a4",
+      "nama": "MIFTAHUDDIN AL MA'RUF",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "8c7d0f2ff04085c984abf4c087498c70d7f730ab18e578205d0aa2faf05d9c03",
+      "nis_hash": "137c9a8cef12de2b61ce9b3fcb0cb1cfea9b4302b829df1d687ac604218e2a48",
+      "nisn_hash": "7fbadf9199db1e5a54500e85019ab6f6b626f1698e3d5a8c97c2b513755f590e",
+      "nama": "MUHAMAD ADIL ZAINUL AZAM",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "f11a3d85c42b58b5dbde017d8eaae1440b17d0c7a4caa50b8f26b20db0aec238",
+      "nis_hash": "87de0bf16823f6b708762320d00106a4bb4f2e475d088110a4983afbbcbeb87a",
+      "nisn_hash": "3ef6aa2e9b8cbc847ff4b73174be529a50a97353a3ebee70128504e277fad358",
+      "nama": "MUHAMAD AZRIEL",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "9c8273c205c0404ae519a9f25f488e4121545f03f1f417814aa452f89d91c2e6",
+      "nis_hash": "aba119e8d2b838ff88d013b1f107273f8154ab5e49d86cbfd4ac45601ba3b8a6",
+      "nisn_hash": "ea7454c119d7ddc1c3681ead0280c0c668600a8cfe3d1c1ca04622a04deac6a3",
+      "nama": "MUHAMAD YUSUF KB",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "6d789e48bf91f3ae4d511943de6fce6c11a35e663533de5d0cbf887ec28e6ba5",
+      "nis_hash": "3472c4deba47da6a1633e2cfe089bc5f5cdd41aa61d285e85aa584fd9d0cb081",
+      "nisn_hash": "dbe9fdbb715f894455e58545e7274b2417f24ecf0997cc475bf33c9cc0530f3f",
+      "nama": "SANDI BAHTIAR",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "0da14652a4c852c60e8f6dd55c84b4ee296c43370dbd2691821560e54ea57817",
+      "nis_hash": "8c9a94de70269106e73d5f90af37153783d2566bb8ec6c5480686028c16f5df8",
+      "nisn_hash": "5890322b61f0a7a9eca3076d69c3d1856c1cedaf793583065a9418f264921d18",
+      "nama": "WILDAN MAURIDIL AFFAN",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "a7f9f0da4f931751f34cd04cc941a9978a0f3c34e7a04bfb8a49e5b93a6f4b92",
+      "nis_hash": "de4df15ec89de0210bfdb2cae2cdb6dea60c72be5b89e323fff90119d8ea103d",
+      "nisn_hash": "f6c9eba5cc74cef5527cfb2c8a4e92014cca53d3c630f00fbe8a4e756e927dd5",
+      "nama": "ZIDAN REZKY PRATAMA",
+      "jk": "L"
+    }
   ],
   "XI TKJ": [
-    { "no": 1, "nis": "252610013", "nisn": "3093859351", "nama": "ABYAN RUBY FIRDAUS", "jk": "P" },
-    { "no": 2, "nis": "252610014", "nisn": "0102684840", "nama": "AINUN STA ADAH SAFITRI", "jk": "L" },
-    { "no": 3, "nis": "252610015", "nisn": "0093242148", "nama": "APRILIA HASANAH", "jk": "P" },
-    { "no": 4, "nis": "252610016", "nisn": "0109199818", "nama": "AURA FEBRY RISMA SARI", "jk": "P" },
-    { "no": 5, "nis": "252610017", "nisn": "0091702029", "nama": "AZHAR KAEBY WEIN LUBIS", "jk": "L" },
-    { "no": 6, "nis": "252610018", "nisn": "0092916745", "nama": "BASMAN KINAWAN", "jk": "L" },
-    { "no": 7, "nis": "252610019", "nisn": "0092931882", "nama": "DIMAS RAMADHAN", "jk": "P" },
-    { "no": 8, "nis": "252610020", "nisn": "0107208533", "nama": "FATHINAH GINA AFIYAH", "jk": "L" },
-    { "no": 9, "nis": "252610021", "nisn": "0101921396", "nama": "GIAN HANSEN PERMANA", "jk": "L" },
-    { "no": 10, "nis": "252610022", "nisn": "0094255194", "nama": "HABILT RAKA NAR FAHREZY", "jk": "P" },
-    { "no": 11, "nis": "252610023", "nisn": "0101875558", "nama": "JURAINI RACHMAN", "jk": "L" },
-    { "no": 12, "nis": "252610024", "nisn": "0094873009", "nama": "M.RIDHO WAHYU SAPUTRA", "jk": "L" },
-    { "no": 13, "nis": "252610025", "nisn": "0102050764", "nama": "MUHAMMAD ADHI GUNAWAN", "jk": "L" },
-    { "no": 14, "nis": "252610026", "nisn": "0108939046", "nama": "MUHAMMAD DZAKI", "jk": "L" },
-    { "no": 15, "nis": "252610027", "nisn": "3108943422", "nama": "MUHAMMAD HAIKAL KAMIL", "jk": "L" },
-    { "no": 16, "nis": "252610066", "nisn": "0091939128", "nama": "NABILA MIFTAHUL AINI", "jk": "P" },
-    { "no": 17, "nis": "252610028", "nisn": "0093614229", "nama": "NAZLA AZRINA FIRZA", "jk": "P" },
-    { "no": 18, "nis": "252610029", "nisn": "3093415593", "nama": "REVALDI PUTRA RAHARJO", "jk": "L" },
-    { "no": 19, "nis": "252610030", "nisn": "0107557502", "nama": "SABRINA CHOIRUNNISA", "jk": "P" },
-    { "no": 20, "nis": "252610031", "nisn": "0104506326", "nama": "SYAHRUL ZAKI", "jk": "L" },
-    { "no": 21, "nis": "252610032", "nisn": "3089723264", "nama": "WULAN AGUSTIN", "jk": "P" },
-    { "no": 22, "nis": "252610033", "nisn": "0101521512", "nama": "ZASKIA DWI LESTARI", "jk": "P" }
+    {
+      "no": 1,
+      "uid": "00bc4c2856cd1abd0640b77d55cf838ec89d7b20f2a4b98fc7ca2d4571a67bda",
+      "nis_hash": "06a1608b92c767ed0fdab16851eb11952f81e9944789b7008281316c5622647e",
+      "nisn_hash": "683068e8cc45374ad2b00d06af7330da75477199ea59ef260866955ee7e4654e",
+      "nama": "ABYAN RUBY FIRDAUS",
+      "jk": "P"
+    },
+    {
+      "no": 2,
+      "uid": "b248396aada588d393336972d10f600ffe873c0471b3914510bb1a569f7c6b2f",
+      "nis_hash": "b4b804827cc10b04031a9c8f647067c2ae8a4afd329cc9d68627418eaecf6381",
+      "nisn_hash": "2cfee3d0d5eb7fa903201407882f92f5d8c6bebda76ce6d31095c70b56bb7f58",
+      "nama": "AINUN STA ADAH SAFITRI",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "1939dadd543bd57c94ef547f902b804a26594f200a66b40e9025231bacee44de",
+      "nis_hash": "dace2614cdb2fd4a1eb13ee98888ee9236847cf7c43ea5b8561cc4081eaf21b2",
+      "nisn_hash": "ff9d3141cad849338e390ba962f5f405d6163bb664ed062d0137bfcf1b63761b",
+      "nama": "APRILIA HASANAH",
+      "jk": "P"
+    },
+    {
+      "no": 4,
+      "uid": "d9944ffef60ec6efa003db375d19945cf292413cf8b0bf83189804d4d58a6dc3",
+      "nis_hash": "bf60ca719069dd504bab0e167786f67d19250ccfc1e10b9c6414153988443962",
+      "nisn_hash": "3413cb993030b266a9d3dfab78eb7265cf86c7c11ac9b993a390bea019dfbbd3",
+      "nama": "AURA FEBRY RISMA SARI",
+      "jk": "P"
+    },
+    {
+      "no": 5,
+      "uid": "58795fac32b3e1c072ffb850ba9580b45d351b9b5075475472adfb82fc95d219",
+      "nis_hash": "28db80a6255cad03bc16702ac2a428b03ca68a54ab43d53cbaef9a9d2ee3ce03",
+      "nisn_hash": "5f5b731f7a857f2d0a788799bc5a99e0c3353891e1b343eaf97d94c99b5d5827",
+      "nama": "AZHAR KAEBY WEIN LUBIS",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "170fe5d7244899268cd8ff34117d26932b62b6c8041171c60a2dbe9f225e3a60",
+      "nis_hash": "a6b7617d60181fdbdbc604f4f0b23f763cc7a40b7765ecd74d9a55950a0b2c31",
+      "nisn_hash": "8685c0d01084b6213727c5b5024d7e6965c60dbf91684b29b5c5d04ca72a4390",
+      "nama": "BASMAN KINAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "e35906e30cec619f84689fc72ad4c4a7375942e963ac11251bf63618d722c1a5",
+      "nis_hash": "63101fe533cc55069cd253b044fe9c849d8a390318bcec2eac8302d2d3fd3896",
+      "nisn_hash": "31ccb8c85b7e09799d171c6bf2be8a273dd43d34977a27004c590dd2130d970d",
+      "nama": "DIMAS RAMADHAN",
+      "jk": "P"
+    },
+    {
+      "no": 8,
+      "uid": "dbd2f5c162d1db2404a82858859de34e38d55b242e5de3077e452ea3e1fd5302",
+      "nis_hash": "61cbc0e57958ecb440f054e3eb23e7679e23438237029f7d3b8dac3bf33bf85f",
+      "nisn_hash": "e638e257ba7c5460d73d19896d006194bbfa55e4ce309cf18d29f2be1bf2dd9e",
+      "nama": "FATHINAH GINA AFIYAH",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "e43bae5be9072168442020454df5027ef6be2c7abf26a39f1ae61907a33a6086",
+      "nis_hash": "a5cbd9c28d07b600675fb4cb465a5fbca39774e4fe3b0335e6482851ab14372b",
+      "nisn_hash": "7dfe0b4b1631187ef794070bd3d7b48fc51731d849423e43178b9ca03c302e29",
+      "nama": "GIAN HANSEN PERMANA",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "2faf450d9e6179b1b778c05f1edb6867314a95414cf829f95bdf85ef94ab83a6",
+      "nis_hash": "b0ed64ebefe5b3dfc09c3cb5bd7b7fdcec9b2f94929cfb7ab416b873de9387f7",
+      "nisn_hash": "de403049e1c0273c2a698a91c19457444cf054a0354a1e002ec1749e87fc7fba",
+      "nama": "HABILT RAKA NAR FAHREZY",
+      "jk": "P"
+    },
+    {
+      "no": 11,
+      "uid": "7fcc03008c21d6ab661ed74b41c2811a8dcff39b5d0b0186db55ee271bdc06a8",
+      "nis_hash": "87141532a89dc1c528dc5e8afb4a0f54828a9525e06099e2238de8a2950c5fad",
+      "nisn_hash": "8abdf4b82243154337623141f1603619db4dce833ab717dbc53f1455b2d017fa",
+      "nama": "JURAINI RACHMAN",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "d71b83c6c7b5c5a44d847955d5489f9383e16e121abd882a235ae3cadd73b975",
+      "nis_hash": "6442fbba85c0e9f5b896cd305005e701d39c4636b3d369da0450bdd52dbb0b27",
+      "nisn_hash": "fac06f0d0c3143761581dd4e422aa63b53e7980908a7c128f7311b4e87dca230",
+      "nama": "M.RIDHO WAHYU SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "ebc5b59d3d806bd2ad94bf1ff4282307c3e17e8db89fb9493f6072787a938397",
+      "nis_hash": "19a413f3230536cc707ae305ea0be2747e2f090beeea433cf5ba2e2891f5e4cc",
+      "nisn_hash": "8bcc4d8a0870980061702bd67ef8fe6e3d1c5e0d76170e754bcd54c115d1f657",
+      "nama": "MUHAMMAD ADHI GUNAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "04b64b273db76fbb6b61961ea18831198bd42c361d5c78c68ce1bea97f56f395",
+      "nis_hash": "90678cf0f74ea8c9c2e071f3fd2f074b40bb244a0e2689fcf5247f718254717f",
+      "nisn_hash": "37c7ab4e81952420ce034d995a15b09fe274ac6bada9a7c7861385c4b6a5b4bd",
+      "nama": "MUHAMMAD DZAKI",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "f215af69d08ac8d996b247efe3364c235d2e5ba7e4a97dd84d6bad14f34894fc",
+      "nis_hash": "c985ff28d1f357fc73b7366bbb23dec88aa18f2aaea771aca297e44b39cc90c1",
+      "nisn_hash": "8c269df3c4b74367240e4bb3734a73e08a104e9fef68a967a45509f150c62677",
+      "nama": "MUHAMMAD HAIKAL KAMIL",
+      "jk": "L"
+    },
+    {
+      "no": 16,
+      "uid": "38421bb72e81161b08600180ed24c906b01fc58477ae8c6735f74554f564c7e9",
+      "nis_hash": "40df92aef79224b6c4f484b316c6e424f5601205dbe2f5d8107d4d37355bffa4",
+      "nisn_hash": "262723a3fce6cec49c8373f3127bc7eabb4fe1e24c847f47cb8540ecdffd68af",
+      "nama": "NABILA MIFTAHUL AINI",
+      "jk": "P"
+    },
+    {
+      "no": 17,
+      "uid": "dcda6ce3a907a81bf1780887a8f7539ebe0245758560772ea39a7a34fda66a63",
+      "nis_hash": "e7bd95a651df7c8a61ce09cf4b4f59aa5c7833208a0f81c49d4f368bebdd4878",
+      "nisn_hash": "44d0e601af1d991dd0dbc66ac7180a680b07a2fcb562c05f1fcb77f754785490",
+      "nama": "NAZLA AZRINA FIRZA",
+      "jk": "P"
+    },
+    {
+      "no": 18,
+      "uid": "5ad911790b5ff23e7f243063083f6c2cfbf54c31b67e1d31b4b49653a0232ce9",
+      "nis_hash": "9ce30c23cab0a5975253a827776b469f2fea42efc376358808223acf3f707ac7",
+      "nisn_hash": "ddd79631009ddfc639b59cd9b76e5cb02ae6f4f0144f946e29ec2f39e10e4481",
+      "nama": "REVALDI PUTRA RAHARJO",
+      "jk": "L"
+    },
+    {
+      "no": 19,
+      "uid": "c1db7f54d9c50ffeddaf5c9df9ba585645096ce0703deeff2c34af18781532ab",
+      "nis_hash": "28d4a289d29344135ea4b820bfa67868003345b06bacc4d83bd89141efcbf1a4",
+      "nisn_hash": "564f80b5c18dde0ad85625716b83ccad2aca51630060239634f39b90117e601c",
+      "nama": "SABRINA CHOIRUNNISA",
+      "jk": "P"
+    },
+    {
+      "no": 20,
+      "uid": "6a5997f862438b0235b07f104244ba106dac3956ee34544c9aea900e252da777",
+      "nis_hash": "b99e9ea8eb42e443e319d82ee5ab8cbdccdc734ac8643a36cca4f07da9b487c2",
+      "nisn_hash": "ea46946c69d19424348706e7dafe6f9bbcd71670778e02b3d8198d34ac6e650d",
+      "nama": "SYAHRUL ZAKI",
+      "jk": "L"
+    },
+    {
+      "no": 21,
+      "uid": "4e594910efe10cbfdc30ba343183d460ab118f75812ba10ef95964255901489c",
+      "nis_hash": "5aa542d559c13db4fd9d61f9ff71c7859e27c5900da99d060e33f5e29cfd6a4a",
+      "nisn_hash": "6f6dfe64518c88c053f1eb6451dd38f66e6b7f8020e53ad4dd520c7e258a29dc",
+      "nama": "WULAN AGUSTIN",
+      "jk": "P"
+    },
+    {
+      "no": 22,
+      "uid": "f8152484b712363281097921e625ed1ba42377832b4f94debf14249277581c3b",
+      "nis_hash": "51a7012c38ce3769a2b0563c7d0fc1d769db914430959f838d8ba5e80f22679e",
+      "nisn_hash": "d56bac40d4c9a794c6f3f472c8eb83d80294aa29bfa4c795e7e8d67cf585355a",
+      "nama": "ZASKIA DWI LESTARI",
+      "jk": "P"
+    }
   ],
   "XI TKR": [
-    { "no": 1, "nis": "252610034", "nisn": "0099595433", "nama": "AHMAD FAUZAN", "jk": "L" },
-    { "no": 2, "nis": "252610035", "nisn": "0108348979", "nama": "ARZAM PUTRA PRATAMA", "jk": "L" },
-    { "no": 3, "nis": "252610036", "nisn": "0096801390", "nama": "DEXA ARYA MULYANA", "jk": "L" },
-    { "no": 4, "nis": "252610037", "nisn": "0106223097", "nama": "FATHIR REZKY ACHMADI", "jk": "L" },
-    { "no": 5, "nis": "252610038", "nisn": "0102078720", "nama": "HILMI JUAN AKBAR", "jk": "L" },
-    { "no": 6, "nis": "252610040", "nisn": "0102146041", "nama": "MAULANA HASANUDIN", "jk": "L" },
-    { "no": 7, "nis": "252610041", "nisn": "0085176770", "nama": "MAULANA IBRAHIM", "jk": "L" },
-    { "no": 8, "nis": "252610042", "nisn": "0099493042", "nama": "MOCHAMAD NOVAL MARHANIS", "jk": "L" },
-    { "no": 9, "nis": "252610043", "nisn": "0089809546", "nama": "MUHAMMAD ARUM", "jk": "L" },
-    { "no": 10, "nis": "252610044", "nisn": "0093134262", "nama": "MUHAMMAD KHIKMAL SAPUTRA", "jk": "L" },
-    { "no": 11, "nis": "252610045", "nisn": "0101266018", "nama": "MUHAMMAD WIJAYA PURWANA", "jk": "L" },
-    { "no": 12, "nis": "252610046", "nisn": "0092698164", "nama": "RADITTYA ZAFIR ACHMAD", "jk": "L" },
-    { "no": 13, "nis": "252610047", "nisn": "0099554065", "nama": "SAEPUL BAHRI", "jk": "L" },
-    { "no": 14, "nis": "252610048", "nisn": "0098540717", "nama": "SENDI RAMADAN", "jk": "L" },
-    { "no": 15, "nis": "252610049", "nisn": "0105876758", "nama": "TAUFIKUROHMAN", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "f7fe1c73c49756a8d56d309622f114910e984835acd0f3d2f2716c45ce4c1a7d",
+      "nis_hash": "7664d6e31b7bfdb76816b7e0732fc8369709969eff44209c3424909db89bb72c",
+      "nisn_hash": "32c941b7ca4deb587c888765b22789697104e4c346f51d8581cb6a3f128a59c9",
+      "nama": "AHMAD FAUZAN",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "13de6fd50c21d23bbba494015d7415a7ea6321a611fc319e1939bb3923f082c2",
+      "nis_hash": "b6a194590054d55782c6458e7db5d2caead7e76664f16a2595bda1cf0edb56cf",
+      "nisn_hash": "7a61495acf4e7381a24de2ea161dfb5ad9d6f710272b3537b6f79f12aaaccc58",
+      "nama": "ARZAM PUTRA PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "629567abba870763f5405308d8d2426a2000964e1ecbb0343dfea932be406407",
+      "nis_hash": "693d3d0d1182eda06019991821489d500a8b1d15d9fd37ef4b5a1bd1d3045a35",
+      "nisn_hash": "60ec01d4166b86e88c2c01e9fdab0a95d8d2ad99520d9748302cf58115e0af9c",
+      "nama": "DEXA ARYA MULYANA",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "b07d48268f491be67ca3e56981f532d036969b176b7874e021d92aaf87ee7318",
+      "nis_hash": "be016f20aeaf96044a79b5455d4450259b816f0b7abc09f08d0d337f57f25c7a",
+      "nisn_hash": "29376f3cb8783a0819cde2dfc56b2521fcc4791a5ed89c06bf91d5f72c9bbff9",
+      "nama": "FATHIR REZKY ACHMADI",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "123f007a1e1701900feef36da8a934b9faa82c5594c1ab490c52c67640d79fe7",
+      "nis_hash": "37fe32d7ede3ad258fee1fd32ae15b0e0dd53666d32a6ca4905d239f68f12f98",
+      "nisn_hash": "61051fa3bca8aa9058693eaba3af4a1506da7877da6da14921373c93ff5a6ebe",
+      "nama": "HILMI JUAN AKBAR",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "432311d48391931318f4dd6dd0535ee7445b3d6b7608e44f62ec78cace98e859",
+      "nis_hash": "7f4822a3f325fc82f930609f14c1f5f5fb1e5a809eb15f9701b48f11ad35e65c",
+      "nisn_hash": "4fc43e1977830830bb88a32edf23284c72dd9de3891449ae115b5dd66971149c",
+      "nama": "MAULANA HASANUDIN",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "ee06f54354c2ebeed053ab33dfd9794a18ba073b4c000d442ddb750c899fb50e",
+      "nis_hash": "0c835ebedac39ce122bf8858053d2aad2f023f19971e0e4f8930cdd946087459",
+      "nisn_hash": "dd132b0d8f9c8189dfd1c84ef9f6cd797b276225c4ae8ee7bdd49a1be19885a8",
+      "nama": "MAULANA IBRAHIM",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "8ff6faf5dd4e58a07d315c674cf40761effd9d13ce1ac59fc9f53d90f62b3db0",
+      "nis_hash": "1b88084d08afe9c0824c78ce0ddb995278a14c7688ba661f7460cc4644d6e324",
+      "nisn_hash": "516e0a2d1291797d568d91dfddd3d9ad72c474ca20c8721daa19f369ca6a4386",
+      "nama": "MOCHAMAD NOVAL MARHANIS",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "7cc1bea69f1bafc7980261f3355e53a953ee21f6f2cef4010a0cdfd5661b4f2c",
+      "nis_hash": "cdcb7febd545ec6bb2665e2622085c562e14d40d9880202bd708f6435aa67bec",
+      "nisn_hash": "ae1bab40cab7c77bd739840b2e0f2caad89e7f3154e27be9e22ac6161fa2ecfd",
+      "nama": "MUHAMMAD ARUM",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "f2a879fbd69db96855494b1e32790167477a29022947172f4ceec96cffe925d3",
+      "nis_hash": "37bfdad533e1dd3592bc6ef2c37b12c5e9ccf39d3d22314e199797b898c8d156",
+      "nisn_hash": "6a0f2dc7234109e332957583142b038cd6968a683b09c5ff76fb89b6f0780dba",
+      "nama": "MUHAMMAD KHIKMAL SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "500a5bcba019bb88d507e03e4c03bd55dcbff2ac40a92241e812dd096d8b5883",
+      "nis_hash": "b1fdc7480e8844375b8e5af154163899fb2fa460522ff640befe54a247d1d40a",
+      "nisn_hash": "d5858f3f7fe98690943e59dd372493a14cac56c2d8ac16b70d07b84fd00107b0",
+      "nama": "MUHAMMAD WIJAYA PURWANA",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "7742b55e0af0fe9e09cb3cb8639aefe30a68f73a7749b24c29b6c01a06a366e9",
+      "nis_hash": "c6e5f358b6b616d34d2c465f8270cd61d41da2dd2683cfc877c7d9fef21e2bde",
+      "nisn_hash": "d2c5218a35800753eef064d46b3a69045b5fd0cc0c11542f67b12e43baedddf2",
+      "nama": "RADITTYA ZAFIR ACHMAD",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "7fd11522fb169d14fd08c29b7daa74c285a72e56dd3982da890875df46cd3652",
+      "nis_hash": "094b65e049bdc8b0d596af535c2d780e28404a230017c611943050d6d9cd72cc",
+      "nisn_hash": "fc206483a2b6969978dccc4a2ca2ac3286ac1478678315d6679b65f72ee72e53",
+      "nama": "SAEPUL BAHRI",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "266ae61fe4134d5c0e1b9c2e9fd5be192598e675db7709b3b341ded1274423b6",
+      "nis_hash": "9f396307182c9b64093a51a9ab5c6b12e84b39e603a4284e3fdb5f56c0c0796f",
+      "nisn_hash": "c73e5e64c01fb90db13d517ab90ac1d539e38d611f42fde4f7635263d4f362cf",
+      "nama": "SENDI RAMADAN",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "d5ed070f3ac79b1e2ba9d05ee201ef779fe625f6bf6e97cedb43dd09f6751806",
+      "nis_hash": "3980e5695378b08c1960c82d7210720d0eb8cc9684e65ad7efb4e17521f09e20",
+      "nisn_hash": "8550ec08d3591b2b18c647e1d07e84013a547a0404de0f9e46855f3c03841ac2",
+      "nama": "TAUFIKUROHMAN",
+      "jk": "L"
+    }
   ],
   "XI TP": [
-    { "no": 1, "nis": "252610050", "nisn": "3095387158", "nama": "AHMAD ADITYA SAPUTRA", "jk": "L" },
-    { "no": 2, "nis": "252610051", "nisn": "0097745677", "nama": "AHMAT IBNU MUBAROK", "jk": "L" },
-    { "no": 3, "nis": "252610052", "nisn": "0083566124", "nama": "ANDRI KURNIAWAN", "jk": "L" },
-    { "no": 4, "nis": "252610053", "nisn": "0086864633", "nama": "ARIF SANJAYA PRATAMA", "jk": "L" },
-    { "no": 5, "nis": "252610054", "nisn": "0107324038", "nama": "BAYHAQI SOPIAN", "jk": "L" },
-    { "no": 6, "nis": "252610055", "nisn": "0097443491", "nama": "MALIK APRIZAL ACHYAR", "jk": "L" },
-    { "no": 7, "nis": "252610056", "nisn": "0094311276", "nama": "MUHAMAD FAHRIZAL JUHRI", "jk": "L" },
-    { "no": 8, "nis": "252610057", "nisn": "0106619218", "nama": "MUHAMAD HILMI TSABITUL HAQ", "jk": "L" },
-    { "no": 9, "nis": "252610059", "nisn": "0104842608", "nama": "REYHAN FIRMANSYAH", "jk": "L" },
-    { "no": 10, "nis": "252610060", "nisn": "3090603705", "nama": "RIDHO ALFARID", "jk": "L" },
-    { "no": 11, "nis": "252610061", "nisn": "3095412289", "nama": "RIDHO SYAH RAMADHAN", "jk": "L" },
-    { "no": 12, "nis": "252610062", "nisn": "0098396559", "nama": "RIFKY DIMAS ALFATHIR", "jk": "L" },
-    { "no": 13, "nis": "252610063", "nisn": "0101075846", "nama": "RIFQI ATRIYA GALANG", "jk": "L" },
-    { "no": 14, "nis": "252610064", "nisn": "0072021890", "nama": "VILLA AZHURI", "jk": "L" },
-    { "no": 15, "nis": "252610065", "nisn": "0108770534", "nama": "ZAIDAN KHALIL SHIDQI", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "090523bbb2452f02e62934f940ca455514dbc66a817c065080e93431017fcdd3",
+      "nis_hash": "faaeb6ab4f7f496f419616bf229edb0b080bcd1fa65575a900d0b32c9984e1dc",
+      "nisn_hash": "bb44ab447a977099ceee4f263e110331bffd41f113f502e3b9bbd6384bb9ae62",
+      "nama": "AHMAD ADITYA SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "d36131e41aadba64ab6893df8a3bcbba89b5f627e2155e4f2fe1178ae94d5f1c",
+      "nis_hash": "917fc39cb817c303c429eae4b9ea2627b6e43e53545dfd930c2ceb4bb8575764",
+      "nisn_hash": "a579f0811f3d773bbdeec60dd9f2c1e9b03f05073a8f6d329b5148532add4393",
+      "nama": "AHMAT IBNU MUBAROK",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "0f969180b3706f78fc13dfad50334a4cee2b347a5f0cb4e55a4ca51c24ed5e64",
+      "nis_hash": "d5c34834214e8fca271a075e8441e0c62b73be21fbe05fcf8c702482f6ac3d79",
+      "nisn_hash": "d4468063060228c0d7cb6146d8d7e23e2ff5df623e64973eb32b746c4ab0a59d",
+      "nama": "ANDRI KURNIAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "5e76b47e464cb06bf4c68b94fcf476cc1438dc4543e6e73f90870237cb65a2a6",
+      "nis_hash": "dfe72135df759cfec86e38762a2b63aade0dc65af6fc3ca2298ad0e6538e8e6f",
+      "nisn_hash": "1420014077ec6c1b28cc7c8dd8663ac5dfeec641f190c7333251fd07c36eb567",
+      "nama": "ARIF SANJAYA PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "c9ea5478cbb3fd33de285f2d00ceace6567ebe4e4400774a5abaaa48e70ecac5",
+      "nis_hash": "cd87901d0b6d04715cdc9745d09442a7d6047db57ab5e45386bfc6a97e570b1a",
+      "nisn_hash": "cfd9e877ea178b5ab8cd39120ce097f2eb66af76e0b7f08ed24f34235dce411a",
+      "nama": "BAYHAQI SOPIAN",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "30109dd4e057fdf5d1e93e9252505d6889c8086b0427187d7900f96df538b118",
+      "nis_hash": "238af52db3f0a235fee364b7b847c53fc2fa070324c7c07fbeb4d1df1cc0bd08",
+      "nisn_hash": "666c7f326932c80742ca90f6b3465c0de2b29dd3ce64fcaa8805984e3496eaa1",
+      "nama": "MALIK APRIZAL ACHYAR",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "e5e78ab76979f0c58f6314fe14596fcc955ea9dda8758ff938b52bea5b124573",
+      "nis_hash": "42da85d16ab2c5659fb6c07b9ffa9f6ed4ff3a8e95670be9779e3cba094eb66b",
+      "nisn_hash": "a71273dae4b324e040f6baee2fbfae7a94cdd9b70c756a4ca840b570e3e558dd",
+      "nama": "MUHAMAD FAHRIZAL JUHRI",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "313e5b813ca483d92266ce22114f85bdb2ecf1b4df0cbc89f203d193b7646eb2",
+      "nis_hash": "10eb15c42759489aaec24b2f0c4c661197934167810adc4a622b10c858701904",
+      "nisn_hash": "014a301688dd9874ea8cc73879c4bcc2f8ea29b546915477fb9bfa247120b00e",
+      "nama": "MUHAMAD HILMI TSABITUL HAQ",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "692719db5cabdb77a434e374425140fbaf284306161e8885eda97a38beddee54",
+      "nis_hash": "08ce1d36ff6fc8c9665d3a7d12d6398a0cbc4fa1164111aaa85622f3aad6df25",
+      "nisn_hash": "56c95632d707336650e253c7c705bf731a068c694726ff5b5d3d50919604dab3",
+      "nama": "REYHAN FIRMANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "f36ff9c16e5a3a57f7970479a12452f300cab2513506870b9373b60c040012ef",
+      "nis_hash": "7e361560cdb9766ac40c9034fc2d1e2730c2550c63a515a0af87c73b56ed2b5a",
+      "nisn_hash": "00d4fe9909fa1de8a3c4221d9b13a945f48da3c3cb0de3de6dad88824c14a968",
+      "nama": "RIDHO ALFARID",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "f4a74b3a3233afed1f3610beb27e171cfb52f6f34577bb1737e0c98b922272d2",
+      "nis_hash": "e82e916d577c247ecd8f8a9847633d43ea523819fb9ca3d1ffaaa80068b3dbae",
+      "nisn_hash": "fbdb8c4d502a1dd54c39ad52c7ac7a87bc83bffe734ce02bcc131276c001257c",
+      "nama": "RIDHO SYAH RAMADHAN",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "b1ce5b6dec6d4335b3f5e2aefaea535ca4b17d1d1ed219009cd75bb74ebd5330",
+      "nis_hash": "e562eac37c4a72ff4dab88e378ce9ee1aa775e36d183e5e9038a760b87531d5e",
+      "nisn_hash": "8015d7f0658ec5dbcadb5de2b3f29c717a1c1922ed6c652dde2880fd92bb477d",
+      "nama": "RIFKY DIMAS ALFATHIR",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "1c72d1ef00a5de4e613f2688e818524df0c89c9a3e3f7da38ce4b1ced70897ee",
+      "nis_hash": "da8fbc441e72961ab9d674de647a7ae289458d9b1249bcd5a7555b032000db5d",
+      "nisn_hash": "0f166d1ac3ccc763e39aea28ba05cbcd2ac2c65526c4f72f8053c4283d8435dd",
+      "nama": "RIFQI ATRIYA GALANG",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "d72f37a4bfa4bc9361203fa7428ba06b794df3e33c1a482ad7113f44c251370c",
+      "nis_hash": "5c05c267684e0a32395178dc1622cc1090b917f0951bbe63d3c66508bb6fae31",
+      "nisn_hash": "9b89df0910c8a53f8686758a160e3897cda040bc30dd7baf5ad482d07f620e82",
+      "nama": "VILLA AZHURI",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "097dfddecb9f8db99e949cecb7de0b1890d3ed7fcc7c26d608ac42d7ec8e929b",
+      "nis_hash": "1b184d4e866cad7f8f9cb86e8dfaee320fe19d1ca7372dcdfbc61eb05f29bf9e",
+      "nisn_hash": "82f5df2ee77fc83ff852ccec69d2cc585e061711dd92d8625ae08d2e80afcd32",
+      "nama": "ZAIDAN KHALIL SHIDQI",
+      "jk": "L"
+    }
   ],
   "XII TITL": [
-    { "no": 1, "nis": "242510001", "nisn": "0086194088", "nama": "ADJIE NURUL HUDA", "jk": "L" },
-    { "no": 2, "nis": "242510002", "nisn": "0087910580", "nama": "AHMAD RAFI KURNIA", "jk": "L" },
-    { "no": 3, "nis": "242510003", "nisn": "3084112620", "nama": "AJI NOVAL PRADITA", "jk": "L" },
-    { "no": 4, "nis": "242510004", "nisn": "0093770500", "nama": "ANDRE ZULPAHREZI", "jk": "L" },
-    { "no": 5, "nis": "242510005", "nisn": "0083531204", "nama": "DIMAS RADITYA FAHREZA", "jk": "L" },
-    { "no": 6, "nis": "242510006", "nisn": "0084563632", "nama": "FAJRI UMAR ZAKI", "jk": "L" },
-    { "no": 7, "nis": "242510007", "nisn": "0093859224", "nama": "KEYSYAH RIFALINA", "jk": "P" },
-    { "no": 8, "nis": "242510008", "nisn": "0095799995", "nama": "M.RIZKY ADITYA", "jk": "L" },
-    { "no": 9, "nis": "242510009", "nisn": "0091584746", "nama": "MUHAMMAD CIKAL BAGUS", "jk": "L" },
-    { "no": 10, "nis": "242510010", "nisn": "0073805047", "nama": "MUHAMMAD IBNU SAHAL", "jk": "L" },
-    { "no": 11, "nis": "242510011", "nisn": "3081410855", "nama": "MUHAMMAD IQBAL", "jk": "L" },
-    { "no": 12, "nis": "242510012", "nisn": "0081228971", "nama": "MUHAMMAD LUTHFI FADILLAH", "jk": "L" },
-    { "no": 13, "nis": "242510013", "nisn": "0095052632", "nama": "REVAN DWI ANDHIKA", "jk": "L" },
-    { "no": 14, "nis": "242510014", "nisn": "0086957863", "nama": "YASYFY ASY SYAUQY", "jk": "P" }
+    {
+      "no": 1,
+      "uid": "13d5a8b4f6a3965d7a00b4bc6ad580a3ef4557ff5f88054d6f333e1ac3abbfc0",
+      "nis_hash": "9cf4729fa27f86054044e1149c94126b695c37c74f52c5d4417c1b92c6c67808",
+      "nisn_hash": "48009e6130f675e642123eb2b40cb2b4b2d6b8565ace96293c37f8d6e482edf9",
+      "nama": "ADJIE NURUL HUDA",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "db4306fcc519ff4e8d562bb4e47b67bbfc590709638656c7b0e97e1a469dd55c",
+      "nis_hash": "9822b642483fad89bb027e65fe4b3be5c5a409246e929f4b72230e6847183697",
+      "nisn_hash": "bbb8fee9541fbdaa78c5a9f39b2197db2bb91a6071323db09745e9ef68b5e001",
+      "nama": "AHMAD RAFI KURNIA",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "402d1f1551587a34e223bf239d1f41e347f6777270ddfa67bdc354cb9cc26757",
+      "nis_hash": "2a060a47abf8092ec08885ea31d3f4cb210da6a26a001e130c69fb89c4ffe768",
+      "nisn_hash": "356afd7b0e00b5d1ea63f53b4bb3542f3b5192d027b5d6fd5e9f5689da15ed7f",
+      "nama": "AJI NOVAL PRADITA",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "e2e08c7f5a88f423b728b1445ffb989fa3cb123c8d0ae64faa09c0c0e2388333",
+      "nis_hash": "b67a7ebe5421325f77a94b9cce22c10798cc17afa6552651f212837676594e73",
+      "nisn_hash": "39bd256cad79b93afd4373aacb6d67ac958fc950b8bc82c626e0f7a9d4974816",
+      "nama": "ANDRE ZULPAHREZI",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "8f413ee1d9daa81d6391c97fc9cced91e4cbcbbaab067bcb3006643147840b4a",
+      "nis_hash": "a8652adac73525731d0de7aa8867b4451bc9befca872b5b697b32d5a290f78f0",
+      "nisn_hash": "1b39b91e5e24807b5c5b22091a22cc5cf92fbc8d6e673caa8a05cf4dbfdf22e5",
+      "nama": "DIMAS RADITYA FAHREZA",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "f3cf1abc7b109eb363f0384abd7bb682f954aea5c3899c6f98b8ed3631817dbb",
+      "nis_hash": "8680e8ce4db3e7a70201ab29680ca9810b716cea51fa6659cdf643e9479c4fda",
+      "nisn_hash": "3b42faf86adef1b3142b840097f1d9d0ff2a9940216ba09c022435555a44408a",
+      "nama": "FAJRI UMAR ZAKI",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "71e7c96fe3830a136738d6be3277008bc33597f7cf76d3cee3af76b9d58828dc",
+      "nis_hash": "388f8310ec2d3c0ff6d814ae02ac2ec2c8317af9b089074dd45c828dd879a74f",
+      "nisn_hash": "b05ec2c0161bf938ec48b19d3dd42f17d3593ae9405d7de2849317a854530666",
+      "nama": "KEYSYAH RIFALINA",
+      "jk": "P"
+    },
+    {
+      "no": 8,
+      "uid": "383659fa47e32a31e6373b5c3e95b8aa2eb2076b03f9efd5f6ae4755457d5483",
+      "nis_hash": "496ae4cf0c7ea05893e1f2c7e2ce6708819c579ec0a2e16c90057cd8d5a381ea",
+      "nisn_hash": "96e6a8b2d87af2c4894786b73207321d7a3061df4a8727cb8ee74dde7d78a544",
+      "nama": "M.RIZKY ADITYA",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "a7e627a0ae37079b0a57e5da08ba2468cb97b363eae7b3d75bf4a2b28f9188a2",
+      "nis_hash": "14fa7d2cc48dfb218421ca208638cd96f4107e24fbb0fee76bdb1447b26954f0",
+      "nisn_hash": "a5c7bb26c8d00b51338a7c67dfbb56e54f532dac69aedd13d4b90c9ca540137a",
+      "nama": "MUHAMMAD CIKAL BAGUS",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "f05872491427536a904012ac70d7a1c8665fed44ef8e345187f91151d5e57d29",
+      "nis_hash": "d08ae67be0bfbcfb384f7fcb0f88fd0d54dc0292bda9bfa27483f2f0f2e90809",
+      "nisn_hash": "ea81fd3663147095a200cb81238fdac852dd7eabcbe8c722eb93bc798ffb8d70",
+      "nama": "MUHAMMAD IBNU SAHAL",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "5469e068c21e5b58a06bfd0af6656a8f12510c81562f39d7cef26b4fd00bbe4a",
+      "nis_hash": "9ccd1d714e3dc7de7ded6829ffe3ac0af3322af97983e72b573086359f094cc4",
+      "nisn_hash": "3ded6c5c9d7e7229770fb05a5cb264831723663304be292a291ce437d86edbd2",
+      "nama": "MUHAMMAD IQBAL",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "5156e93cb12d218677a2af032f07d52cf861d4645c1219f65ac11a91e3b80a64",
+      "nis_hash": "83737ca26534a77ae690bba21515beb3375bc475ba566f25a4b5a91ba22f44f0",
+      "nisn_hash": "3988ad553c77c1a4ef000191363cc5d7a0bbb41bdad3bc6603cc47a183d9dd72",
+      "nama": "MUHAMMAD LUTHFI FADILLAH",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "f87afcecee4334e1969007c4b6e1661163d4fdb50fc11fcefb50bc5e75e7d38d",
+      "nis_hash": "b39477a143de2a76bd9a0342e946b30bea89082ee2c60917c3f27f9b7c231679",
+      "nisn_hash": "2ee35651cfbc44ed8d4116ea14c76e4e4fd64b0c1fb566f87b7323d894da2ac3",
+      "nama": "REVAN DWI ANDHIKA",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "7f667975174c5c7bc6e429c81d82ec5e14bfa9d5e32ebd6f85562065fc2c2b06",
+      "nis_hash": "85c78829892334a400e08752dcfbfc9e26a7f5211f91bcad4f4d9e6b7e904a09",
+      "nisn_hash": "7e53987594d08818f9b6bc236dd11c961943698a188c7386c1385d4f154fc0e4",
+      "nama": "YASYFY ASY SYAUQY",
+      "jk": "P"
+    }
   ],
   "XII TKJ": [
-    { "no": 1, "nis": "242510016", "nisn": "0089742021", "nama": "ANGGIE RAHMAWATI", "jk": "P" },
-    { "no": 2, "nis": "242510017", "nisn": "3074968962", "nama": "AYU TRI LESTARI", "jk": "P" },
-    { "no": 3, "nis": "242510018", "nisn": "0098013852", "nama": "DIAS SULISTIA", "jk": "P" },
-    { "no": 4, "nis": "242510019", "nisn": "0085011764", "nama": "ELSA KHAIRUN NISA", "jk": "P" },
-    { "no": 5, "nis": "242510020", "nisn": "0082236716", "nama": "GLENN NOEL", "jk": "L" },
-    { "no": 6, "nis": "242510022", "nisn": "0082657221", "nama": "IBRA YAZID RAMADHAN", "jk": "L" },
-    { "no": 7, "nis": "242510023", "nisn": "0083044540", "nama": "IDAYU ARCA PERTIWI MANULLANG", "jk": "P" },
-    { "no": 8, "nis": "242510024", "nisn": "0078179673", "nama": "KARLUNA", "jk": "P" },
-    { "no": 9, "nis": "242510025", "nisn": "0091425221", "nama": "KEANDRE WICAKSONO", "jk": "L" },
-    { "no": 10, "nis": "242510026", "nisn": "0093119538", "nama": "LUTFI DIMAS ANDREAN", "jk": "L" },
-    { "no": 11, "nis": "242510027", "nisn": "0092416042", "nama": "MUHAMMAD ARFI", "jk": "L" },
-    { "no": 12, "nis": "242510029", "nisn": "3086301871", "nama": "MUHAMMAD FAHREZI NUR RAMADHAN", "jk": "L" },
-    { "no": 13, "nis": "242510030", "nisn": "3083340886", "nama": "MUHAMMAD HAFIDZ", "jk": "L" },
-    { "no": 14, "nis": "242510031", "nisn": "0097322513", "nama": "MUHAMMAD SIHABUDDIN", "jk": "L" },
-    { "no": 15, "nis": "242510032", "nisn": "0095647513", "nama": "NADA FITRIA", "jk": "P" },
-    { "no": 16, "nis": "242510033", "nisn": "0088757355", "nama": "RIDHO WIJAYA LIBERTYAN", "jk": "L" },
-    { "no": 17, "nis": "242510034", "nisn": "0089628694", "nama": "RISKI ROMADHON", "jk": "L" },
-    { "no": 18, "nis": "242510035", "nisn": "0084583092", "nama": "RIZALDY NUR MUHARROM", "jk": "L" },
-    { "no": 19, "nis": "242510036", "nisn": "0084316229", "nama": "SABRINA ALISYAH", "jk": "P" },
-    { "no": 20, "nis": "242510038", "nisn": "0091438916", "nama": "SEKAR AGUSTIN", "jk": "P" },
-    { "no": 21, "nis": "242510039", "nisn": "0092896832", "nama": "SYAFA MAULIDU RAHMA", "jk": "P" },
-    { "no": 22, "nis": "242510040", "nisn": "0086441240", "nama": "SYAFIRA SALMA", "jk": "P" },
-    { "no": 23, "nis": "242510041", "nisn": "0091590036", "nama": "SYIFA AZZAHRA", "jk": "P" },
-    { "no": 24, "nis": "242510042", "nisn": "0089536533", "nama": "TRI IRAWAN", "jk": "L" },
-    { "no": 25, "nis": "242510044", "nisn": "0097697679", "nama": "YOEKI PUTRI HARUMI", "jk": "P" }
+    {
+      "no": 1,
+      "uid": "8f96f22a70290a2f5b1e7d249a7494a1870a5cd76d3bbc08e6ab4c732b28b43a",
+      "nis_hash": "a957c4bf13ca489160ea8ef6c652c87e237a85cd95514cbb55c97ec0c2acb14f",
+      "nisn_hash": "eec4c2e0f836a85f18eb87104705cfac6e24ff25df8d69c73d6f5c981884768e",
+      "nama": "ANGGIE RAHMAWATI",
+      "jk": "P"
+    },
+    {
+      "no": 2,
+      "uid": "d79719ac74f15e5ffd3d127817ca9382684e509fc80f154a09b0e14fbce1e339",
+      "nis_hash": "38fc9066e80268440f423892fb2233105f540586981a96ac0faede7572075af7",
+      "nisn_hash": "0cb8cd14340399bc3b57de239704ddcf8c5454b0d2b6c84abf341ef045834b13",
+      "nama": "AYU TRI LESTARI",
+      "jk": "P"
+    },
+    {
+      "no": 3,
+      "uid": "9d9a0c83469a9beb479e141bae04777952ac61acbc5b60ee66c7b15ad82a9606",
+      "nis_hash": "415c5257a9d510df24bbdc5b740e93f68b990df743f0e756f3e54ae59f376979",
+      "nisn_hash": "df54732c25d3e4f754831696229947678be188ff324a3dac579e90ffa4614f90",
+      "nama": "DIAS SULISTIA",
+      "jk": "P"
+    },
+    {
+      "no": 4,
+      "uid": "119774e05a93761383ffa6d8e55f92c8428c5e11df052b3c3c8a912bebaa9517",
+      "nis_hash": "3345658f514208eedd786faf5f5cff52339cd3095f2b48732207f11ae4766225",
+      "nisn_hash": "4b9fa2bb0a25c5f851d450e3e0a06a5589e895115c739cced2d401212fe5303c",
+      "nama": "ELSA KHAIRUN NISA",
+      "jk": "P"
+    },
+    {
+      "no": 5,
+      "uid": "d475830cb1aa0caefa00d57d495b5d18f6075afc37826fcc61adab7fb7f5d1e3",
+      "nis_hash": "d29f8295997a7e9501f482ab3c401abac73c3e8a4d7a6bc5f043aa5f0f5ebd17",
+      "nisn_hash": "be7cb67ae5e7c817e64535ae0bdef1eea2286c89f380ec6f78bccf6db282b3ca",
+      "nama": "GLENN NOEL",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "dfc5bc3823f14bc377520111af82e8d7fe06f8de9638a361de841b6d40f60db3",
+      "nis_hash": "6824aefe23a6a860d282938dd995c756818191c2f9001dfcaa6100f2ab1b3d21",
+      "nisn_hash": "ca31cb28fd34a12b46b590977b42195205d708c3c15c9a5ae82b496d0a803715",
+      "nama": "IBRA YAZID RAMADHAN",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "f404dcb255009ac38d87eb21ac393ecbafc5f1a13f8df596c4bffb5400fb8718",
+      "nis_hash": "02291cbb6d70c709e8aed4725653bc97f4c821ad3170f7d3e6cc0e7caca65fa9",
+      "nisn_hash": "097394b9bce025bb9c7f53fb7c67d21d5f684ec881731944aea8c68433fbb1fe",
+      "nama": "IDAYU ARCA PERTIWI MANULLANG",
+      "jk": "P"
+    },
+    {
+      "no": 8,
+      "uid": "4da781946b00c83d58906f7834101757750183fdd521cb73cf8d98a58458be00",
+      "nis_hash": "685d68fb460cb803241118d4aac29023d0bf107cd54c6f8668b7abe37e10c324",
+      "nisn_hash": "53d21d221647b262584a1b2230dd3a561d4b93a8096cca77234a73bfb419bfc8",
+      "nama": "KARLUNA",
+      "jk": "P"
+    },
+    {
+      "no": 9,
+      "uid": "35d652ce577c955bbb5c86dc8a9364d3d737917d786865c0fd6f2cf366ea22d0",
+      "nis_hash": "f82c0987f2e33a4deda1d258b4913460c0b88c3a8e92929ff609eff6b6a6a428",
+      "nisn_hash": "a252e14b3bad58b2b4ef6c7ee85bca3c2afbbca16bc015c19a773e5bfa7bc974",
+      "nama": "KEANDRE WICAKSONO",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "2e1861679de40755da49a24a6e7832f6e54a6d1104263c384b85bacb245963ec",
+      "nis_hash": "08bca8f533466b0db1543f27aea3aaf8e24172f1e3b90bad83c68d03c1e476ed",
+      "nisn_hash": "fd1406cf8106da38bd1f06b8bba63da6a8bad6e36ce8b5d4df9c16d4879684c1",
+      "nama": "LUTFI DIMAS ANDREAN",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "44c49d919bb948515f2314f7fdc9774a51aa50420b2907ad48b97eac2b4dd048",
+      "nis_hash": "48ad8451278b7441ecd4fe21ce6b538c7bc641aa30ba689d59a2a0c12dde5363",
+      "nisn_hash": "7c2365b9e50a6e0988d8eb053770e2569c1bb7df87ce7a48ccc9593629189326",
+      "nama": "MUHAMMAD ARFI",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "678256a56e81d37b7ee8d36812de2e2a85c005bf1829b7dc5de713b989f50765",
+      "nis_hash": "23a8e997212fb49a69ad89854a9aac9bf4c2198a2b102539ff4f894a6643eea4",
+      "nisn_hash": "732bf8070b7000298306d7ea5c8b19b055cb6157c0368e5e2650541978febd46",
+      "nama": "MUHAMMAD FAHREZI NUR RAMADHAN",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "176177bdee5bde70e6abb85d7e7db5372feea51defea0594171124efde03036d",
+      "nis_hash": "cf7293fc82cf00c3aa797c0c4509840e9e276a5e1db81e8103cf57397084cf6c",
+      "nisn_hash": "8699fde0524e58ee4f2b6921fe65f9e22b6827fe04faeb54e9e7800accb3d5ee",
+      "nama": "MUHAMMAD HAFIDZ",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "09738ab844c200ddf774034e4cbc95582f5002aac687e07ccc202a19ee1903e6",
+      "nis_hash": "dda03e5399b02f5209594c1c6f11736c702046c0c0252b32161e750535d87a0f",
+      "nisn_hash": "e6bb4a862e75ce2818ea41e842a0aaef3ef1f6b6d215707f698ad710b90d4cde",
+      "nama": "MUHAMMAD SIHABUDDIN",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "53616899fd85108cf39b5b6f9350d22040f3e572ca088e4d94ffbca6c5bf2734",
+      "nis_hash": "a9a0718796438b09eccf5e39e6877a8217f4ac112aedc3a965cdcd079f64c702",
+      "nisn_hash": "1982c75c3361df8cd9ef83ca7727a7061479289ef5ebfeec9ebd4a24ae7b37a6",
+      "nama": "NADA FITRIA",
+      "jk": "P"
+    },
+    {
+      "no": 16,
+      "uid": "b719567134c2037c5137bdd80505b87238a9c7172aad423b4161e2bd467d55da",
+      "nis_hash": "45165d2beb799f24c5d1dbf1b95372945a15f0b364886f93c9b03e396dc83999",
+      "nisn_hash": "e90ca9b1d028613376baecb096d5099fb93f3b2ec4a50ddc4de91935cd253a34",
+      "nama": "RIDHO WIJAYA LIBERTYAN",
+      "jk": "L"
+    },
+    {
+      "no": 17,
+      "uid": "8dbb049fa322b2f5f481c03a7cbb454321e3ebfc17e24bf53201dcd71b0b938d",
+      "nis_hash": "079d17ec1b2a38079559b10c36569f1d4f4b95a3eb80a73c2573ae2b114ab052",
+      "nisn_hash": "ccb51eab0aee6ad4d63d9601723450be3a3831ac45dd57605a69f9501481a499",
+      "nama": "RISKI ROMADHON",
+      "jk": "L"
+    },
+    {
+      "no": 18,
+      "uid": "4377fc11c739ddd1614665df342559419e0e3f5a7bd5a2da8980bfabdbba6cee",
+      "nis_hash": "2c1b8da0cedcacfbf784176a415e0ae0b16db7ea34bea4c4fe00cf9c59638875",
+      "nisn_hash": "7ef53cdbc063a8a415a3b995e9463a4e03699f74cbc2a1f0ed930ff3b3973b72",
+      "nama": "RIZALDY NUR MUHARROM",
+      "jk": "L"
+    },
+    {
+      "no": 19,
+      "uid": "a63b5aadc1746cb6cec86568af605eaeb576a824f333f78a4ddedc64f284586b",
+      "nis_hash": "7a700aadbd26f10bfaa4fb9c5c51d114a44b64d800ad3b5bd1eafac015442e86",
+      "nisn_hash": "66edede285d100652fbe506a8783c71c4750570d2400f8caa59ad3eaeba1b4cd",
+      "nama": "SABRINA ALISYAH",
+      "jk": "P"
+    },
+    {
+      "no": 20,
+      "uid": "a733cf500c10ed7fbdef793f9e4e1742df274e9665336b3bc7fbdaea07cd317c",
+      "nis_hash": "8e528ca9e24b2781f9ddba1c8a7dad98827ca40ea2b7c86cc235430f2770be63",
+      "nisn_hash": "ee5b9d88e6fa881b3e7c3bb0fea051337877d6d4e752978dbca26193307720a0",
+      "nama": "SEKAR AGUSTIN",
+      "jk": "P"
+    },
+    {
+      "no": 21,
+      "uid": "74b41f248b62c118a7df321ab190bd3c671ceab574530baf36058b505524f410",
+      "nis_hash": "293630312aa8e4a30b822487e71dc6a74aa349ba33fa3a5b9c9d963e217cf521",
+      "nisn_hash": "673ff1fa1ff05aefdb4a2ba7e928c124df04e91b2d2a4d49eba378064c0f23de",
+      "nama": "SYAFA MAULIDU RAHMA",
+      "jk": "P"
+    },
+    {
+      "no": 22,
+      "uid": "d4be6c25e49023afc1e7384a336956e3b6d573e2d69e0ccdc5cb484c61b75d33",
+      "nis_hash": "2773eba9568b9269f55627ad5ae2a2f252d3221d23509019d037180b52b094d4",
+      "nisn_hash": "67888a99b908e4d69b842b4319c9f73e16a6c4195943972667df31e3d731f84f",
+      "nama": "SYAFIRA SALMA",
+      "jk": "P"
+    },
+    {
+      "no": 23,
+      "uid": "5c111bd268b1ad6ca5c0bf24f70c908235c58be0cc55c947a3dabd93f3986ae1",
+      "nis_hash": "1d0625aeb276dde63d67091387f5c225124c644d81a8441d2683b475e5da7147",
+      "nisn_hash": "bbedbf1c2cf8d659d653461bafc3b27e4cebcfc293ed6c0beaf9367107523519",
+      "nama": "SYIFA AZZAHRA",
+      "jk": "P"
+    },
+    {
+      "no": 24,
+      "uid": "b91e557858b10661c37d16f58d697be8a2bf7c82ba106eb400d7cb3f60bb4ec6",
+      "nis_hash": "b55e83ad7c6883afccf31755cc169ab6510b77b8f6844eac99bea362bb48d436",
+      "nisn_hash": "74bcd29302a9b424d6cf94df7f8fdee66b989623b4eacf4ab2ba16c183714ccc",
+      "nama": "TRI IRAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 25,
+      "uid": "68641a3a737a85e1d88d98dabb43ae3322fb84e96eaa749ea74569de14369f7b",
+      "nis_hash": "18a0132335ed87e66d3918d5ca5e30536a83e0bd6cc7e0d610c53fed5e4f904f",
+      "nisn_hash": "8ef1f23a1e8904b8a5b317d8dad5fb66c9f2bfcdde99e6a558dc7a3e52508b5b",
+      "nama": "YOEKI PUTRI HARUMI",
+      "jk": "P"
+    }
   ],
   "XII TKR.1": [
-    { "no": 1, "nis": "242510045", "nisn": "0089671072", "nama": "ABDAN SYAKURAN", "jk": "L" },
-    { "no": 2, "nis": "242510046", "nisn": "0081472128", "nama": "ABDUL SALAM HILAL", "jk": "L" },
-    { "no": 3, "nis": "242510048", "nisn": "0073843968", "nama": "ANDI FIRMANSYAH", "jk": "L" },
-    { "no": 4, "nis": "242510049", "nisn": "0082700570", "nama": "CAHYO HERLAMBANG SATRIAWAN", "jk": "L" },
-    { "no": 5, "nis": "242510050", "nisn": "0093501501", "nama": "DAMAR WICAKSONO", "jk": "L" },
-    { "no": 6, "nis": "242510051", "nisn": "0094439575", "nama": "DIMAS MAULANA", "jk": "L" },
-    { "no": 7, "nis": "242510052", "nisn": "0077926598", "nama": "EXCEL RIVERO PATTISELANNO", "jk": "L" },
-    { "no": 8, "nis": "242510053", "nisn": "0082007268", "nama": "FAKHRI REZA EFFENDI", "jk": "L" },
-    { "no": 9, "nis": "242510054", "nisn": "0093087465", "nama": "FAUZAN AL ZAKWAN", "jk": "L" },
-    { "no": 10, "nis": "242510055", "nisn": "0086428981", "nama": "GALANG RHAMADAN", "jk": "L" },
-    { "no": 11, "nis": "242510056", "nisn": "0099379345", "nama": "GALANG SAPUTRA", "jk": "L" },
-    { "no": 12, "nis": "242510057", "nisn": "0086315767", "nama": "HAFIZ PRAMANTA", "jk": "L" },
-    { "no": 13, "nis": "242510058", "nisn": "0073180626", "nama": "IMAN MUTAKIM", "jk": "L" },
-    { "no": 14, "nis": "242510059", "nisn": "0082589786", "nama": "IRGHI GHES AL GHORNY", "jk": "L" },
-    { "no": 15, "nis": "242510127", "nisn": "0084246154", "nama": "M. FERLY APRILYANDI", "jk": "L" },
-    { "no": 16, "nis": "242510060", "nisn": "0085402095", "nama": "M.CHAISAR", "jk": "L" },
-    { "no": 17, "nis": "242510061", "nisn": "0083608950", "nama": "MARVEL BAYU PANGESTU", "jk": "L" },
-    { "no": 18, "nis": "242510062", "nisn": "0092649567", "nama": "MICHAEL ANDREAS", "jk": "L" },
-    { "no": 19, "nis": "242510063", "nisn": "0091190232", "nama": "MOCHAMAD HAFISH AL FARIZI", "jk": "L" },
-    { "no": 20, "nis": "242510064", "nisn": "0087791175", "nama": "MOCHAMMAD AKHLAIL SYA'BAN", "jk": "L" },
-    { "no": 21, "nis": "242510065", "nisn": "0058980099", "nama": "MUAHMAD ZZAED", "jk": "L" },
-    { "no": 22, "nis": "242510066", "nisn": "0062338677", "nama": "MUHAMAD DANU", "jk": "L" },
-    { "no": 23, "nis": "242510067", "nisn": "0086212682", "nama": "MUHAMMAD ALI SYAWALUDDIN", "jk": "L" },
-    { "no": 24, "nis": "242510068", "nisn": "0091524646", "nama": "MUHAMMAD AVANDY AL BUKHARI", "jk": "L" },
-    { "no": 25, "nis": "242510069", "nisn": "0092583145", "nama": "MUHAMMAD DICKY IRWANSYAH", "jk": "L" },
-    { "no": 26, "nis": "242510070", "nisn": "0098642945", "nama": "MUHAMMAD FACHMY FADILLAH", "jk": "L" },
-    { "no": 27, "nis": "242510071", "nisn": "0078714697", "nama": "MUHAMMAD RIYAN", "jk": "L" },
-    { "no": 28, "nis": "242510072", "nisn": "0072931723", "nama": "RIZKI DESWANTO", "jk": "L" },
-    { "no": 29, "nis": "242510073", "nisn": "0094642174", "nama": "RIZKI ERLANGGA", "jk": "L" },
-    { "no": 30, "nis": "242510074", "nisn": "0091296761", "nama": "RIZKY MAULANA SAPUTRA", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "fbe428f3498e3d007f1ee79d3c55952efa9427be3a3075b7a8019c7a36c5dacc",
+      "nis_hash": "0511007e811f33bb0e6439d915b0c7e9514579739cb28644dbe8b2ad01d25b48",
+      "nisn_hash": "fee4549c85d544908764d97bc100ddb2c1d9834a2bb84080f98945069198f9e8",
+      "nama": "ABDAN SYAKURAN",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "ac23ac834774fe5cc325bb3a7922a10f4d59b930fbb48e88b1b51d6b3ef96ea1",
+      "nis_hash": "1b64fc896a075c42701c3cbd5946335cac133af8984523abbb62151b7264af9e",
+      "nisn_hash": "e465ff4cb7835558c7663871633bcc7968875b14fa571ab821173e40e267f8a0",
+      "nama": "ABDUL SALAM HILAL",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "fee5b74c4e76314ae4bdc5d5a8267a20a9a3e2258e37c42a67e49af20653a5c8",
+      "nis_hash": "5dd714ab6b528ea49fef2f7299d8ac9c65ce701a790073f8cb8be406b78940e4",
+      "nisn_hash": "1b47f3e4c2cddf5605f4a35b2bbbeb8d78e9b94a59dc96c19b821d5811a61591",
+      "nama": "ANDI FIRMANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "449ee4748ac2323abf306c0d830d0919e5e9264da39af924e8e24a3ac96442f3",
+      "nis_hash": "4a9538bc1a7a427cb87a21c50c6ec4d970e4ae3a5357254609af3b308ef15415",
+      "nisn_hash": "3844c141201c6e9863354eb4519ef1855d7cde6e987c5d386a80ac8e9a8ec3f7",
+      "nama": "CAHYO HERLAMBANG SATRIAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "31592bad428d0bbe1eb070ce7ca1aab95f9f6d23560129fa1aa8e6960d0be185",
+      "nis_hash": "0c6227ce28e341fe2641520e0bba174be7caa5a8888f95defa1e9e8629240039",
+      "nisn_hash": "5d0dbe79e5fb2ba80e09ebefffca0769f5484732c3f2cde2fdb05e880d843842",
+      "nama": "DAMAR WICAKSONO",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "5587e86989abdfbf71b1fc36ddca7e3b863e80fccef1efc334e1101b403538de",
+      "nis_hash": "6eca631ac7f284f5f567620756d261a517c1cded0240c4c23f3c2fd6e932db8c",
+      "nisn_hash": "86de40383eda651210e7ae54d2f6a5ec24891b5a191ae4da573513424b4eff5a",
+      "nama": "DIMAS MAULANA",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "fa0bf464c7cde772357f24cb584b7ccd816f45be14f456921b064d354e9f5738",
+      "nis_hash": "f4562ea71b7b3d0cfd6058f6f8c1e0985c402c032ce2de92a4002bd8d699a28c",
+      "nisn_hash": "b835500843dbf0b563745dd3deb764f63d7e06e5726a25fea36cce9f5f6a8389",
+      "nama": "EXCEL RIVERO PATTISELANNO",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "b177bd980be8c1a201629aa8ad3483a1ea94bad82406cf69070367a52aa1ec35",
+      "nis_hash": "31e5c19b9d1b6644ad1c3e03f008d027d0ff4aefb66cd16e2e4a982c4d3ad35d",
+      "nisn_hash": "cb0e9369618883dad06dfee96d2f10eae5b6c2a27344ccc500740635285d5dc3",
+      "nama": "FAKHRI REZA EFFENDI",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "8d83dec967aa8645bc97be4948559cb089b3f42b5e5ecde79fb9ae4d4a1fb4c0",
+      "nis_hash": "51c0a3fcf4cb496b8bc6aa0a4ac8b8e7420ebec1f3ae5a02cd3d4c4b7438aee7",
+      "nisn_hash": "16fb09ce4ae746ec08d9a6847e04d0e5b52ab508cff70e2ede543c2eb4b45e0a",
+      "nama": "FAUZAN AL ZAKWAN",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "450caf53b31e635e17bd6bbe6abbf747f226ff4a24f851bd31a44bdf483f1d11",
+      "nis_hash": "6cd833cdc38b0e0946ba960b4b2be814b94b5ca894ec4ed673cb2da267f63512",
+      "nisn_hash": "f7b4cbe3f76df4dc072a98f174877bb529f418ca4616665b2bb90348eafdcf0f",
+      "nama": "GALANG RHAMADAN",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "eedec7ee212ef61395f72a996890f045d749516fba74637e3eecdd6e6bf118c7",
+      "nis_hash": "b1ff8ae9aa6de5743a639bf13637f7e09c38b04f4fce8cfa9f1310689a7ade51",
+      "nisn_hash": "ed79780b001c049a4a8b637e0c0d4b96aa20c7f574dfaa7a46aaf23560e5df22",
+      "nama": "GALANG SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "2b1e2766b8a848d6f94b148b5904d94f740b761243967ebb60889f759dfdff64",
+      "nis_hash": "a95d2961621fcde91859b6c358d22b95316e108314ef93f75723e033a4cadcdd",
+      "nisn_hash": "7276081e6adaeb0cb573a30f7001be01b70d17f3ba3a2595c571b3fdaea4de1e",
+      "nama": "HAFIZ PRAMANTA",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "ab061a63c1e6588815bdf40e5f38fa9fc642ac2b8d97775d07a021617accab69",
+      "nis_hash": "2aa487aba9aa92f1a174850e512abc2d154b5d599c74e8e53c3ef923b7884df3",
+      "nisn_hash": "ddaef775726849d2255cf779a74df144bbda47a83fa9edf909bca6c1c057132b",
+      "nama": "IMAN MUTAKIM",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "670cdd11201e0759c5bb44c31ba1e809db3f5ef5c9848953d813370e6d5f08fb",
+      "nis_hash": "e223f13c06f50dd8c79f58076883b25e121ddf4159e6468804e7e5510d262e24",
+      "nisn_hash": "097d28a0c4f6c5d8de0ef4788b731406017c179266f5b898a07c0328e269e9a3",
+      "nama": "IRGHI GHES AL GHORNY",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "ac03716617fcc1e6514d9816334a1ff53cc6141f6d03505d1a662e7b67e70b1a",
+      "nis_hash": "74f0de82fa043f0bcaff2fb2f3070725975737cd9d5f36a2cf62a98433dc8f79",
+      "nisn_hash": "a73dcac924c61e5320f44353a2f68b559492fb73f0b0debf50ceba5a2fc805fa",
+      "nama": "M. FERLY APRILYANDI",
+      "jk": "L"
+    },
+    {
+      "no": 16,
+      "uid": "3e76efad31c340074e469ac9556dccd18c0ff3525c9ec99395dd180c56ac0eb2",
+      "nis_hash": "3b2dfe10237e9c7d02a5b0ef88af0f9d9a20a3741c0ed333efd04c6671120df3",
+      "nisn_hash": "afcb866cc74f46f2ae5b2c6ee7a659cd425693d2537018d9a11a7676bd9025cf",
+      "nama": "M.CHAISAR",
+      "jk": "L"
+    },
+    {
+      "no": 17,
+      "uid": "85d58f16cfacb80a66aaf61c9c7f398c9d2c3120d6b97b860a9802635776183b",
+      "nis_hash": "095e03e4077bfb8230d864c46e183934a954a69956c408daa405289291d61b48",
+      "nisn_hash": "3f2b799d17c5e569e3285fadf78686ec223582d20404d656c4e7c15a0b92889f",
+      "nama": "MARVEL BAYU PANGESTU",
+      "jk": "L"
+    },
+    {
+      "no": 18,
+      "uid": "42629050f45b27520e4e0156758584c2f438e1380ba66627a3ba32db6ffdc0cd",
+      "nis_hash": "ce957cf0525efe8c44ffd9bae35a4260e3393ab70c65a7e475fb4a6ff5f6e08f",
+      "nisn_hash": "fa637d2c9d883d43fa34d13c0af3d1f090bd2efd450f07f671d1dfbe114ac7c6",
+      "nama": "MICHAEL ANDREAS",
+      "jk": "L"
+    },
+    {
+      "no": 19,
+      "uid": "a064b4d174d779855bb5d8b5daf11e0cf6353c8189d93a8a366321045517663b",
+      "nis_hash": "bc7a230679ab3d6eb7f8b39fb31e521579f86e4532c3674abc22c1033bd8bf67",
+      "nisn_hash": "0eca981949e445c4fc568e3b538a5a8c6a3497a12171f95bbc9480b17a60e2db",
+      "nama": "MOCHAMAD HAFISH AL FARIZI",
+      "jk": "L"
+    },
+    {
+      "no": 20,
+      "uid": "c9443d95581a908603c084ca42ac99d26761c34b1b02935d23e26049ca343b2f",
+      "nis_hash": "badce44ec712f2c5dd35f8f37455d1cb61b46ee0d7fb214570a808b694f86fab",
+      "nisn_hash": "f7945184ce153a0d25c74500fe6348d4046d7104f1ce40358eab7889a395b6fa",
+      "nama": "MOCHAMMAD AKHLAIL SYA'BAN",
+      "jk": "L"
+    },
+    {
+      "no": 21,
+      "uid": "13a9b855096b00f3f277e798de28a7f29d29f7dc6cd5bfa6c0ff5d76ccec5a5a",
+      "nis_hash": "8c18e418612051e8baecc6f5712625aff52930d82e959b697d6e3aad58ea2b73",
+      "nisn_hash": "71ed42329d4da06aa215203e92cfbbca79754a169a3d6a167a543d5f9fff19e5",
+      "nama": "MUAHMAD ZZAED",
+      "jk": "L"
+    },
+    {
+      "no": 22,
+      "uid": "800c50ffe534736bfa01f855b80063f92b663c843c1a44a6c82d9ac192828a59",
+      "nis_hash": "57b3dc2262e840ee970745e938156e50d65a7a887861c57159cf35019bdb61bf",
+      "nisn_hash": "440fd7861d4fcdf2bb04230ea1d58a99352694b83e700bfec9194bea524ee917",
+      "nama": "MUHAMAD DANU",
+      "jk": "L"
+    },
+    {
+      "no": 23,
+      "uid": "44417e59c815b15dcb677ab26ba1d483bd5b58213cfc49d62c1f4cef861c2c28",
+      "nis_hash": "d20342ef2eaa3f0d382b01c8379c51eaafcc6453063908dcf568d2471232a916",
+      "nisn_hash": "3d3315bd95807bdbeaefac5d45e522eac0e20908c9410cb1aff38ce07d43b5d7",
+      "nama": "MUHAMMAD ALI SYAWALUDDIN",
+      "jk": "L"
+    },
+    {
+      "no": 24,
+      "uid": "d27d2b808dc3d8c0a3e76ac7ad4724613cd77ff953d652ecebc05741278eccef",
+      "nis_hash": "dc4bf1c093ed400b1373892ee9ec16597930d1f9aa2bfe7e5c9fcb923f598aef",
+      "nisn_hash": "f6726f8d3172dc40bae33594db0b7a63b808b7ccd7016253504bd07dea439023",
+      "nama": "MUHAMMAD AVANDY AL BUKHARI",
+      "jk": "L"
+    },
+    {
+      "no": 25,
+      "uid": "89475d974c8d6681ea396c2343d13f6e1f988a05213fed28f84db09ce8dbe055",
+      "nis_hash": "1fd47b624a42d1ad0fbbc7a66738306b0cfbfee28417fadceef77683a148c5f2",
+      "nisn_hash": "0db1aba1c7c5292ac8fa011e62f22517f0ca278ca9fe43a0c0640e7fe346a874",
+      "nama": "MUHAMMAD DICKY IRWANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 26,
+      "uid": "304430c1182c30feccba2b9cab0080a977621d4b81ed877d390722175f5fdd81",
+      "nis_hash": "6fc5da8a7d0dfa2eaf2b0bc7a1212dc55d2c5b949816168071d7c12d1f09ea9b",
+      "nisn_hash": "2ddca9de2eebdc7268941466c5b8e9bb58386661f764750b8bd42896ca411bce",
+      "nama": "MUHAMMAD FACHMY FADILLAH",
+      "jk": "L"
+    },
+    {
+      "no": 27,
+      "uid": "e02a365862c97278a0bf35991776a1e8839d8f7412723496deaaca90f2621955",
+      "nis_hash": "5349baae259f7ac75cf01da4a04947544e9913d9b7c8eb287554ccf2621ca079",
+      "nisn_hash": "fe7745c1e151daa684ab66b237840bcebe1093fe73e274a05257ac54bb3e4765",
+      "nama": "MUHAMMAD RIYAN",
+      "jk": "L"
+    },
+    {
+      "no": 28,
+      "uid": "9b79388cc187cfe4b3eab43ae7ee3ea318c4b94a68eb02ac9d9048c1b4136662",
+      "nis_hash": "149b76ad7a435cfdfff12f11464906e6e7ba69de505a82cf4cca801259502213",
+      "nisn_hash": "c96a4f6fc1103135b9b3416f5688bb2fced2c69f29f64c7ef3d1585a0a1e58bf",
+      "nama": "RIZKI DESWANTO",
+      "jk": "L"
+    },
+    {
+      "no": 29,
+      "uid": "37820b63a8dd377a15ebe0af3ce9c2423f0543730d7dcd703429f1bfa58a69c5",
+      "nis_hash": "7f63356144720e99f6275f05e3f5ef2fd6463d49f939da69f37a1ac7c70e40e8",
+      "nisn_hash": "4c8eb34f63149bb107aea8fc1478bfac09864fc1b03c08c141e31e5383efe5da",
+      "nama": "RIZKI ERLANGGA",
+      "jk": "L"
+    },
+    {
+      "no": 30,
+      "uid": "8f76c9d805c0bb8314894abcf6a0a71435239ceed79d28bc36446d2680fb84a9",
+      "nis_hash": "2db3e0d0b2069dff4ec1dea632983dfb5ccfcffbebd6bdf3bfde0f32696004b6",
+      "nisn_hash": "1b2633f131b66eb004b11b076b71f9a7b384b6bb4c926ea58b0273cea9873012",
+      "nama": "RIZKY MAULANA SAPUTRA",
+      "jk": "L"
+    }
   ],
   "XII TKR.2": [
-    { "no": 1, "nis": "242510076", "nisn": "0081744015", "nama": "ANGGA RAHMAWAN", "jk": "L" },
-    { "no": 2, "nis": "242510077", "nisn": "0098871317", "nama": "APIB NURFALAH", "jk": "L" },
-    { "no": 3, "nis": "242510078", "nisn": "0096176557", "nama": "BIMA SAPUTRA ALBATAWI", "jk": "L" },
-    { "no": 4, "nis": "242510079", "nisn": "0091972492", "nama": "DAFFA IBNU FARRAS", "jk": "L" },
-    { "no": 5, "nis": "242510080", "nisn": "0081783138", "nama": "ILHAM ARASYID", "jk": "L" },
-    { "no": 6, "nis": "242510082", "nisn": "0097816445", "nama": "MOH.HAFIDZ SETIAWAN PRIYONGGO", "jk": "L" },
-    { "no": 7, "nis": "242510083", "nisn": "85752055", "nama": "MOHAMAD FAJAR DWIYANTO", "jk": "L" },
-    { "no": 8, "nis": "242510084", "nisn": "0084284700", "nama": "MUHAMAD BILAL TRIMAHMUDIN", "jk": "L" },
-    { "no": 9, "nis": "242510085", "nisn": "0091554655", "nama": "MUHAMAD FAUJAN HIDAYAT", "jk": "L" },
-    { "no": 10, "nis": "242510086", "nisn": "0098576363", "nama": "MUHAMAD ILHAM", "jk": "L" },
-    { "no": 11, "nis": "242510087", "nisn": "0094800309", "nama": "MUHAMAD KHADAFFI", "jk": "L" },
-    { "no": 12, "nis": "242510088", "nisn": "0083859843", "nama": "MUHAMMAD FAHRI", "jk": "L" },
-    { "no": 13, "nis": "242510089", "nisn": "0097739165", "nama": "MUHAMMAD GILANG ANDRA PRATAMA", "jk": "L" },
-    { "no": 14, "nis": "242510090", "nisn": "0098812106", "nama": "MUHAMMAD HILMI RIZKULLAH", "jk": "L" },
-    { "no": 15, "nis": "242510093", "nisn": "0099110067", "nama": "MUHAMMAD REHANSYAH", "jk": "L" },
-    { "no": 16, "nis": "242510094", "nisn": "0082309750", "nama": "MUHAMMAD REZA SAPUTRA", "jk": "L" },
-    { "no": 17, "nis": "242510095", "nisn": "3088591337", "nama": "NAWAF PRASETIO", "jk": "L" },
-    { "no": 18, "nis": "242510096", "nisn": "0094699644", "nama": "RAFKA RAMADHAN", "jk": "L" },
-    { "no": 19, "nis": "242510097", "nisn": "0092384670", "nama": "RAHMA DANI", "jk": "L" },
-    { "no": 20, "nis": "242510099", "nisn": "0092982869", "nama": "RAIHAN AGISKA NUGROHO", "jk": "L" },
-    { "no": 21, "nis": "242510100", "nisn": "0093219855", "nama": "RARAY GEMA PRATAMA", "jk": "L" },
-    { "no": 22, "nis": "242510101", "nisn": "0096482488", "nama": "RENDI", "jk": "L" },
-    { "no": 23, "nis": "242510102", "nisn": "0088775026", "nama": "REVAL AQILAH SHADAN", "jk": "L" },
-    { "no": 24, "nis": "242510103", "nisn": "3076554398", "nama": "RIFKI FAUZI HIDAYAT", "jk": "L" },
-    { "no": 25, "nis": "242510104", "nisn": "0092485993", "nama": "TRI JOKO", "jk": "L" },
-    { "no": 26, "nis": "242510105", "nisn": "0075204385", "nama": "WAHYU HIDAYATULLAH", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "198f1555071ca11f51818892d87d5acdcd4860e8f2d9743db09768ace459c7f3",
+      "nis_hash": "5a64c66a06b4b69652b8a82d816b5b101397ab5338cf6144b21e4e7fc63ea259",
+      "nisn_hash": "e0cc4471463f08de034dea24107d6a32b2ec39adf16a0737b91c32825c4a7e4c",
+      "nama": "ANGGA RAHMAWAN",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "adf3bd8c90454b920745362512530d6a737ffa45e499d2de5a23b37a8db0ca39",
+      "nis_hash": "dbe758ca94fee4c1c7b83b2d4fb4164c6a5b604429a9f9fe41555330e4bb84b0",
+      "nisn_hash": "57cc256ae00c8d1c6dc12bc294bcbc4071913e67907707b2c49f9dcb1af5d214",
+      "nama": "APIB NURFALAH",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "bb2b2890ab9a1e258be90deb85dbab0b0e8fbf7b304a917cd81634c367b879df",
+      "nis_hash": "967f54d7c1356639080a83d9f75b850c18b3f0f381c7eef6d2b910b5022e8ea2",
+      "nisn_hash": "3c3567301deddab0b888b4fb58016035e6a59d76c9d9d4d01791a3e7c57636f7",
+      "nama": "BIMA SAPUTRA ALBATAWI",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "700c031ec6795bfd7f50bc978f18b64d9d8f725fe82593d59eeae93266f617d3",
+      "nis_hash": "999b09e802cc27d8cf358b85707347efaea9555636c600998aaa108483944320",
+      "nisn_hash": "ca4fc1b8b12ae1db2f46b8ea179ced1c0e28f4b6a87220ae4268412fdab72c3a",
+      "nama": "DAFFA IBNU FARRAS",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "732c0c140a3796a4f34fec1da70e0a3e76555e84cba7e0ad8b28f61ac5ac4186",
+      "nis_hash": "46524265bd409794f92e3606378bf228708c772bd291a005deaef6711d8dd6ea",
+      "nisn_hash": "678111544b5b3fb613de1e32c6910bee6a1b006eaafa14c31f4fbd9ad77d8526",
+      "nama": "ILHAM ARASYID",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "6d0f56b0c1abe4f2d859cb330ee666b40cb3f058aeeb6b24dbab3d1433f44477",
+      "nis_hash": "83d4e353fe94b96b81eaa25e092d77d08226edde3367b02852de049c13e540cb",
+      "nisn_hash": "e909a2a3b51e2ad1347ec1aae618b31eadb17e0e4eb249c8d214ee4a075da4e9",
+      "nama": "MOH.HAFIDZ SETIAWAN PRIYONGGO",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "d7c8aa43413fe593824a1e335d6ac88ffb478aec9aab63bf20e07c46d52bbc06",
+      "nis_hash": "f80f974fa5455b576fb5801eb111fd8c21640acb08a8e3a6652d60f77cceeb3e",
+      "nisn_hash": "f60946bb298be3ae117b4f1c34beb0219a95e72877cad812d59483f372ee13f3",
+      "nama": "MOHAMAD FAJAR DWIYANTO",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "3e8592acb086be30128a659ff120c3bd4361bbfc70becd225f2e3b5a35a0bda3",
+      "nis_hash": "2c44966750775122b445937bf4aad54e21921b1b8f5dc83f6a58c5230f70f414",
+      "nisn_hash": "e98a1708b061cb9c2e651fe6c50eb832b9e522a34c0c0871bd7a269b40a88842",
+      "nama": "MUHAMAD BILAL TRIMAHMUDIN",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "545fcab24a1173d6ea1a29e95416f4a1f6f161d1a8f02eefedb3a88f94d34aa2",
+      "nis_hash": "225a27a49088b0d4abbf52bb8bf402c9d22e0300616ba366add11591bcd89219",
+      "nisn_hash": "c2fd7ea41b6d88f68d91bdb69d89c306298e3d814239298927aaba0e467c8326",
+      "nama": "MUHAMAD FAUJAN HIDAYAT",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "f63f7d9d9ae72bfce3c4c5edd134ee127a70bf94fbc260e9dac7e91f02067520",
+      "nis_hash": "04b4e21ae5f7820bd9ed0a16a6430177d688d3dc9ad389eb118e71585f596ac3",
+      "nisn_hash": "b25aaa0d3f43721f09c2941fecddbd8a4c4a96a0892d309a11ab3a48b69e017a",
+      "nama": "MUHAMAD ILHAM",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "00cff79d4a0505167382a647d2dd9c535b8cb171a266b25142f6450a46894e2f",
+      "nis_hash": "78dbcc2e15ca6ebe6088402f39029b72d1300993fbf3e98ac7f84c9932106df3",
+      "nisn_hash": "a0fc582cb135e30a34b66dffc63eba8b09ebd6bcf2755ff8e50cd768427c3006",
+      "nama": "MUHAMAD KHADAFFI",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "3cbf780c7455f7cf35170174db3959a7de33241d084fb84245b019738310dc5a",
+      "nis_hash": "29f4e1c9fc500da79c008a209a3b192e5b9e37dcba3eaf6a848586988b946663",
+      "nisn_hash": "b8b56ff2d50d55c9b6def4473d74ffabce30dfc103e332433e21964c1477b6b3",
+      "nama": "MUHAMMAD FAHRI",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "ec2c76b017f3778616d3698b2591247c3d9932fbff0ce4f9476caf74f72c25f7",
+      "nis_hash": "015b0f4d1be51f4733c3f62bd90b35d849bd8dbc291cd8d1117412e477eac84a",
+      "nisn_hash": "8b7f85bebf4ab592d820810f131fb2bd37233397db72727305021cc5be675e6a",
+      "nama": "MUHAMMAD GILANG ANDRA PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "05063046c07e4b83237dbd220c71e1a9a9a2d3cb2c49c3dace78d89a7007adc5",
+      "nis_hash": "fc20a115c3ee5a3c9c1bc64889735bcc1ceda7333a3913613dccd5bd350bbdb9",
+      "nisn_hash": "430ff6541796b762c0e6c903abd356d8b6aa688b939a8fa68b4433abc5a54c78",
+      "nama": "MUHAMMAD HILMI RIZKULLAH",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "310602a6eec20911de16e66ee52f39c1337aef9c42dfefea05742d42e6bd1726",
+      "nis_hash": "175f1063477dc7ee021594451950cf7beba5354331048b46a388e0178b7422e8",
+      "nisn_hash": "71a028b99f466ddb17b12decfbc8f5fd1f38197fddba5c2ec5db77e083a7bbd4",
+      "nama": "MUHAMMAD REHANSYAH",
+      "jk": "L"
+    },
+    {
+      "no": 16,
+      "uid": "b25193122c8ce692104c4370122d945aa129ecd7b82ca0498dc843a8aac392a5",
+      "nis_hash": "38e85a34a143358d8a830c7b931df8945534cfb3a8505081eeb5c4480df75d5e",
+      "nisn_hash": "de81413cb95e2f3413006156ff0944b3dad5b372d733512aab5f00f21d9b6942",
+      "nama": "MUHAMMAD REZA SAPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 17,
+      "uid": "7df4ee815b802e437efc596d09e26193d04f9f582daeb185af6745b2acdefdbd",
+      "nis_hash": "204823c25d7565fa855d2df1a40927cde133ea3ed28971796c7935d9eafeb096",
+      "nisn_hash": "08be1c0b2c8ad08f44b9acab43363af9d2fac2faf39ebca09adf362476e4265f",
+      "nama": "NAWAF PRASETIO",
+      "jk": "L"
+    },
+    {
+      "no": 18,
+      "uid": "7d42e2fb7b88dea9f4bc4689178f5e41a8a6d473ff89eef102f90ca45d1052ba",
+      "nis_hash": "884e7ef2a661eefddcc94578b2695e81d30c15ef52864dcc2d6445a2f8f36773",
+      "nisn_hash": "9bb7b64fd68cbf74d0301fe46691e26d33ccb7f97183ea4b5706842dd22436e5",
+      "nama": "RAFKA RAMADHAN",
+      "jk": "L"
+    },
+    {
+      "no": 19,
+      "uid": "7b3dd7a8b2664a67f216292db4bfa5497bb346cbec718645d2449ec3718d069e",
+      "nis_hash": "a18aac47c1161178a0edb6366fe77d679f046c96731004bed3ce2f3f7b18df1e",
+      "nisn_hash": "dc6a09aea4592b6598ea25259c76fea47f887643cbf4d786da8c6bb480cf068e",
+      "nama": "RAHMA DANI",
+      "jk": "L"
+    },
+    {
+      "no": 20,
+      "uid": "f9b881f011218406b88594bdd13030d5612de7a829b8e4f5ec808a622c81c262",
+      "nis_hash": "7d514d41e59e324bff23a1f6680459351f5d4c9b67671f24e4efbf87f10d1cbf",
+      "nisn_hash": "d2854189b61f9582bfa3a0dec3aeeb8bb89cf6b21cf49921397c8c2c43ba3d3d",
+      "nama": "RAIHAN AGISKA NUGROHO",
+      "jk": "L"
+    },
+    {
+      "no": 21,
+      "uid": "692f244b690fb99ecd9c3b1efc738f7bd41f13636f6c3fc241009a13f4957129",
+      "nis_hash": "1c30e82dc11d4cfd28e282201301b2b55b20bcff891dae90146fbb3fdc71160e",
+      "nisn_hash": "faa21b78f78f461cfd1ad8931adee1ed6dc65c6b57415c500451ced3d2a0d54a",
+      "nama": "RARAY GEMA PRATAMA",
+      "jk": "L"
+    },
+    {
+      "no": 22,
+      "uid": "c99ca571482eda73ab40c90d24d5621bc506d2435c604855f085d1461e08ab43",
+      "nis_hash": "90d90b4e34b83f35c89d30d6ae56ba5c7934a5852d0c72d1e4bb508476513427",
+      "nisn_hash": "105c38c4a6475c3f380921aabe8009d537687aa5651d4b1255783a52882030d5",
+      "nama": "RENDI",
+      "jk": "L"
+    },
+    {
+      "no": 23,
+      "uid": "fc8d41b280a55f50733a58752028828c396194f23c66a7897132ee1021a67161",
+      "nis_hash": "8b6f4fc49d3bb48a8bf57c04fb175f9be8210875b26901606c2ad8a842cfa4cc",
+      "nisn_hash": "fb45bf2ffb11258d95369875e80bac4952c36eecad29b2c3b57077e2afb1bad3",
+      "nama": "REVAL AQILAH SHADAN",
+      "jk": "L"
+    },
+    {
+      "no": 24,
+      "uid": "194daa974f03bacc6f7e664d1dfec70ab31da63b09a9943af44a3996ffcc4ab4",
+      "nis_hash": "751c38651272b7cf0b831245453c1384e9c458035dd90107353ad3e56817e53d",
+      "nisn_hash": "771075d6ec21d1f356d0eb47015cf2235cfbc7a206942421f173cd15d21a123c",
+      "nama": "RIFKI FAUZI HIDAYAT",
+      "jk": "L"
+    },
+    {
+      "no": 25,
+      "uid": "be9d49418695be53be9f0fe4461125030c074ac5d985dd07aa4b770b13c28e9e",
+      "nis_hash": "b510fbaea61c0a85986d3d96ab8062c791667d0763989648018668b22854ee63",
+      "nisn_hash": "3621a3bbdcd5fd89d46900d0ebaeef1283b54fd62c5a7891cf9ff6a085731012",
+      "nama": "TRI JOKO",
+      "jk": "L"
+    },
+    {
+      "no": 26,
+      "uid": "349f823516bbd171beb84e5cc5880bbf8e8941f129909ab4a842a7b8a7a342d8",
+      "nis_hash": "73d430ccd4b4ed0058ff0160e983a2c43a89e2d953deb538b8e4edca8082614d",
+      "nisn_hash": "3ac6f9ec214ec268fc72e34509e6028564edecb4c07c1d2e78fca47d6344918e",
+      "nama": "WAHYU HIDAYATULLAH",
+      "jk": "L"
+    }
   ],
   "XII TP": [
-    { "no": 1, "nis": "242510106", "nisn": "3091167290", "nama": "AFDILLAH FAUZAN", "jk": "L" },
-    { "no": 2, "nis": "242510107", "nisn": "0085457613", "nama": "AHMAD ARIB", "jk": "L" },
-    { "no": 3, "nis": "242510108", "nisn": "0086585042", "nama": "AHMAD RIFA'I", "jk": "L" },
-    { "no": 4, "nis": "242510109", "nisn": "0093467866", "nama": "ALVINO JUAND FIRDAUS", "jk": "L" },
-    { "no": 5, "nis": "242510110", "nisn": "0091792857", "nama": "DERLYAN PUTRO NUGROHO", "jk": "L" },
-    { "no": 6, "nis": "242510111", "nisn": "0087936287", "nama": "ERLANGGA ADI PUTRA", "jk": "L" },
-    { "no": 7, "nis": "242510112", "nisn": "0099709462", "nama": "FAREL FADHILAH", "jk": "L" },
-    { "no": 8, "nis": "242510113", "nisn": "0102394664", "nama": "FERI WICAKSENO", "jk": "L" },
-    { "no": 9, "nis": "242510114", "nisn": "0093107281", "nama": "FIRMAN SYAH PUTRA", "jk": "L" },
-    { "no": 10, "nis": "242510116", "nisn": "0098448613", "nama": "ILHAM SETYO NUGROHO", "jk": "L" },
-    { "no": 11, "nis": "242510119", "nisn": "0077011445", "nama": "MUHAMMAD RIDZKY NUGRAHA", "jk": "L" },
-    { "no": 12, "nis": "242510121", "nisn": "3086147537", "nama": "RADHITIA MAULANA ILLMI", "jk": "L" },
-    { "no": 13, "nis": "242510122", "nisn": "0085656567", "nama": "RAFA AL BANI", "jk": "L" },
-    { "no": 14, "nis": "242510123", "nisn": "0099637814", "nama": "RIFA'I AZIZ SYAHPUTRA", "jk": "L" },
-    { "no": 15, "nis": "242510125", "nisn": "0094914687", "nama": "WAHYU SUPRIYANSYAH", "jk": "L" }
+    {
+      "no": 1,
+      "uid": "e87e0f06a50d8dca33cea6548a848f53b86894a65fc5b93264846c6d871e710a",
+      "nis_hash": "fa590f16eb8a87442e5516894f7f342b01a056acd9b4fa16774d2d9a0bbe5ae7",
+      "nisn_hash": "71855931aeadbdfe35bb8f17c11c1c056ca5a518692879a65be5243307c2ce1c",
+      "nama": "AFDILLAH FAUZAN",
+      "jk": "L"
+    },
+    {
+      "no": 2,
+      "uid": "a8216c8eb3aee8f11f9e6f4a3900263f8c9164b85766fa8d86721d161d2529e9",
+      "nis_hash": "8162b7b6116a967fa60c96e2ccd45e83de2112c691faadaad3fef79e6e9022ad",
+      "nisn_hash": "afe058e20ca702dffa2b2a11112a5a2fc110a3745c065762fb10c35c156f1062",
+      "nama": "AHMAD ARIB",
+      "jk": "L"
+    },
+    {
+      "no": 3,
+      "uid": "7cdf9b4618e9436fb6f25ed7916ba920d4a0e9a133c6bcc982945533be535e50",
+      "nis_hash": "e70c5bc5f43988c989156800a60da1e8d435a69d3fb86ee10df0017510bc5a51",
+      "nisn_hash": "b3e1a53bf9840a51045afe08f93efb42af1c289a1a33ecc5ea12d3e07c358029",
+      "nama": "AHMAD RIFA'I",
+      "jk": "L"
+    },
+    {
+      "no": 4,
+      "uid": "4dd80f8c17d70b63e0079528f20745a36eab7e64fd3e8e8dde8aa04e0c46ca2a",
+      "nis_hash": "db54f14b0621d7713e99ef1c4303350628d98218141e32fecfa7b0abc8365fb2",
+      "nisn_hash": "29188fc93d480d94fc9cfbc0b6605398f23629d524fac1a516bebd9a388e51fb",
+      "nama": "ALVINO JUAND FIRDAUS",
+      "jk": "L"
+    },
+    {
+      "no": 5,
+      "uid": "8374ba9f61c4e2278c94c2c94284f9e2da0493998215e7841760e065346a244c",
+      "nis_hash": "32dbcc92939041cceb74154baf727dc15a5316c0a39485f1b6af6d207f7d5347",
+      "nisn_hash": "8b6481af1221f0f9d211055be3002be4b8347ecaef66057346b87bb4f0799e80",
+      "nama": "DERLYAN PUTRO NUGROHO",
+      "jk": "L"
+    },
+    {
+      "no": 6,
+      "uid": "8327d71519b62138c2dd888476c1ebc4f23ac9375e2e8f8222ae263fd14908ed",
+      "nis_hash": "c07bbcc0f378189c5f139a7b5abc0eea1fe72ba77affc7b4d2c742673aa5e45e",
+      "nisn_hash": "c8d9f80773ab69797a151ec3895c2992ca497e53fd0d1794639cb41df1388435",
+      "nama": "ERLANGGA ADI PUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 7,
+      "uid": "71cb4e06ec0c4949b41a7cc5c02961ceb69c14d7f159d77bf0aa96c257b02477",
+      "nis_hash": "dd0135360ba5059c5958a10f58f2e64db28dbfc75d5a9857057016835ae84541",
+      "nisn_hash": "e0c02d8884167b67297d9c8488bca34afb514f127d6aaf88b1424a5a32a598ab",
+      "nama": "FAREL FADHILAH",
+      "jk": "L"
+    },
+    {
+      "no": 8,
+      "uid": "2329542ca8b5f8691c7e75540feb400ac3a36d959371f08c946bba2b11cbf462",
+      "nis_hash": "71526b3b605207c00e129502359ed4b8ba603d4e303e9124e6d04e6466829791",
+      "nisn_hash": "e7e5709251a36d0107e787cc9d23833af6ce376531a7f2bd085e862ecd5cfb4f",
+      "nama": "FERI WICAKSENO",
+      "jk": "L"
+    },
+    {
+      "no": 9,
+      "uid": "a3e2c884a7276a8b622c9aebec96e63bf71fc776b85510f19183b8184de8ee53",
+      "nis_hash": "7fddf343bec7159b229b9a285bed86baa1a81f37eda82789ce2508851826cfd5",
+      "nisn_hash": "7752d55e1cfa15f954270d3659d707dbff780b2c6b22d634796b2bcb93106829",
+      "nama": "FIRMAN SYAH PUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 10,
+      "uid": "8e397ff5f21450253705dcf19443ef7cc14a7963e5ba44cb97494a6963f9c83a",
+      "nis_hash": "7293ac745ca984c11a2af5a7867e9b31a7c2861286bff885588e81fa54f8e459",
+      "nisn_hash": "3ee794676e6515b0e812487c2baaa04a52f5d7d3c203a1f61b3280a34a02cd65",
+      "nama": "ILHAM SETYO NUGROHO",
+      "jk": "L"
+    },
+    {
+      "no": 11,
+      "uid": "0671b627f3e4c45e06a85c83fe1e9c61cc3e90f8aa5d0eaca3d744f159ade590",
+      "nis_hash": "a1abf16cb1432d010202892a4293c7736be4c4515bbdb5152d06053c7814c2c4",
+      "nisn_hash": "ac4ef42329d42c3716bb6698376d288d93e8cdf1cd5689e57553294ac34c3746",
+      "nama": "MUHAMMAD RIDZKY NUGRAHA",
+      "jk": "L"
+    },
+    {
+      "no": 12,
+      "uid": "9645e9a5c766df4fa20f07246117aa4963afc28e94bdf2d719a4bfca34f42d19",
+      "nis_hash": "e540847e3a1d3453ecea16ab4c333f258b81231c8a0c6cb76d37537973dd6cb9",
+      "nisn_hash": "b9a2b5027bd603b65c0addb2c6ef45a8d98e8528a7f02d62c22b57566ef9bd9c",
+      "nama": "RADHITIA MAULANA ILLMI",
+      "jk": "L"
+    },
+    {
+      "no": 13,
+      "uid": "c5ab9e48a145681072b3341c016a994af940357945a224178e2a83ec9f21bb8e",
+      "nis_hash": "7c7569bf1d1f2969327fa93b84675db975635874d6813058efd19542ab0f35f1",
+      "nisn_hash": "bef369e1199969349dff7c6918e1fe9f5e8f6e611759ed4e15a39b4a2daf2588",
+      "nama": "RAFA AL BANI",
+      "jk": "L"
+    },
+    {
+      "no": 14,
+      "uid": "cd6b9576665ccb86ea54d896fa5f11903771da2d24482a4a978bcf8a881c5ae6",
+      "nis_hash": "e8cfdf08d369b34ca6a2eb536bc98ee2b306572be0a8ec6eb8f079a3222f0cb4",
+      "nisn_hash": "7fa64f799f889e6b0321d9ca8eba5d49d4d2ca0f387cf8bb679f54dad6728f77",
+      "nama": "RIFA'I AZIZ SYAHPUTRA",
+      "jk": "L"
+    },
+    {
+      "no": 15,
+      "uid": "f1a85ba70b3c20d28f005287e444728dc042e38740e046c39f553b3dbb381855",
+      "nis_hash": "be7b3b460d45642e7d2823cdeccae3a9d416574ff748147e3f9f463e889e5554",
+      "nisn_hash": "90c886bcf069d5e83c88e472022d0ee625d707852643feb383b3cd83d5eebf59",
+      "nama": "WAHYU SUPRIYANSYAH",
+      "jk": "L"
+    }
   ]
 }

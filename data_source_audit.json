@@ -1,0 +1,4 @@
+{
+  "generatedAt": "2026-09-05",
+  "note": "Sensitive identifiers are represented only by SHA-256 hashes in this runtime dataset. Names remain plaintext because the browser must display them; SHA-256 cannot be reversed."
+}

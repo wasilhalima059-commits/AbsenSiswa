@@ -1,176 +1,53 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi Absensi Digital</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f6f9;
-      color: #333;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    select, input[type="date"], button {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 25px;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08111f">
+<title>Absensi Digital — Login</title>
+<style>
+:root{--bg:#07111f;--panel:rgba(13,27,47,.78);--line:rgba(148,163,184,.18);--text:#eff6ff;--muted:#9fb0c8;--primary:#38bdf8;--primary2:#60a5fa;--success:#34d399;--danger:#fb7185;--shadow:0 24px 80px rgba(0,0,0,.32)}
+*{box-sizing:border-box}html{min-height:100%;background:var(--bg)}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,rgba(56,189,248,.16),transparent 34%),radial-gradient(circle at 90% 80%,rgba(96,165,250,.12),transparent 30%),linear-gradient(135deg,#07111f,#0b1628 48%,#081220);overflow-x:hidden}.orb{position:fixed;width:360px;height:360px;border-radius:50%;filter:blur(70px);opacity:.18;pointer-events:none;animation:float 11s ease-in-out infinite}.orb.a{background:#38bdf8;left:-120px;top:-120px}.orb.b{background:#818cf8;right:-140px;bottom:-160px;animation-delay:-5s}.shell{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:28px 0 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px}.brandmark{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),#818cf8);box-shadow:0 12px 34px rgba(56,189,248,.25)}.brandmark svg{width:24px}.brand b{display:block;font-size:15px}.brand span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.secure{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 12px;color:#c7d5e9;font-size:12px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}.intro,.auth{border:1px solid var(--line);background:linear-gradient(180deg,rgba(17,34,57,.82),rgba(10,21,36,.78));border-radius:28px;box-shadow:var(--shadow);backdrop-filter:blur(18px)}.intro{padding:42px;position:relative;overflow:hidden}.intro:after{content:"";position:absolute;inset:auto -80px -130px auto;width:300px;height:300px;border:1px solid rgba(56,189,248,.14);border-radius:50%;box-shadow:0 0 0 36px rgba(56,189,248,.04),0 0 0 72px rgba(56,189,248,.025)}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#b9dbff;background:rgba(56,189,248,.09);border:1px solid rgba(56,189,248,.18);padding:8px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em}.intro h1{font-size:clamp(34px,5vw,58px);line-height:1.02;margin:20px 0 16px;letter-spacing:-.045em}.intro h1 span{background:linear-gradient(90deg,#e0f2fe,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent}.intro p{color:#afbdd0;max-width:590px;line-height:1.72;margin:0}.feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}.feature{padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}.feature strong{display:block;font-size:13px;margin-bottom:5px}.feature small{color:var(--muted);line-height:1.5}.auth{padding:32px}.auth-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.auth-head h2{margin:0;font-size:23px}.auth-head p{color:var(--muted);font-size:13px;margin:7px 0 0;line-height:1.5}.step{font-variant-numeric:tabular-nums;color:#9bdcff;font-size:12px;border:1px solid rgba(56,189,248,.18);padding:6px 9px;border-radius:999px;background:rgba(56,189,248,.06)}.progress{height:5px;border-radius:999px;background:#13253d;margin:24px 0;overflow:hidden}.progress>span{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:inherit;transition:width .35s ease}.label{font-size:12px;color:#cbd5e1;font-weight:700;margin:18px 0 9px;display:block}.class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.class-btn{appearance:none;border:1px solid var(--line);background:rgba(255,255,255,.025);color:#dbeafe;padding:14px 10px;border-radius:16px;cursor:pointer;transition:.22s;min-height:70px;text-align:left}.class-btn strong{display:block;font-size:18px}.class-btn small{color:var(--muted);font-size:11px}.class-btn:hover{transform:translateY(-2px);border-color:rgba(96,165,250,.45);background:rgba(96,165,250,.08)}.class-btn.active{border-color:#38bdf8;background:linear-gradient(180deg,rgba(56,189,248,.15),rgba(96,165,250,.08));box-shadow:0 0 0 1px rgba(56,189,248,.08) inset}.selected{margin-top:13px;padding:12px 14px;border-radius:15px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.15);color:#c7f9e5;font-size:12px;display:none}.form{animation:rise .35s ease}.hidden{display:none!important}.input-wrap{position:relative}.input{width:100%;border:1px solid var(--line);background:rgba(4,12,23,.55);color:#f8fafc;padding:15px 15px 15px 46px;border-radius:15px;outline:none;font-size:15px;transition:.2s}.input:focus{border-color:#60a5fa;box-shadow:0 0 0 4px rgba(96,165,250,.1)}.input-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#7e94b1}.login{width:100%;border:0;border-radius:15px;padding:15px;font-weight:800;color:#03111e;background:linear-gradient(90deg,#7dd3fc,#60a5fa);cursor:pointer;margin-top:14px;box-shadow:0 14px 32px rgba(56,189,248,.2);transition:.22s}.login:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(56,189,248,.27)}.back{border:0;background:transparent;color:#8fb0cf;padding:10px 0;cursor:pointer;font-size:12px}.error{margin-top:12px;color:#fecdd3;background:rgba(251,113,133,.07);border:1px solid rgba(251,113,133,.16);padding:11px 13px;border-radius:13px;font-size:12px;line-height:1.5}.hint{color:#7f93ae;font-size:11px;line-height:1.55;margin:16px 2px 0}.footer{margin-top:18px;color:#71839c;font-size:11px;text-align:center;line-height:1.6}.badge{font-weight:800;color:#dbeafe}.loading{position:fixed;inset:0;background:rgba(2,8,16,.68);backdrop-filter:blur(8px);display:grid;place-items:center;z-index:20;opacity:0;pointer-events:none;transition:.2s}.loading.show{opacity:1;pointer-events:auto}.loader-card{padding:22px 25px;border:1px solid var(--line);background:#0d1b2f;border-radius:20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:13px;color:#dbeafe;font-size:13px}.spinner{width:18px;height:18px;border-radius:50%;border:2px solid #32506f;border-top-color:#7dd3fc;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes float{50%{transform:translate3d(25px,-18px,0)}}@media(max-width:900px){.hero{grid-template-columns:1fr}.intro{padding:30px}.auth{padding:26px}}@media(max-width:560px){.shell{width:min(100% - 20px,1120px)}.topbar{align-items:flex-start}.secure{display:none}.feature-row{grid-template-columns:1fr}.class-grid{grid-template-columns:repeat(2,1fr)}.intro h1{font-size:39px}.auth{padding:22px;border-radius:22px}.intro{border-radius:22px}}
+</style>
 </head>
 <body>
-
-  <div class="container">
-    <h2>Form Absensi Siswa</h2>
-
-    <form id="formAbsensi">
-      <!-- 1. Elemen UI Selection Siswa -->
-      <div class="form-group">
-        <label for="selectSiswa">Pilih Siswa:</label>
-        <select id="selectSiswa" required>
-          <option value="">-- Memuat data siswa... --</option>
-        </select>
-      </div>
-
-      <!-- 2. Elemen UI Tanggal -->
-      <div class="form-group">
-        <label for="inputTanggal">Tanggal:</label>
-        <input type="date" id="inputTanggal" required>
-      </div>
-
-      <!-- 3. Elemen UI Selection Status Absensi -->
-      <div class="form-group">
-        <label for="selectStatus">Status Kehadiran:</label>
-        <select id="selectStatus" required>
-          <option value="Hadir">Hadir</option>
-          <option value="Izin">Izin</option>
-          <option value="Sakit">Sakit</option>
-          <option value="Alpa">Alpa</option>
-        </select>
-      </div>
-
-      <button type="submit">Simpan Absensi</button>
-    </form>
-
-    <!-- Tabel Rekap Absensi -->
-    <h3>Rekap Absensi Hari Ini</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>NIS</th>
-          <th>Nama</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="tabelAbsensi">
-        <!-- Data absensi yang disimpan akan muncul di sini -->
-      </tbody>
-    </table>
+<div class="orb a"></div><div class="orb b"></div>
+<div class="shell">
+<header class="topbar">
+  <div class="brand"><div class="brandmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4V5.5Z"/><path d="M4 16v3.5A1.5 1.5 0 0 0 5.5 21H20"/><path d="M8 7h8M8 10h8M8 13h5"/></svg></div><div><b>Absensi Digital</b><span>Secure Student Attendance</span></div></div>
+  <div class="secure">● SHA-256 verification</div>
+</header>
+<main class="hero">
+<section class="intro">
+  <div class="eyebrow">● SISTEM ABSENSI SEKOLAH</div>
+  <h1>Masuk ke <span>kelasmu.</span><br>Kelola kehadiran dengan rapi.</h1>
+  <p>Alur login baru dimulai dari pemilihan kelas, lalu verifikasi NISN secara lokal menggunakan SHA-256. Data absensi tersimpan per kelas dan tanggal agar rekap tetap terstruktur.</p>
+  <div class="feature-row"><div class="feature"><strong>Class-first</strong><small>Kelas dipilih sebelum identitas diverifikasi.</small></div><div class="feature"><strong>Hash-based</strong><small>NIS/NISN tidak disimpan sebagai plaintext di JSON.</small></div><div class="feature"><strong>Responsive</strong><small>Nyaman dipakai di HP, tablet, dan desktop.</small></div></div>
+</section>
+<section class="auth">
+  <div class="auth-head"><div><h2 id="authTitle">Pilih kelas</h2><p id="authSubtitle">Tentukan kelas terlebih dahulu sebelum login.</p></div><div class="step" id="stepLabel">01 / 02</div></div>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div id="stepClass">
+    <span class="label">Tingkat</span>
+    <div class="class-grid" id="classGrid"></div>
+    <div class="selected" id="selectedClass"></div>
+    <button class="login" id="continueBtn" type="button" disabled>Lanjut ke verifikasi NISN</button>
   </div>
-
-  <!-- Script JavaScript untuk Menghubungkan UI dengan data_siswa.json -->
-  <script>
-    // Set tanggal default ke hari ini
-    document.getElementById('inputTanggal').valueAsDate = new Date();
-
-    // Mengambil data dari file data_siswa.json
-    fetch('data_siswa.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Gagal mengambil file JSON');
-        }
-        return response.json();
-      })
-      .then(dataSiswa => {
-        const selectSiswa = document.getElementById('selectSiswa');
-        selectSiswa.innerHTML = '<option value="">-- Pilih Siswa --</option>';
-
-        // Memasukkan setiap siswa ke dalam dropdown (UI selection)
-        dataSiswa.forEach(siswa => {
-          const option = document.createElement('option');
-          option.value = siswa.nis;
-          option.textContent = `${siswa.nis} - ${siswa.nama}`;
-          // Menyimpan nama siswa di atribut data agar mudah diambil saat submit
-          option.setAttribute('data-nama', siswa.nama);
-          selectSiswa.appendChild(option);
-        });
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('selectSiswa').innerHTML = '<option value="">Gagal memuat data siswa</option>';
-      });
-
-    // Menangani penambahan data absensi ke tabel
-    document.getElementById('formAbsensi').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const selectSiswa = document.getElementById('selectSiswa');
-      const nis = selectSiswa.value;
-      const nama = selectSiswa.options[selectSiswa.selectedIndex].getAttribute('data-nama');
-      const status = document.getElementById('selectStatus').value;
-
-      if (!nis) return;
-
-      // Tambah baris baru ke tabel
-      const tabel = document.getElementById('tabelAbsensi');
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${nis}</td>
-        <td>${nama}</td>
-        <td><strong>${status}</strong></td>
-      `;
-      tabel.appendChild(row);
-
-      // Reset pilihan dropdown
-      selectSiswa.value = '';
-    });
-  </script>
-
+  <div id="stepLogin" class="hidden form">
+    <button class="back" type="button" id="backBtn">← Ganti kelas</button>
+    <span class="label">Kelas aktif</span>
+    <div class="selected" id="selectedClassLogin" style="display:block"></div>
+    <label class="label" for="nisnInput">NISN</label>
+    <div class="input-wrap"><svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/></svg><input class="input" id="nisnInput" inputmode="numeric" autocomplete="off" maxlength="18" placeholder="Masukkan NISN"/></div>
+    <button class="login" id="loginBtn" type="button">Verifikasi & Masuk</button>
+    <div id="errorBox" class="error hidden"></div>
+    <p class="hint">Catatan keamanan: SHA-256 adalah hash satu arah. Karena itu, NISN di JSON hanya disimpan sebagai hash dan tidak dapat dipulihkan oleh browser.</p>
+  </div>
+  <div class="footer">Portal ini menggunakan sesi browser untuk login. Logout menghapus sesi aktif dari perangkat.</div>
+</section>
+</main>
+</div>
+<div class="loading" id="loading"><div class="loader-card"><span class="spinner"></span><span>Memverifikasi data…</span></div></div>
+<script src="script.js" defer></script>
 </body>
 </html>
