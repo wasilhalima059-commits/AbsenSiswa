@@ -16,7 +16,7 @@
 <section class="stats"><div class="stat"><small>Total siswa</small><b id="total">0</b></div><div class="stat"><small>Hadir</small><b id="hadir">0</b></div><div class="stat"><small>Izin</small><b id="izin">0</b></div><div class="stat"><small>Sakit</small><b id="sakit">0</b></div><div class="stat"><small>Alpha</small><b id="alpha">0</b></div></section>
 <section class="card"><div class="cardhead"><div><h2>Rekap kehadiran</h2><span class="muted" id="dateText"></span></div><div class="tools"><input class="search" id="search" placeholder="Cari nama..."><input class="date" id="date" type="date"><button class="btn" id="all">Semua Hadir</button></div></div><div class="tablewrap"><table class="table"><thead><tr><th>No</th><th>Nama</th><th>JK</th><th>Status</th></tr></thead><tbody id="body"></tbody></table></div><div class="empty hidden" id="empty">Tidak ada siswa.</div></section>
 </div>
-<script>
+<script src="config.js"></script><script>
 (()=>{"use strict";
 const SESSION_KEY="absensi_session_v3",DATA_URL="data_siswa.json",STATUS=["Hadir","Izin","Sakit","Alpha"];
 let session,data={},students=[],dateKey="";
@@ -24,12 +24,23 @@ const $=id=>document.getElementById(id);
 function loadSession(){try{session=JSON.parse(sessionStorage.getItem(SESSION_KEY)||"null")}catch{session=null}if(!session?.role||!session?.className){location.href="index.html";return false}return true}
 function key(){return `absensi_v3_${session.className}_${dateKey}`}
 function record(){try{return JSON.parse(localStorage.getItem(key())||"{}")}catch{return {}}}
-function save(r){localStorage.setItem(key(),JSON.stringify(r))}
+async function save(r){
+  localStorage.setItem(key(),JSON.stringify(r));
+  const base=window.ABSENSI_CONFIG?.API_BASE_URL?.replace(/\/$/,"");
+  if(!base) return;
+  try{ await fetch(`${base}/api/attendance?class=${encodeURIComponent(session.className)}&date=${encodeURIComponent(dateKey)}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)}); }catch(e){ console.warn("Sinkronisasi backend gagal",e); }
+}
+async function pull(){
+  const base=window.ABSENSI_CONFIG?.API_BASE_URL?.replace(/\/$/,"");
+  if(!base) return record();
+  try{ const r=await fetch(`${base}/api/attendance?class=${encodeURIComponent(session.className)}&date=${encodeURIComponent(dateKey)}`,{cache:"no-store"}); if(!r.ok) throw Error(); const data=await r.json(); localStorage.setItem(key(),JSON.stringify(data)); return data; }catch{return record();}
+}
 function today(){let d=new Date();return d.toISOString().slice(0,10)}
-function stats(){let r=record(),c={Hadir:0,Izin:0,Sakit:0,Alpha:0};students.forEach(s=>c[r[s.uid]||"Hadir"]++);$("total").textContent=students.length;$("hadir").textContent=c.Hadir;$("izin").textContent=c.Izin;$("sakit").textContent=c.Sakit;$("alpha").textContent=c.Alpha}
-function render(){let q=$("search").value.toLowerCase(),r=record(),body=$("body");body.innerHTML="";let n=0;students.forEach(s=>{if(q&&!s.nama.toLowerCase().includes(q))return;n++;let tr=document.createElement("tr");tr.innerHTML=`<td>${s.no}</td><td><b>${s.nama}</b></td><td>${s.jk||"-"}</td><td></td>`;let td=tr.lastElementChild;if(session.role==="guru"){let sel=document.createElement("select");sel.className="status";STATUS.forEach(v=>{let o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o)});sel.value=r[s.uid]||"Hadir";sel.onchange=()=>{let x=record();x[s.uid]=sel.value;save(x);render()};td.appendChild(sel)}else{td.innerHTML=`<span class="readonly">${r[s.uid]||"Hadir"}</span>`}body.appendChild(tr)});$("empty").classList.toggle("hidden",n>0);stats()}
-function setup(){if(!loadSession())return;fetch(DATA_URL,{cache:"no-store"}).then(r=>r.json()).then(d=>{data=d;students=data[session.className]||[];if(!students.length)throw Error("kelas");dateKey=today();$("date").value=dateKey;$("rolePill").textContent=session.role==="guru"?"👨‍🏫 Guru":"👨‍🎓 Murid";$("classPill").textContent=session.className;$("title").textContent=session.role==="guru"?`Rekap ${session.className}`:`Kehadiran ${session.className}`;$("subtitle").textContent=session.role==="guru"?"Pilih status setiap siswa lalu rekap akan tersimpan di perangkat ini.":"Ini adalah hasil rekap yang dibuat guru. Kamu tidak dapat mengubah status.";$("notice").textContent=session.role==="guru"?"Mode guru aktif: status dapat diubah.":"Mode murid aktif: data hanya dapat dilihat.";render()}).catch(()=>{location.href="index.html"})}
-$("search").oninput=render;$("date").onchange=()=>{dateKey=$("date").value;render()};$("all").onclick=()=>{if(session.role!=="guru")return;let r={};students.forEach(s=>r[s.uid]="Hadir");save(r);render()};$("logout").onclick=()=>{sessionStorage.removeItem(SESSION_KEY);location.href="index.html"};setup();
+async function stats(){let r=await pull(),c={Hadir:0,Izin:0,Sakit:0,Alpha:0};students.forEach(s=>c[r[s.uid]||"Hadir"]++);$("total").textContent=students.length;$("hadir").textContent=c.Hadir;$("izin").textContent=c.Izin;$("sakit").textContent=c.Sakit;$("alpha").textContent=c.Alpha}
+async function render(){let q=$("search").value.toLowerCase(),r=await pull(),body=$("body");body.innerHTML="";let n=0;students.forEach(s=>{if(q&&!s.nama.toLowerCase().includes(q))return;n++;let tr=document.createElement("tr");tr.innerHTML=`<td>${s.no}</td><td><b>${s.nama}</b></td><td>${s.jk||"-"}</td><td></td>`;let td=tr.lastElementChild;if(session.role==="guru"){let sel=document.createElement("select");sel.className="status";STATUS.forEach(v=>{let o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o)});sel.value=r[s.uid]||"Hadir";sel.onchange=async()=>{let x=await pull();x[s.uid]=sel.value;await save(x);await render()};td.appendChild(sel)}else{td.innerHTML=`<span class="readonly">${r[s.uid]||"Hadir"}</span>`}body.appendChild(tr)});$("empty").classList.toggle("hidden",n>0);await stats()}
+function setup(){if(!loadSession())return;fetch(DATA_URL,{cache:"no-store"}).then(r=>r.json()).then(d=>{data=d;students=data[session.className]||[];if(!students.length)throw Error("kelas");dateKey=today();$("date").value=dateKey;$("rolePill").textContent=session.role==="guru"?"👨‍🏫 Guru":"👨‍🎓 Murid";$("classPill").textContent=session.className;$("title").textContent=session.role==="guru"?`Rekap ${session.className}`:`Kehadiran ${session.className}`;$("subtitle").textContent=session.role==="guru"?`Guru: ${session.teacherName||"—"}. Pilih status setiap siswa lalu rekap akan tersimpan dan disinkronkan jika backend diaktifkan.`:"Ini adalah hasil rekap yang dibuat guru. Kamu tidak dapat mengubah status.";$("notice").textContent=session.role==="guru"?(window.ABSENSI_CONFIG?.API_BASE_URL?"Mode guru aktif: perubahan disinkronkan lintas perangkat.":"Mode guru aktif: penyimpanan lokal aktif; isi API_BASE_URL untuk sinkronisasi lintas perangkat."):"Mode murid aktif: data hanya dapat dilihat dan diperbarui otomatis.";render()}).catch(()=>{location.href="index.html"})}
+$("search").oninput=()=>render();$("date").onchange=()=>{dateKey=$("date").value;render()};$("all").onclick=async()=>{if(session.role!=="guru")return;let r={};students.forEach(s=>r[s.uid]="Hadir");await save(r);await render()};$("logout").onclick=()=>{sessionStorage.removeItem(SESSION_KEY);location.href="index.html"};setup();
+setInterval(()=>{if(session?.role && dateKey) render();}, 3000);
 })();
 </script>
 </body></html>

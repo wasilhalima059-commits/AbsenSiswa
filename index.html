@@ -1,199 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Presensi Siswa - Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <style>
-        body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .login-card {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            width: 100%;
-            max-width: 450px;
-        }
-        .login-header {
-            background: #2563eb;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        .login-body {
-            padding: 30px;
-        }
-        .form-control, .form-select {
-            border-radius: 8px;
-            padding: 12px;
-        }
-        .btn-primary {
-            background: #2563eb;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-        .btn-primary:hover {
-            background: #1d4ed8;
-        }
-        .badge-hash {
-            font-size: 0.75rem;
-            word-break: break-all;
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Absensi Digital — Login</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1b2f;--line:#ffffff1f;--text:#edf6ff;--muted:#94a8c2;--primary:#38bdf8;--primary2:#818cf8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,#163452 0,transparent 32%),radial-gradient(circle at 90% 90%,#20264b 0,transparent 30%),var(--bg)}
+.shell{width:min(1050px,calc(100% - 24px));margin:auto;padding:28px 0}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.brand{display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:22px}.brand b{display:block}.brand small{color:var(--muted)}.secure{font-size:12px;color:#bcecff;border:1px solid var(--line);padding:8px 12px;border-radius:99px}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.hero,.card{border:1px solid var(--line);background:#0d1b2fd9;border-radius:25px;box-shadow:0 24px 70px #0005}.hero{padding:38px}.hero h1{font-size:clamp(35px,6vw,58px);line-height:1.02;margin:20px 0 14px;letter-spacing:-.05em}.hero h1 span{color:#7dd3fc}.hero p{color:var(--muted);line-height:1.7}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:25px}.feature{padding:13px;border:1px solid var(--line);border-radius:15px}.feature b{font-size:12px}.feature small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}
+.card{padding:27px}.head{display:flex;justify-content:space-between;gap:12px}.head h2{margin:0}.head p{margin:6px 0 0;color:var(--muted);font-size:13px}.step{font-size:11px;color:#9fe4ff;border:1px solid var(--line);border-radius:99px;padding:7px 9px;height:max-content}.progress{height:5px;background:#172941;border-radius:99px;margin:22px 0}.progress span{display:block;width:33%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--primary),var(--primary2));transition:.25s}
+.label{display:block;font-size:12px;font-weight:700;color:#cbd5e1;margin:16px 0 8px}.classes,.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.choice{border:1px solid var(--line);background:#ffffff06;color:var(--text);padding:14px;border-radius:15px;text-align:left;cursor:pointer}.choice:hover,.choice.active{border-color:#38bdf8;background:#38bdf81a}.choice b{display:block}.choice small{color:var(--muted)}.input{width:100%;padding:14px;border-radius:13px;border:1px solid var(--line);background:#061323;color:white;outline:0}.input:focus{border-color:#60a5fa;box-shadow:0 0 0 3px #60a5fa18}.btn{width:100%;margin-top:14px;padding:14px;border:0;border-radius:13px;background:linear-gradient(90deg,#7dd3fc,#60a5fa);font-weight:800;color:#03111e;cursor:pointer}.back{border:0;background:none;color:#8fb0cf;cursor:pointer;padding:8px 0}.selected{margin-top:12px;padding:11px;border:1px solid #34d39933;background:#34d3990b;border-radius:12px;color:#b9f5df;font-size:12px}.error{margin-top:11px;padding:11px;border-radius:12px;background:#fb71850d;border:1px solid #fb718533;color:#fecdd3;font-size:12px}.hidden{display:none!important}.foot{text-align:center;color:#71839c;font-size:11px;margin-top:18px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.hero{padding:25px}.features{grid-template-columns:1fr}.secure{display:none}}
+</style>
 </head>
 <body>
-
-<div class="login-card">
-    <div class="login-header">
-        <i class="fa-solid fa-graduation-cap fa-3x mb-2"></i>
-        <h4>Sistem Presensi Siswa</h4>
-        <p class="mb-0 text-white-50">Silakan login sesuai peran Anda</p>
-    </div>
-    <div class="login-body">
-        <form id="loginForm">
-            <!-- Pilihan Kelas -->
-            <div class="mb-3">
-                <label for="kelas" class="form-label font-weight-bold"><i class="fa-solid fa-school me-2"></i>Pilih Kelas</label>
-                <select class="form-select" id="kelas" required>
-                    <option value="" selected disabled>-- Pilih Kelas --</option>
-                    <option value="X IPA 1">X IPA 1</option>
-                    <option value="XI IPS 1">XI IPS 1</option>
-                </select>
-            </div>
-
-            <!-- Pilihan Role -->
-            <div class="mb-3">
-                <label for="role" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Login Sebagai</label>
-                <select class="form-select" id="role" required>
-                    <option value="" selected disabled>-- Pilih Peran --</option>
-                    <option value="guru">Guru</option>
-                    <option value="murid">Murid</option>
-                </select>
-            </div>
-
-            <!-- Field Input Guru -->
-            <div id="guruFields" class="d-none">
-                <div class="mb-3">
-                    <label for="namaGuru" class="form-label"><i class="fa-solid fa-user-tie me-2"></i>Nama Guru</label>
-                    <input type="text" class="form-control" id="namaGuru" placeholder="Masukkan nama Anda">
-                </div>
-                <div class="mb-3">
-                    <label for="passwordGuru" class="form-label"><i class="fa-solid fa-key me-2"></i>Password Guru</label>
-                    <input type="password" class="form-control" id="passwordGuru" placeholder="Password default: 2334">
-                </div>
-            </div>
-
-            <!-- Field Input Murid -->
-            <div id="muridFields" class="d-none">
-                <div class="mb-3">
-                    <label for="nisMurid" class="form-label"><i class="fa-solid fa-id-card me-2"></i>NIS (Nomor Induk Siswa)</label>
-                    <input type="text" class="form-control" id="nisMurid" placeholder="Contoh: 1001 / 1002">
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100 mt-3">
-                <i class="fa-solid fa-right-to-bracket me-2"></i>Masuk Aplikasi
-            </button>
-        </form>
-
-        <div class="alert alert-info mt-4 mb-0 p-2 text-center" style="font-size: 0.85rem;">
-            <i class="fa-solid fa-shield-halved me-1"></i> Keamanan: Data kredensial dienkripsi dengan <strong>SHA-256</strong>.
-        </div>
-    </div>
+<div class="shell">
+<header class="top"><div class="brand"><div class="logo">✓</div><div><b>Absensi Digital</b><small>Role-based attendance</small></div></div><div class="secure">SHA-256</div></header>
+<main class="grid">
+<section class="hero">
+<div style="color:#a9ddff;font-size:12px;font-weight:800">SISTEM ABSENSI SEKOLAH</div>
+<h1>Masuk dengan <span>aman & rapi.</span></h1>
+<p>Pilih kelas dan peran terlebih dahulu. Guru dapat merekap kehadiran, sedangkan murid hanya dapat melihat hasil rekap kelasnya.</p>
+<div class="features"><div class="feature"><b>👨‍🏫 Guru</b><small>Mengelola status kehadiran.</small></div><div class="feature"><b>👨‍🎓 Murid</b><small>Melihat rekap tanpa mengubahnya.</small></div><div class="feature"><b>🔐 Hash</b><small>NIS/NISN dan password diverifikasi SHA-256.</small></div></div>
+</section>
+<section class="card">
+<div class="head"><div><h2 id="title">Pilih kelas</h2><p id="subtitle">Tentukan kelas untuk melanjutkan.</p></div><div class="step" id="step">01 / 03</div></div>
+<div class="progress"><span id="bar"></span></div>
+<div id="classStep"><label class="label">Kelas</label><div class="classes" id="classGrid"></div><button class="btn" id="classNext" disabled>Lanjut</button></div>
+<div id="roleStep" class="hidden"><button class="back" id="backRole">← Kembali</button><label class="label">Login sebagai</label><div class="roles"><button class="choice" data-role="guru"><b>👨‍🏫 Guru</b><small>Rekap absensi</small></button><button class="choice" data-role="murid"><b>👨‍🎓 Murid</b><small>Lihat rekap</small></button></div><div class="selected" id="selectedClass"></div><button class="btn" id="roleNext" disabled>Lanjut</button></div>
+<div id="loginStep" class="hidden"><button class="back" id="backLogin">← Kembali</button><div class="selected" id="summary"></div><div id="teacherNameWrap" class="hidden"><label class="label">Nama guru</label><input class="input" id="teacherName" autocomplete="name" placeholder="Masukkan nama guru"></div><label class="label" id="credentialLabel"></label><input class="input" id="credential" autocomplete="off"><button class="btn" id="loginBtn">Verifikasi & masuk</button><div class="error hidden" id="error"></div></div>
+</section>
+</main><div class="foot">Gunakan melalui GitHub Pages/HTTPS agar Web Crypto API tersedia.</div>
 </div>
-
-<script>
-    // Initialize Data in localStorage if not exists
-    async function initData() {
-        if (!localStorage.getItem('presensiData')) {
-            const res = await fetch('data.json');
-            const data = await res.json();
-            localStorage.setItem('presensiData', JSON.stringify(data));
-        }
-    }
-    initData();
-
-    const roleSelect = document.getElementById('role');
-    const guruFields = document.getElementById('guruFields');
-    const muridFields = document.getElementById('muridFields');
-
-    roleSelect.addEventListener('change', function() {
-        if (this.value === 'guru') {
-            guruFields.classList.remove('d-none');
-            muridFields.classList.add('d-none');
-            document.getElementById('namaGuru').required = true;
-            document.getElementById('passwordGuru').required = true;
-            document.getElementById('nisMurid').required = false;
-        } else if (this.value === 'murid') {
-            muridFields.classList.remove('d-none');
-            guruFields.classList.add('d-none');
-            document.getElementById('nisMurid').required = true;
-            document.getElementById('namaGuru').required = false;
-            document.getElementById('passwordGuru').required = false;
-        }
-    });
-
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const kelas = document.getElementById('kelas').value;
-        const role = roleSelect.value;
-        const storeData = JSON.parse(localStorage.getItem('presensiData'));
-
-        if (role === 'guru') {
-            const nama = document.getElementById('namaGuru').value;
-            const password = document.getElementById('passwordGuru').value;
-            const hashedInputPassword = CryptoJS.SHA256(password).toString();
-
-            // Verifikasi password SHA256 (2334)
-            const expectedHash = CryptoJS.SHA256("2334").toString();
-
-            if (hashedInputPassword === expectedHash) {
-                const session = {
-                    role: 'guru',
-                    nama: nama,
-                    kelas: kelas
-                };
-                localStorage.setItem('userSession', JSON.stringify(session));
-                window.location.href = 'guru.html';
-            } else {
-                alert('Password Guru salah! (Password default: 2334)');
-            }
-        } else if (role === 'murid') {
-            const nis = document.getElementById('nisMurid').value.trim();
-            const hashedNIS = CryptoJS.SHA256(nis).toString();
-
-            // Cari siswa berdasarkan kelas dan hash NIS
-            const foundSiswa = storeData.siswa.find(s => s.kelas === kelas && s.nis_hash === hashedNIS);
-
-            if (foundSiswa) {
-                const session = {
-                    role: 'murid',
-                    nis: foundSiswa.nis,
-                    nama: foundSiswa.nama,
-                    kelas: kelas
-                };
-                localStorage.setItem('userSession', JSON.stringify(session));
-                window.location.href = 'murid.html';
-            } else {
-                alert('NIS tidak ditemukan di kelas ' + kelas + '!
-Pastikan NIS dan Kelas yang dipilih sesuai.');
-            }
-        }
-    });
-</script>
-
+<script src="config.js"></script><script src="script.js"></script>
 </body>
 </html>

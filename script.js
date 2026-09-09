@@ -11,12 +11,12 @@ function showError(m){$("error").textContent=m;$("error").classList.toggle("hidd
 $("classNext").onclick=()=>{setStep(2);$("selectedClass").textContent="✓ Kelas: "+selectedClass};
 $("backRole").onclick=()=>setStep(1);
 document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{selectedRole=b.dataset.role;document.querySelectorAll("[data-role]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("roleNext").disabled=false});
-$("roleNext").onclick=()=>{setStep(3);$("summary").textContent=`✓ ${selectedClass} • ${selectedRole==="guru"?"Guru":"Murid"}`;$("credentialLabel").textContent=selectedRole==="guru"?"Password guru":"NIS / NISN murid";$("credential").placeholder=selectedRole==="guru"?"Masukkan password":"Masukkan NIS atau NISN";$("credential").type=selectedRole==="guru"?"password":"text";$("credential").focus()};
+$("roleNext").onclick=()=>{setStep(3);$("summary").textContent=`✓ ${selectedClass} • ${selectedRole==="guru"?"Guru":"Murid"}`;$("teacherNameWrap").classList.toggle("hidden",selectedRole!=="guru");$("credentialLabel").textContent=selectedRole==="guru"?"Password guru":"NIS / NISN murid";$("credential").placeholder=selectedRole==="guru"?"Masukkan password":"Masukkan NIS atau NISN";$("credential").type=selectedRole==="guru"?"password":"text";$("credential").focus()};
 $("backLogin").onclick=()=>setStep(2);
-$("loginBtn").onclick=async()=>{showError("");let value=norm($("credential").value);if(!value)return showError("Data login belum diisi.");try{
+$("loginBtn").onclick=async()=>{showError("");let value=norm($("credential").value);let teacherName=norm($("teacherName").value);if(selectedRole==="guru"&&!teacherName)return showError("Nama guru belum diisi.");if(!value)return showError("Data login belum diisi.");try{
 if(selectedRole==="guru"){let cfg=await fetch(TEACHER_URL,{cache:"no-store"}).then(r=>r.json());if(await sha256(value)!==cfg.password_sha256)return showError("Password guru salah.")}
 else {let students=data[selectedClass]||[];let h=await sha256(value);let s=students.find(x=>x.nis_hash===h||x.nisn_hash===h);if(!s)return showError("NIS/NISN tidak ditemukan pada kelas yang dipilih.");sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"murid",className:selectedClass,uid:s.uid,loginAt:Date.now()}))}
-if(selectedRole==="guru")sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",className:selectedClass,loginAt:Date.now()}));
+if(selectedRole==="guru")sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",className:selectedClass,teacherName,loginAt:Date.now()}));
 location.href="absensi_digital.html";
 }catch(e){console.error(e);showError("Gagal memuat data. Pastikan file JSON tersedia dan situs dibuka melalui HTTPS.")}};
 (async()=>{try{data=await fetch(DATA_URL,{cache:"no-store"}).then(r=>r.json());renderClasses()}catch(e){$("subtitle").textContent="Data siswa gagal dimuat."}})();
