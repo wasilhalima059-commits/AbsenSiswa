@@ -1,113 +1,23 @@
 (() => {
-  'use strict';
-  const SESSION_KEY = 'absensi_session_v2';
-  const DATA_URL = 'data_siswa.json';
-  const map = {
-    X: ['X TITL','X TKJ','X TKR','X TP'],
-    XI: ['XI TITL','XI TKJ','XI TKR','XI TP'],
-    XII: ['XII TITL','XII TKJ','XII TKR.1','XII TKR.2','XII TP']
-  };
-  let data = {};
-  let selectedClass = '';
-  const $ = id => document.getElementById(id);
-  const normalize = value => String(value ?? '').trim();
-  const setLoading = show => $('loading')?.classList.toggle('show', show);
-  const setError = message => {
-    const box = $('errorBox');
-    if (!box) return;
-    box.textContent = message || '';
-    box.classList.toggle('hidden', !message);
-  };
-  async function sha256(value) {
-    const bytes = new TextEncoder().encode(normalize(value));
-    const digest = await crypto.subtle.digest('SHA-256', bytes);
-    return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2,'0')).join('');
-  }
-  function renderClasses() {
-    const grid = $('classGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    Object.entries(map).forEach(([tingkat, kelas]) => kelas.forEach(k => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'class-btn';
-      button.dataset.class = k;
-      const suffix = k.slice(tingkat.length).trim();
-      button.innerHTML = `<strong>${tingkat}</strong><small>${suffix}</small>`;
-      button.addEventListener('click', () => selectClass(k));
-      grid.appendChild(button);
-    }));
-  }
-  function selectClass(kelas) {
-    selectedClass = kelas;
-    document.querySelectorAll('.class-btn').forEach(b => b.classList.toggle('active', b.dataset.class === kelas));
-    const box = $('selectedClass');
-    box.textContent = `✓ Kelas dipilih: ${kelas}`;
-    box.style.display = 'block';
-    const btn = $('continueBtn');
-    btn.disabled = false;
-    btn.style.opacity = '1';
-  }
-  function goLogin() {
-    if (!selectedClass) return;
-    $('stepClass').classList.add('hidden');
-    $('stepLogin').classList.remove('hidden');
-    $('authTitle').textContent = 'Verifikasi identitas';
-    $('authSubtitle').textContent = 'Masukkan NISN yang terdaftar pada kelas ini.';
-    $('stepLabel').textContent = '02 / 02';
-    $('progressBar').style.width = '100%';
-    $('selectedClassLogin').textContent = `✓ Kelas aktif: ${selectedClass}`;
-    setError('');
-    $('nisnInput').focus();
-  }
-  function goBack() {
-    $('stepLogin').classList.add('hidden');
-    $('stepClass').classList.remove('hidden');
-    $('authTitle').textContent = 'Pilih kelas';
-    $('authSubtitle').textContent = 'Tentukan kelas terlebih dahulu sebelum login.';
-    $('stepLabel').textContent = '01 / 02';
-    $('progressBar').style.width = '50%';
-    $('nisnInput').value = '';
-    setError('');
-  }
-  async function login() {
-    const nisn = normalize($('nisnInput').value);
-    setError('');
-    if (!nisn) return setError('NISN belum diisi.');
-    if (!data[selectedClass]) return setError('Data kelas belum tersedia.');
-    setLoading(true);
-    try {
-      const hash = await sha256(nisn);
-      const student = data[selectedClass].find(s => s.nisn_hash === hash);
-      if (!student) {
-        setLoading(false);
-        return setError('NISN tidak ditemukan pada kelas yang dipilih. Periksa kelas dan NISN lalu coba lagi.');
-      }
-      const session = { version: 2, className: selectedClass, uid: student.uid, nisnHash: hash, loginAt: Date.now() };
-      sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-      sessionStorage.setItem('absensi_nisn_runtime', nisn);
-      location.href = 'absensi_digital.html';
-    } catch (error) {
-      console.error(error);
-      setError('Browser ini tidak dapat menjalankan Web Crypto API. Gunakan browser modern melalui HTTPS/localhost.');
-      setLoading(false);
-    }
-  }
-  async function boot() {
-    try {
-      const response = await fetch(DATA_URL, { cache: 'no-store' });
-      if (!response.ok) throw new Error('Gagal memuat data siswa');
-      data = await response.json();
-      renderClasses();
-      $('continueBtn').addEventListener('click', goLogin);
-      $('backBtn').addEventListener('click', goBack);
-      $('loginBtn').addEventListener('click', login);
-      $('nisnInput').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
-    } catch (error) {
-      console.error(error);
-      $('authSubtitle').textContent = 'Data siswa gagal dimuat. Jalankan project melalui server lokal/HTTPS.';
-      $('continueBtn').disabled = true;
-    }
-  }
-  boot();
+"use strict";
+const DATA_URL="data_siswa.json", TEACHER_URL="data_guru.json", SESSION_KEY="absensi_session_v3";
+const CLASS_MAP={X:["X TITL","X TKJ","X TKR","X TP"],XI:["XI TITL","XI TKJ","XI TKR","XI TP"],XII:["XII TITL","XII TKJ","XII TKR.1","XII TKR.2","XII TP"]};
+let data={},selectedClass="",selectedRole="";
+const $=id=>document.getElementById(id), norm=v=>String(v??"").trim();
+async function sha256(v){const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(norm(v)));return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function setStep(n){document.getElementById("classStep").classList.toggle("hidden",n!==1);document.getElementById("roleStep").classList.toggle("hidden",n!==2);document.getElementById("loginStep").classList.toggle("hidden",n!==3);$("step").textContent=`0${n} / 03`;$("bar").style.width=(n*33.333)+"%";}
+function renderClasses(){let g=$("classGrid");Object.entries(CLASS_MAP).forEach(([level,arr])=>arr.forEach(c=>{let b=document.createElement("button");b.className="choice";b.innerHTML=`<b>${level}</b><small>${c.slice(level.length).trim()}</small>`;b.onclick=()=>{selectedClass=c;document.querySelectorAll("#classGrid .choice").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("classNext").disabled=false};g.appendChild(b)}))}
+function showError(m){$("error").textContent=m;$("error").classList.toggle("hidden",!m)}
+$("classNext").onclick=()=>{setStep(2);$("selectedClass").textContent="✓ Kelas: "+selectedClass};
+$("backRole").onclick=()=>setStep(1);
+document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{selectedRole=b.dataset.role;document.querySelectorAll("[data-role]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("roleNext").disabled=false});
+$("roleNext").onclick=()=>{setStep(3);$("summary").textContent=`✓ ${selectedClass} • ${selectedRole==="guru"?"Guru":"Murid"}`;$("credentialLabel").textContent=selectedRole==="guru"?"Password guru":"NIS / NISN murid";$("credential").placeholder=selectedRole==="guru"?"Masukkan password":"Masukkan NIS atau NISN";$("credential").type=selectedRole==="guru"?"password":"text";$("credential").focus()};
+$("backLogin").onclick=()=>setStep(2);
+$("loginBtn").onclick=async()=>{showError("");let value=norm($("credential").value);if(!value)return showError("Data login belum diisi.");try{
+if(selectedRole==="guru"){let cfg=await fetch(TEACHER_URL,{cache:"no-store"}).then(r=>r.json());if(await sha256(value)!==cfg.password_sha256)return showError("Password guru salah.")}
+else {let students=data[selectedClass]||[];let h=await sha256(value);let s=students.find(x=>x.nis_hash===h||x.nisn_hash===h);if(!s)return showError("NIS/NISN tidak ditemukan pada kelas yang dipilih.");sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"murid",className:selectedClass,uid:s.uid,loginAt:Date.now()}))}
+if(selectedRole==="guru")sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",className:selectedClass,loginAt:Date.now()}));
+location.href="absensi_digital.html";
+}catch(e){console.error(e);showError("Gagal memuat data. Pastikan file JSON tersedia dan situs dibuka melalui HTTPS.")}};
+(async()=>{try{data=await fetch(DATA_URL,{cache:"no-store"}).then(r=>r.json());renderClasses()}catch(e){$("subtitle").textContent="Data siswa gagal dimuat."}})();
 })();
