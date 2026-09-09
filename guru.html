@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Presensi - Guru</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #1e293b;
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-chalkboard-user me-2"></i>Portal Guru - Rekap Presensi</a>
+        <div class="d-flex align-items-center text-white">
+            <span class="me-3" id="userDisplay"></span>
+            <button class="btn btn-outline-light btn-sm" onclick="logout()"><i class="fa-solid fa-right-from-bracket me-1"></i>Keluar</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container mb-5">
+    <div class="card mb-4">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="card-title fw-bold text-primary mb-1">Input Presensi Harian</h5>
+                <p class="text-muted mb-0">Kelas: <strong id="kelasDisplay">-</strong> | Tanggal: <strong id="tanggalDisplay"></strong></p>
+            </div>
+            <div>
+                <button class="btn btn-success fw-bold" onclick="simpanPresensi()"><i class="fa-solid fa-floppy-disk me-2"></i>Simpan Rekap Presensi</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="ps-4">No</th>
+                            <th>NIS</th>
+                            <th>Nama Siswa</th>
+                            <th class="text-center">Status Kehadiran</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelSiswa">
+                        <!-- Dynamic list -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const session = JSON.parse(localStorage.getItem('userSession'));
+    if (!session || session.role !== 'guru') {
+        window.location.href = 'index.html';
+    }
+
+    document.getElementById('userDisplay').innerText = session.nama;
+    document.getElementById('kelasDisplay').innerText = session.kelas;
+    
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('tanggalDisplay').innerText = today;
+
+    const dataStore = JSON.parse(localStorage.getItem('presensiData'));
+    const siswaKelas = dataStore.siswa.filter(s => s.kelas === session.kelas);
+
+    function loadSiswaTable() {
+        const tbody = document.getElementById('tabelSiswa');
+        tbody.innerHTML = '';
+
+        if (siswaKelas.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" class="text-center py-4 text-muted">Tidak ada siswa terdaftar di kelas ini.</td></tr>`;
+            return;
+        }
+
+        siswaKelas.forEach((siswa, index) => {
+            // Cek apakah sudah ada presensi hari ini
+            const existing = dataStore.presensi.find(p => p.tanggal === today && p.nis === siswa.nis);
+            const status = existing ? existing.status : 'Hadir';
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="ps-4">${index + 1}</td>
+                <td><code>${siswa.nis}</code></td>
+                <td class="fw-semibold">${siswa.nama}</td>
+                <td class="text-center">
+                    <div class="btn-group" role="group" aria-label="Status ${siswa.nis}">
+                        <input type="radio" class="btn-check" name="status_${siswa.nis}" id="hadir_${siswa.nis}" value="Hadir" ${status === 'Hadir' ? 'checked' : ''}>
+                        <label class="btn btn-outline-success btn-sm" for="hadir_${siswa.nis}">Hadir</label>
+
+                        <input type="radio" class="btn-check" name="status_${siswa.nis}" id="izin_${siswa.nis}" value="Izin" ${status === 'Izin' ? 'checked' : ''}>
+                        <label class="btn btn-outline-warning btn-sm" for="izin_${siswa.nis}">Izin</label>
+
+                        <input type="radio" class="btn-check" name="status_${siswa.nis}" id="sakit_${siswa.nis}" value="Sakit" ${status === 'Sakit' ? 'checked' : ''}>
+                        <label class="btn btn-outline-info btn-sm" for="sakit_${siswa.nis}">Sakit</label>
+
+                        <input type="radio" class="btn-check" name="status_${siswa.nis}" id="alpa_${siswa.nis}" value="Alpa" ${status === 'Alpa' ? 'checked' : ''}>
+                        <label class="btn btn-outline-danger btn-sm" for="alpa_${siswa.nis}">Alpa</label>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function simpanPresensi() {
+        siswaKelas.forEach(siswa => {
+            const selectedStatus = document.querySelector(`input[name="status_${siswa.nis}"]:checked`).value;
+            
+            // Hapus entry lama jika ada di hari yang sama
+            dataStore.presensi = dataStore.presensi.filter(p => !(p.tanggal === today && p.nis === siswa.nis));
+            
+            // Tambah entry presensi baru
+            dataStore.presensi.push({
+                tanggal: today,
+                kelas: session.kelas,
+                nis: siswa.nis,
+                nama: siswa.nama,
+                status: selectedStatus
+            });
+        });
+
+        localStorage.setItem('presensiData', JSON.stringify(dataStore));
+        alert('Rekap presensi berhasil disimpan!');
+    }
+
+    function logout() {
+        localStorage.removeItem('userSession');
+        window.location.href = 'index.html';
+    }
+
+    loadSiswaTable();
+</script>
+</body>
+</html>

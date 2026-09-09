@@ -1,0 +1,67 @@
+{
+  "guru": [
+    {
+      "nama": "Budi Santoso, S.Pd.",
+      "password_hash": "44d39c6e5e7b45bfc2187fb3c89be58c5a3dc6a54d2a0075402c551c14ea1459"
+    },
+    {
+      "nama": "Siti Rahmawati, M.Pd.",
+      "password_hash": "44d39c6e5e7b45bfc2187fb3c89be58c5a3dc6a54d2a0075402c551c14ea1459"
+    }
+  ],
+  "siswa": [
+    {
+      "nis": "1001",
+      "nis_hash": "fe675fe7aaee830b6fed09b64e034f84dcbdaeb429d9cccd4ebb90e15af8dd71",
+      "nama": "Ahmad Dani",
+      "kelas": "X IPA 1"
+    },
+    {
+      "nis": "1002",
+      "nis_hash": "b281bc2c616cb3c3a097215fdc9397ae87e6e06b156cc34e656be7a1a9ce8839",
+      "nama": "Anisa Putri",
+      "kelas": "X IPA 1"
+    },
+    {
+      "nis": "1003",
+      "nis_hash": "8c9a013ab70c0434313e3e881c310b9ff24aff1075255ceede3f2c239c231623",
+      "nama": "Bagus Wijaya",
+      "kelas": "X IPA 1"
+    },
+    {
+      "nis": "2001",
+      "nis_hash": "85d6385b945c0d602103db39b0b654b2af93b5127938e26a959c123f0789b948",
+      "nama": "Citra Lestari",
+      "kelas": "XI IPS 1"
+    },
+    {
+      "nis": "2002",
+      "nis_hash": "6c94e35ccc352d4e9ef0b99562cff995a5741ce8de8ad11b568892934daee366",
+      "nama": "Dedi Kurniawan",
+      "kelas": "XI IPS 1"
+    }
+  ],
+  "presensi": [
+    {
+      "tanggal": "2026-09-08",
+      "kelas": "X IPA 1",
+      "nis": "1001",
+      "nama": "Ahmad Dani",
+      "status": "Hadir"
+    },
+    {
+      "tanggal": "2026-09-08",
+      "kelas": "X IPA 1",
+      "nis": "1002",
+      "nama": "Anisa Putri",
+      "status": "Izin"
+    },
+    {
+      "tanggal": "2026-09-08",
+      "kelas": "X IPA 1",
+      "nis": "1003",
+      "nama": "Bagus Wijaya",
+      "status": "Hadir"
+    }
+  ]
+}
