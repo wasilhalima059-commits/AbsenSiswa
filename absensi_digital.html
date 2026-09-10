@@ -26,26 +26,52 @@
 <script src="theme.js"></script><script src="config.js"></script><script>
 (()=>{"use strict";
 const SESSION_KEY="absensi_session_v4",DATA_URL="data_siswa.json",STATUS=["Hadir","Izin","Sakit","Alpha"];let session,allData={},students=[],currentEdit=null;
+const GRADES=["X","XI","XII"];
 const $=id=>document.getElementById(id);const today=()=>new Date().toISOString().slice(0,10);
 function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
 function loadSession(){try{session=JSON.parse(sessionStorage.getItem(SESSION_KEY)||"null")}catch{session=null}if(!session?.role||session.role!=="guru"||!session.className){location.href="index.html";return false}return true}
 function api(){return window.ABSENSI_CONFIG?.API_BASE_URL?.replace(/\/$/,"")||""}
 function key(date){return `absensi_v4_${session.className}_${session.academicYear}_${date}`}
-function studentKey(){return `absensi_students_v2_${session.className}`}
+function studentKey(className=session.className,year=session.academicYear){return `absensi_students_v3_${className}_${year}`}
+function academicStart(year){const n=parseInt(String(year||"").split("/")[0],10);return Number.isFinite(n)?n:null}
+function promotedClassName(className,fromYear,toYear){const m=String(className||"").trim().match(/^(XII|XI|X)(\b.*)$/i);if(!m)return null;const from=academicStart(fromYear),to=academicStart(toYear);if(from===null||to===null)return null;const idx=GRADES.indexOf(m[1].toUpperCase()),target=idx+(to-from);if(target<0||target>=GRADES.length)return null;return GRADES[target]+m[2]}
+function classExists(className,year=session.academicYear){return Object.prototype.hasOwnProperty.call(allData,className)||localStorage.getItem(studentKey(className,year))!==null}
 function localRecord(date){try{return JSON.parse(localStorage.getItem(key(date))||"{}")}catch{return {}}}
 async function pullRecord(date){const base=api();if(!base)return localRecord(date);try{const r=await fetch(`${base}/api/attendance?class=${encodeURIComponent(session.className)}&year=${encodeURIComponent(session.academicYear)}&date=${encodeURIComponent(date)}`,{cache:"no-store"});if(!r.ok)throw Error();const d=await r.json();localStorage.setItem(key(date),JSON.stringify(d));return d}catch{return localRecord(date)}}
 async function saveRecord(date,r){localStorage.setItem(key(date),JSON.stringify(r));const base=api();if(!base)return;try{await fetch(`${base}/api/attendance?class=${encodeURIComponent(session.className)}&year=${encodeURIComponent(session.academicYear)}&date=${encodeURIComponent(date)}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(r)})}catch(e){console.warn(e)}}
 function normalizeStudents(raw){let arr=Array.isArray(raw)?raw:[];return arr.map((s,i)=>({uid:String(s.uid||s.nis_hash||s.nisn_hash||s.id||`${session.className}-${i+1}`),nama:String(s.nama||s.name||`Siswa ${i+1}`),jk:String(s.jk||s.gender||"-"),no:s.no??i+1})).filter(s=>s.nama)}
-async function loadStudents(){const local=localStorage.getItem(studentKey());if(local){try{students=normalizeStudents(JSON.parse(local));return}catch{}}const base=api();if(base){try{const r=await fetch(`${base}/api/students?class=${encodeURIComponent(session.className)}`,{cache:"no-store"});if(r.ok){students=normalizeStudents(await r.json());localStorage.setItem(studentKey(),JSON.stringify(students));return}}catch{}}
-if(!Object.keys(allData).length){const r=await fetch(DATA_URL,{cache:"no-store"});allData=await r.json()}students=normalizeStudents(allData[session.className]||[]);localStorage.setItem(studentKey(),JSON.stringify(students))}
+async function loadStudentsFor(className,year){
+  const k=studentKey(className,year),local=localStorage.getItem(k);
+  if(local){try{return {students:normalizeStudents(JSON.parse(local)),exists:true}}catch{}}
+  const base=api();
+  if(base){try{const r=await fetch(`${base}/api/students?class=${encodeURIComponent(className)}&year=${encodeURIComponent(year)}`,{cache:"no-store"});if(r.ok){const data=await r.json();if(Array.isArray(data)&&data.length){const normalized=normalizeStudents(data);localStorage.setItem(k,JSON.stringify(normalized));return {students:normalized,exists:true}}}}catch{}}
+  if(!Object.keys(allData).length){const r=await fetch(DATA_URL,{cache:"no-store"});allData=await r.json()}
+  const raw=Array.isArray(allData?.[className])?allData[className]:[];
+  return {students:normalizeStudents(raw),exists:false};
+}
+async function loadStudents(){const result=await loadStudentsFor(session.className,session.academicYear);students=result.students;localStorage.setItem(studentKey(),JSON.stringify(students))}
+async function saveStudentsFor(className,year,list){
+  const normalized=normalizeStudents(list);localStorage.setItem(studentKey(className,year),JSON.stringify(normalized));
+  const base=api();if(!base)return;
+  try{await fetch(`${base}/api/students?class=${encodeURIComponent(className)}&year=${encodeURIComponent(year)}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(normalized)})}catch(e){console.warn(e)}
+}
 function fillYears(){const now=new Date().getFullYear();const base=now-(new Date().getMonth()<6?1:0);const years=[];for(let y=base-2;y<=base+2;y++)years.push(`${y}/${y+1}`);const el=$("yearSelect");years.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y;el.appendChild(o)});el.value=session.academicYear||`${base}/${base+1}`;session.academicYear=el.value;sessionStorage.setItem(SESSION_KEY,JSON.stringify(session))}
 function fillClasses(){const el=$("classSelect");const classes=Object.keys(allData);if(!classes.includes(session.className))classes.push(session.className);el.innerHTML="";classes.forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;el.appendChild(o)});el.value=session.className}
-function renderHeader(){$("loginInfo").textContent=`Guru: ${session.username||"—"}`;$("classPill").textContent=session.className;$("title").textContent=`Rekap ${session.className}`;$("notice").textContent=api()?"Sinkronisasi backend aktif: perubahan absensi/data siswa dapat dibaca perangkat lain yang memakai backend yang sama.":"Mode lokal aktif: absensi dan perubahan nama tersimpan di browser ini. Isi API_BASE_URL jika ingin sinkron lintas perangkat."}
+function renderHeader(){
+  $("loginInfo").textContent=`Guru: ${session.username||"—"}`;$("classPill").textContent=session.className;$("title").textContent=`Rekap ${session.className}`;
+  const base=api(),start=session.baseAcademicYear||session.academicYear,baseClass=session.baseClassName||session.className;
+  const promoted=promotedClassName(baseClass,start,session.academicYear);
+  let promo="Kenaikan kelas otomatis aktif: ganti Tahun Ajaran untuk menaikkan kelas siswa (X → XI → XII).";
+  if(promoted&&promoted!==session.className)promo+=` Kelas otomatis: ${promoted}.`;
+  else if(!promoted&&/^XII\b/i.test(baseClass)&&academicStart(session.academicYear)>academicStart(start))promo="Kelas XII adalah tingkat akhir; siswa dinyatakan lulus dan tidak naik ke XIII.";
+  else if(!promoted&&academicStart(session.academicYear)<academicStart(start))promo="Tidak ada tingkat kelas di bawah X pada sistem ini.";
+  $("notice").textContent=(base?"Sinkronisasi backend aktif. ":"Mode lokal aktif. ")+promo;
+}
 async function stats(){const date=$("date").value,r=await pullRecord(date),c={Hadir:0,Izin:0,Sakit:0,Alpha:0};students.forEach(s=>c[r[s.uid]||"Alpha"]++);$("total").textContent=students.length;$("hadir").textContent=c.Hadir;$("izin").textContent=c.Izin;$("sakit").textContent=c.Sakit;$("alpha").textContent=c.Alpha}
 async function render(){const date=$("date").value,q=$("search").value.toLowerCase(),r=await pullRecord(date),body=$("body");body.innerHTML="";let n=0;students.forEach((s,i)=>{if(q&&!s.nama.toLowerCase().includes(q))return;n++;const tr=document.createElement("tr");tr.innerHTML=`<td>${i+1}</td><td><b>${safe(s.nama)}</b></td><td>${safe(s.jk)}</td><td></td><td class="rowactions"></td>`;const status=document.createElement("select");status.className="status";STATUS.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=v;status.appendChild(o)});status.value=r[s.uid]||"Alpha";status.onchange=async()=>{const x=await pullRecord(date);x[s.uid]=status.value;await saveRecord(date,x);await refresh()};tr.children[3].appendChild(status);const edit=document.createElement("button");edit.className="btn";edit.textContent="Edit";edit.onclick=()=>openEdit(s);const del=document.createElement("button");del.className="btn danger";del.textContent="Hapus";del.onclick=()=>deleteStudent(s);tr.children[4].append(edit,del);body.appendChild(tr)});$("empty").classList.toggle("hidden",n>0);await stats();await monthlySummary()}
 async function refresh(){await render()}
 async function monthlySummary(){const date=$("date").value||today(),d=new Date(date+"T12:00:00"),year=d.getFullYear(),month=d.getMonth();const days=new Date(year,month+1,0).getDate(),c={Hadir:0,Izin:0,Sakit:0,Alpha:0};for(let day=1;day<=days;day++){const dk=`${year}-${String(month+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`,r=await pullRecord(dk);students.forEach(s=>c[r[s.uid]||"Alpha"]++)}$("monthTitle").textContent=d.toLocaleDateString("id-ID",{month:"long",year:"numeric"});$("mHadir").textContent=c.Hadir;$("mIzin").textContent=c.Izin;$("mSakit").textContent=c.Sakit;$("mAlpha").textContent=c.Alpha}
-async function saveStudents(){localStorage.setItem(studentKey(),JSON.stringify(students));const base=api();if(!base)return;try{await fetch(`${base}/api/students?class=${encodeURIComponent(session.className)}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(students)})}catch(e){console.warn(e)}}
+async function saveStudents(){await saveStudentsFor(session.className,session.academicYear,students)}
 function openEdit(s){currentEdit=s;$("editName").value=s.nama;$("editModal").classList.remove("hidden");setTimeout(()=>$('editName').focus(),30)}
 function closeEdit(){$("editModal").classList.add("hidden");currentEdit=null}
 async function saveEdit(){const name=$("editName").value.trim();if(!name||!currentEdit)return;currentEdit.nama=name;await saveStudents();closeEdit();await refresh()}
@@ -54,8 +80,25 @@ async function setAllPresent(){const date=$("date").value,r={};students.forEach(
 function csvCell(v){return `"${String(v??"").replace(/"/g,'""')}"`}
 async function exportCsv(){const date=$("date").value,d=new Date(date+"T12:00:00"),days=new Date(d.getFullYear(),d.getMonth()+1,0).getDate(),rows=[["No","Nama","JK","Hadir","Izin","Sakit","Alpha","Tahun Ajaran","Kelas"]];for(const s of students){const c={Hadir:0,Izin:0,Sakit:0,Alpha:0};for(let day=1;day<=days;day++){const dk=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`,r=await pullRecord(dk);c[r[s.uid]||"Alpha"]++}rows.push([s.no,s.nama,s.jk,c.Hadir,c.Izin,c.Sakit,c.Alpha,session.academicYear,session.className])}const csv="\ufeff"+rows.map(row=>row.map(csvCell).join(",")).join("\n"),blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`Rekap_${session.className.replaceAll(" ","_")}_${date.slice(0,7)}.csv`;a.click();URL.revokeObjectURL(url)}
 async function printMonthly(){const date=$("date").value,d=new Date(date+"T12:00:00"),days=new Date(d.getFullYear(),d.getMonth()+1,0).getDate(),rows=[];for(const s of students){const c={Hadir:0,Izin:0,Sakit:0,Alpha:0};for(let day=1;day<=days;day++){const dk=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`,r=await pullRecord(dk);c[r[s.uid]||"Alpha"]++}rows.push(`<tr><td>${safe(s.no)}</td><td>${safe(s.nama)}</td><td>${safe(s.jk)}</td><td>${c.Hadir}</td><td>${c.Izin}</td><td>${c.Sakit}</td><td>${c.Alpha}</td></tr>`)}$("printArea").innerHTML=`<h1>Laporan Absensi Bulanan</h1><div class="meta">Kelas: <b>${safe(session.className)}</b> &nbsp;|&nbsp; Tahun Ajaran: <b>${safe(session.academicYear)}</b> &nbsp;|&nbsp; Bulan: <b>${d.toLocaleDateString("id-ID",{month:"long",year:"numeric"})}</b><br>Guru: <b>${safe(session.username)}</b></div><table class="print-table"><thead><tr><th>No</th><th>Nama Siswa</th><th>JK</th><th>Hadir</th><th>Izin</th><th>Sakit</th><th>Alpha</th></tr></thead><tbody>${rows.join("")}</tbody></table><div class="signature"><div>Guru,<br><br><br>________________________<br>${safe(session.username)}</div></div>`;window.print()}
-async function changeClass(){session.className=$("classSelect").value;sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));await loadStudents();renderHeader();await refresh()}
-$("date").value=today();$("date").addEventListener("change",refresh);$("search").addEventListener("input",render);$("yearSelect").addEventListener("change",async()=>{session.academicYear=$("yearSelect").value;sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));await refresh()});$("classSelect").addEventListener("change",changeClass);$("all").onclick=setAllPresent;$("export").onclick=exportCsv;$("print").onclick=printMonthly;$("closeModal").onclick=closeEdit;$("saveEdit").onclick=saveEdit;$("logout").onclick=()=>{sessionStorage.removeItem(SESSION_KEY);location.href="index.html"};$("editModal").addEventListener("click",e=>{if(e.target.id==="editModal")closeEdit()});
+async function changeClass(){
+  session.className=$("classSelect").value;session.baseClassName=session.className;session.baseAcademicYear=session.academicYear;
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));await loadStudents();renderHeader();await refresh();
+}
+async function changeAcademicYear(){
+  const newYear=$("yearSelect").value,oldClass=session.className;
+  const baseClass=session.baseClassName||oldClass,baseYear=session.baseAcademicYear||session.academicYear;
+  const target=promotedClassName(baseClass,baseYear,newYear);
+  session.academicYear=newYear;
+  if(target&&target!==oldClass){
+    const oldStudents=[...students],targetData=await loadStudentsFor(target,newYear);
+    if(!targetData.exists&&oldStudents.length){await saveStudentsFor(target,newYear,oldStudents);students=oldStudents;}else{students=targetData.students;}
+    session.className=target;
+    if(!Object.prototype.hasOwnProperty.call(allData,target))allData[target]=students;
+    fillClasses();
+  }else{await loadStudents();}
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));renderHeader();await refresh();
+}
+$("date").value=today();$("date").addEventListener("change",refresh);$("search").addEventListener("input",render);$("yearSelect").addEventListener("change",changeAcademicYear);$("classSelect").addEventListener("change",changeClass);$("all").onclick=setAllPresent;$("export").onclick=exportCsv;$("print").onclick=printMonthly;$("closeModal").onclick=closeEdit;$("saveEdit").onclick=saveEdit;$("logout").onclick=()=>{sessionStorage.removeItem(SESSION_KEY);location.href="index.html"};$("editModal").addEventListener("click",e=>{if(e.target.id==="editModal")closeEdit()});
 async function init(){if(!loadSession())return;try{const r=await fetch(DATA_URL,{cache:"no-store"});allData=await r.json()}catch{allData={}}fillYears();fillClasses();renderHeader();await loadStudents();await refresh()}init();setInterval(()=>{if(session)render()},8000);
 })();
 </script>
