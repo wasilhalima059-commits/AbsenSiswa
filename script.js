@@ -94,7 +94,8 @@ async function login(e){
 
   const hash=await sha256(password),expected=await getExpectedPasswordHash();
   if(hash!==expected){error.textContent="Password guru salah.";error.classList.remove("hidden");return}
-  sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",username,className,loginAt:new Date().toISOString()}));
+  const now=new Date(),base=now.getFullYear()-(now.getMonth()<6?1:0),academicYear=`${base}/${base+1}`;
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",username,className,baseClassName:className,baseAcademicYear:academicYear,academicYear,loginAt:now.toISOString()}));
   location.href="absensi_digital.html";
 }
 

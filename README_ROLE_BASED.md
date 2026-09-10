@@ -11,6 +11,7 @@ Versi ini mengikuti rancangan terbaru: **tidak ada login murid**. Hanya guru yan
 - Fitur **Lupa Password** dengan kode pemulihan admin/sekolah dan pembuatan password baru.
 - Dashboard menampilkan daftar siswa dari kelas yang dipilih.
 - Pilihan tahun ajaran.
+- **Kenaikan kelas otomatis:** contoh X TP pada 2026/2027 akan menjadi XI TP pada 2027/2028, lalu XII TP pada 2028/2029. Pola yang sama berlaku untuk X/XI/XII TITL, TKJ, TKR, TP, termasuk TKR.1/TKR.2.
 - Absen: Hadir, Izin, Sakit, Alpha.
 - Edit dan hapus nama siswa.
 - Ekspor/rekap bulanan ke CSV.
@@ -67,3 +68,10 @@ Jadi:
 - kelas yang kosong/tidak memiliki siswa tidak akan ditampilkan;
 - dashboard guru juga mengambil kelas dari file data siswa yang sama;
 - kalau `data_siswa.json` tidak ada, login akan menampilkan pesan error, bukan dropdown kelas kosong.
+
+## Kenaikan kelas otomatis
+Pada dashboard, pilihan **Tahun Ajaran** terhubung dengan kelas awal saat guru login. Jika guru login sebagai **X TP** pada **2026/2027**, lalu memilih **2027/2028**, sistem otomatis memindahkan tampilan menjadi **XI TP**. Jika memilih **2028/2029**, menjadi **XII TP**. Siswa dari kelas sebelumnya ikut dibawa ke tahun ajaran baru saat belum ada daftar siswa tersimpan untuk tahun tersebut.
+
+Pola jurusan dipertahankan, misalnya `X TKJ → XI TKJ → XII TKJ`, `X TITL → XI TITL → XII TITL`, dan `X TKR.1 → XI TKR.1 → XII TKR.1`. Kelas XII adalah tingkat akhir sehingga tidak dibuat menjadi XIII.
+
+Jika guru mengganti kelas secara manual pada dashboard, kelas tersebut menjadi titik awal baru untuk perhitungan kenaikan pada pergantian tahun ajaran berikutnya. Data daftar siswa dan absensi dipisahkan berdasarkan kelas + tahun ajaran agar data tahun lama tetap tersimpan.
