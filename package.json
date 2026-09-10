@@ -1,8 +1,7 @@
 {
-  "name": "absensisiswa-sync-backend",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Backend ringan untuk sinkronisasi rekap absensi lintas perangkat",
-  "scripts": { "start": "node server.js" },
-  "engines": { "node": ">=18" }
+  "name":"absensi-guru-backend",
+  "version":"2.0.0",
+  "private":true,
+  "scripts":{"start":"node server.js"},
+  "engines":{"node":">=18"}
 }

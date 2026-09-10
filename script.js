@@ -1,23 +1,15 @@
-(() => {
-"use strict";
-const DATA_URL="data_siswa.json", TEACHER_URL="data_guru.json", SESSION_KEY="absensi_session_v3";
-const CLASS_MAP={X:["X TITL","X TKJ","X TKR","X TP"],XI:["XI TITL","XI TKJ","XI TKR","XI TP"],XII:["XII TITL","XII TKJ","XII TKR.1","XII TKR.2","XII TP"]};
-let data={},selectedClass="",selectedRole="";
-const $=id=>document.getElementById(id), norm=v=>String(v??"").trim();
-async function sha256(v){const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(norm(v)));return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,"0")).join("")}
-function setStep(n){document.getElementById("classStep").classList.toggle("hidden",n!==1);document.getElementById("roleStep").classList.toggle("hidden",n!==2);document.getElementById("loginStep").classList.toggle("hidden",n!==3);$("step").textContent=`0${n} / 03`;$("bar").style.width=(n*33.333)+"%";}
-function renderClasses(){let g=$("classGrid");Object.entries(CLASS_MAP).forEach(([level,arr])=>arr.forEach(c=>{let b=document.createElement("button");b.className="choice";b.innerHTML=`<b>${level}</b><small>${c.slice(level.length).trim()}</small>`;b.onclick=()=>{selectedClass=c;document.querySelectorAll("#classGrid .choice").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("classNext").disabled=false};g.appendChild(b)}))}
-function showError(m){$("error").textContent=m;$("error").classList.toggle("hidden",!m)}
-$("classNext").onclick=()=>{setStep(2);$("selectedClass").textContent="✓ Kelas: "+selectedClass};
-$("backRole").onclick=()=>setStep(1);
-document.querySelectorAll("[data-role]").forEach(b=>b.onclick=()=>{selectedRole=b.dataset.role;document.querySelectorAll("[data-role]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("roleNext").disabled=false});
-$("roleNext").onclick=()=>{setStep(3);$("summary").textContent=`✓ ${selectedClass} • ${selectedRole==="guru"?"Guru":"Murid"}`;$("teacherNameWrap").classList.toggle("hidden",selectedRole!=="guru");$("credentialLabel").textContent=selectedRole==="guru"?"Password guru":"NIS / NISN murid";$("credential").placeholder=selectedRole==="guru"?"Masukkan password":"Masukkan NIS atau NISN";$("credential").type=selectedRole==="guru"?"password":"text";$("credential").focus()};
-$("backLogin").onclick=()=>setStep(2);
-$("loginBtn").onclick=async()=>{showError("");let value=norm($("credential").value);let teacherName=norm($("teacherName").value);if(selectedRole==="guru"&&!teacherName)return showError("Nama guru belum diisi.");if(!value)return showError("Data login belum diisi.");try{
-if(selectedRole==="guru"){let cfg=await fetch(TEACHER_URL,{cache:"no-store"}).then(r=>r.json());if(await sha256(value)!==cfg.password_sha256)return showError("Password guru salah.")}
-else {let students=data[selectedClass]||[];let h=await sha256(value);let s=students.find(x=>x.nis_hash===h||x.nisn_hash===h);if(!s)return showError("NIS/NISN tidak ditemukan pada kelas yang dipilih.");sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"murid",className:selectedClass,uid:s.uid,loginAt:Date.now()}))}
-if(selectedRole==="guru")sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",className:selectedClass,teacherName,loginAt:Date.now()}));
-location.href="absensi_digital.html";
-}catch(e){console.error(e);showError("Gagal memuat data. Pastikan file JSON tersedia dan situs dibuka melalui HTTPS.")}};
-(async()=>{try{data=await fetch(DATA_URL,{cache:"no-store"}).then(r=>r.json());renderClasses()}catch(e){$("subtitle").textContent="Data siswa gagal dimuat."}})();
+(()=>{"use strict";
+const SESSION_KEY="absensi_session_v4", PASSWORD_OVERRIDE_KEY="absensi_password_override_v1", CLASSES=["X TITL","X TKJ","X TKR","X TP","XI TITL","XI TKJ","XI TKR","XI TP","XII TITL","XII TKJ","XII TKR.1","XII TKR.2","XII TP"];
+const $=id=>document.getElementById(id);
+function fillClasses(){const el=$("className");if(!el)return;CLASSES.forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;el.appendChild(o)});}
+async function sha256(value){const bytes=new TextEncoder().encode(value);const hash=await crypto.subtle.digest("SHA-256",bytes);return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("")}
+async function getGuruData(){try{const r=await fetch("data_guru.json",{cache:"no-store"});if(r.ok)return await r.json()}catch{}return {}}
+async function getExpectedPasswordHash(){const override=localStorage.getItem(PASSWORD_OVERRIDE_KEY);if(override)return override;const d=await getGuruData();return d.password_sha256||d.password_hash||await sha256("2334")}
+async function getRecoveryHash(){const d=await getGuruData();return d.recovery_code_sha256||""}
+async function login(e){e.preventDefault();const username=$("username").value.trim(),password=$("password").value,className=$("className").value,error=$("error");error.classList.add("hidden");if(!username||!password||!className){error.textContent="Username, password, dan kelas wajib diisi.";error.classList.remove("hidden");return}const hash=await sha256(password),expected=await getExpectedPasswordHash();if(hash!==expected){error.textContent="Password guru salah.";error.classList.remove("hidden");return}sessionStorage.setItem(SESSION_KEY,JSON.stringify({role:"guru",username,className,loginAt:new Date().toISOString()}));location.href="absensi_digital.html"}
+function clearForm(){$("username").value="";$('password').value="";$('error').classList.add("hidden");$('username').focus()}
+function openReset(){["recoveryCode","newPassword","confirmPassword"].forEach(id=>$(id).value="");$("resetError").classList.add("hidden");$("resetSuccess").classList.add("hidden");$("resetModal").classList.remove("hidden");$("recoveryCode").focus()}
+function closeReset(){$("resetModal").classList.add("hidden")}
+async function resetPassword(){const code=$("recoveryCode").value,newPassword=$("newPassword").value,confirm=$("confirmPassword").value,error=$("resetError"),success=$("resetSuccess");error.classList.add("hidden");success.classList.add("hidden");if(!code||!newPassword||!confirm){error.textContent="Semua kolom pemulihan wajib diisi.";error.classList.remove("hidden");return}if(newPassword.length<4){error.textContent="Password baru minimal 4 karakter.";error.classList.remove("hidden");return}if(newPassword!==confirm){error.textContent="Konfirmasi password tidak sama.";error.classList.remove("hidden");return}const recoveryHash=await getRecoveryHash();if(!recoveryHash||await sha256(code)!==recoveryHash){error.textContent="Kode pemulihan salah.";error.classList.remove("hidden");return}localStorage.setItem(PASSWORD_OVERRIDE_KEY,await sha256(newPassword));success.textContent="Password berhasil diubah. Silakan tutup jendela ini dan login dengan password baru.";success.classList.remove("hidden");$("password").value="";}
+fillClasses();$("loginForm").addEventListener("submit",login);$("cancel").addEventListener("click",clearForm);$("forgotPassword").addEventListener("click",e=>{e.preventDefault();openReset()});$("closeReset").addEventListener("click",closeReset);$("saveNewPassword").addEventListener("click",resetPassword);$("resetModal").addEventListener("click",e=>{if(e.target===$("resetModal"))closeReset()});
 })();

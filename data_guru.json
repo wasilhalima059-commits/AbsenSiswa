@@ -1,4 +1,4 @@
 {
   "password_sha256": "44d39c6e5e7b45bfc2187fb3c89be58c5a3dc6a54d2a0075402c551c14ea1459",
-  "note": "Password asli tidak disimpan; hash SHA-256 digunakan untuk verifikasi."
+  "recovery_code_sha256": "843d678cbfe19d1a9033fc14f045203e3cf4cb8920d7c69c136f6badd9879a1e"
 }

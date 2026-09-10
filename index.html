@@ -2,36 +2,46 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Absensi Digital — Login</title>
+<title>Absensi Digital — Form Login Guru</title>
 <style>
-:root{--bg:#07111f;--panel:#0d1b2f;--line:#ffffff1f;--text:#edf6ff;--muted:#94a8c2;--primary:#38bdf8;--primary2:#818cf8}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,#163452 0,transparent 32%),radial-gradient(circle at 90% 90%,#20264b 0,transparent 30%),var(--bg)}
-.shell{width:min(1050px,calc(100% - 24px));margin:auto;padding:28px 0}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.brand{display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:22px}.brand b{display:block}.brand small{color:var(--muted)}.secure{font-size:12px;color:#bcecff;border:1px solid var(--line);padding:8px 12px;border-radius:99px}
-.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.hero,.card{border:1px solid var(--line);background:#0d1b2fd9;border-radius:25px;box-shadow:0 24px 70px #0005}.hero{padding:38px}.hero h1{font-size:clamp(35px,6vw,58px);line-height:1.02;margin:20px 0 14px;letter-spacing:-.05em}.hero h1 span{color:#7dd3fc}.hero p{color:var(--muted);line-height:1.7}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:25px}.feature{padding:13px;border:1px solid var(--line);border-radius:15px}.feature b{font-size:12px}.feature small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}
-.card{padding:27px}.head{display:flex;justify-content:space-between;gap:12px}.head h2{margin:0}.head p{margin:6px 0 0;color:var(--muted);font-size:13px}.step{font-size:11px;color:#9fe4ff;border:1px solid var(--line);border-radius:99px;padding:7px 9px;height:max-content}.progress{height:5px;background:#172941;border-radius:99px;margin:22px 0}.progress span{display:block;width:33%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--primary),var(--primary2));transition:.25s}
-.label{display:block;font-size:12px;font-weight:700;color:#cbd5e1;margin:16px 0 8px}.classes,.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.choice{border:1px solid var(--line);background:#ffffff06;color:var(--text);padding:14px;border-radius:15px;text-align:left;cursor:pointer}.choice:hover,.choice.active{border-color:#38bdf8;background:#38bdf81a}.choice b{display:block}.choice small{color:var(--muted)}.input{width:100%;padding:14px;border-radius:13px;border:1px solid var(--line);background:#061323;color:white;outline:0}.input:focus{border-color:#60a5fa;box-shadow:0 0 0 3px #60a5fa18}.btn{width:100%;margin-top:14px;padding:14px;border:0;border-radius:13px;background:linear-gradient(90deg,#7dd3fc,#60a5fa);font-weight:800;color:#03111e;cursor:pointer}.back{border:0;background:none;color:#8fb0cf;cursor:pointer;padding:8px 0}.selected{margin-top:12px;padding:11px;border:1px solid #34d39933;background:#34d3990b;border-radius:12px;color:#b9f5df;font-size:12px}.error{margin-top:11px;padding:11px;border-radius:12px;background:#fb71850d;border:1px solid #fb718533;color:#fecdd3;font-size:12px}.hidden{display:none!important}.foot{text-align:center;color:#71839c;font-size:11px;margin-top:18px}
-@media(max-width:800px){.grid{grid-template-columns:1fr}.hero{padding:25px}.features{grid-template-columns:1fr}.secure{display:none}}
+:root{--bg:#07111f;--panel:#0d1b2f;--line:#ffffff20;--text:#edf6ff;--muted:#94a8c2;--primary:#38bdf8;--primary2:#818cf8;--surface:#0d1b2fdc;--input:#061323;--choice:#ffffff08;--danger:#fb7185}
+:root[data-theme="light"]{--bg:#eef4fb;--panel:#fff;--line:#0f172a1a;--text:#172033;--muted:#5f6f85;--primary:#0284c7;--primary2:#6366f1;--surface:#ffffffed;--input:#fff;--choice:#0f172a06;--danger:#e11d48}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,#163452 0,transparent 32%),radial-gradient(circle at 90% 90%,#20264b 0,transparent 30%),var(--bg);transition:.25s}.shell{width:min(980px,calc(100% - 24px));margin:auto;padding:26px 0}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));font-size:22px}.brand b{display:block}.brand small{color:var(--muted)}.tools{display:flex;gap:8px;align-items:center}.badge{font-size:11px;color:#bcecff;border:1px solid var(--line);padding:8px 12px;border-radius:99px}.theme-toggle{border:1px solid var(--line);background:var(--choice);color:var(--text);width:42px;height:42px;border-radius:12px;cursor:pointer;font-size:18px}.grid{display:grid;grid-template-columns:1fr .9fr;gap:18px}.hero,.card{border:1px solid var(--line);background:var(--surface);border-radius:25px;box-shadow:0 24px 70px #0005}.hero{padding:38px}.hero .eyebrow{color:#9fe4ff;font-size:12px;font-weight:800}.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.02;margin:17px 0 14px;letter-spacing:-.05em}.hero h1 span{color:#7dd3fc}.hero p{color:var(--muted);line-height:1.7}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:24px}.feature{padding:13px;border:1px solid var(--line);border-radius:15px}.feature b{font-size:12px}.feature small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}.card{padding:28px}.card h2{margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}.label{display:block;font-size:12px;font-weight:800;color:var(--text);margin:15px 0 8px}.input,.select{width:100%;padding:14px;border-radius:13px;border:1px solid var(--line);background:var(--input);color:var(--text);outline:0}.input:focus,.select:focus{border-color:#60a5fa;box-shadow:0 0 0 3px #60a5fa18}.select{cursor:pointer}.btns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px}.btn{padding:14px;border-radius:13px;border:1px solid var(--line);font-weight:800;cursor:pointer;background:var(--choice);color:var(--text)}.btn.primary{border:0;background:linear-gradient(90deg,#7dd3fc,#60a5fa);color:#03111e}.btn:hover{transform:translateY(-1px)}.forgot{display:block;text-align:center;margin-top:13px;color:var(--primary);font-size:12px;font-weight:800;text-decoration:none;cursor:pointer}.forgot:hover{text-decoration:underline}.modal{position:fixed;inset:0;background:#0008;display:grid;place-items:center;padding:18px;z-index:20}.modal-box{width:min(470px,100%);border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:22px;padding:25px;box-shadow:0 25px 80px #0008}.modal-box h3{margin:0 0 6px}.modal-box p{color:var(--muted);font-size:13px;line-height:1.6}.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.success{margin-top:12px;padding:11px;border-radius:12px;background:#22c55e12;border:1px solid #22c55e44;color:#bbf7d0;font-size:12px}.hint{font-size:11px;color:var(--muted);margin-top:7px}.btn:hover{transform:translateY(-1px)}.error{margin-top:12px;padding:11px;border-radius:12px;background:#fb71850d;border:1px solid #fb718533;color:#fecdd3;font-size:12px}.hidden{display:none!important}.foot{text-align:center;color:#71839c;font-size:11px;margin-top:18px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.hero{padding:25px}.features{grid-template-columns:1fr}.badge{display:none}}
 </style>
 </head>
 <body>
 <div class="shell">
-<header class="top"><div class="brand"><div class="logo">✓</div><div><b>Absensi Digital</b><small>Role-based attendance</small></div></div><div class="secure">SHA-256</div></header>
+<header class="top"><div class="brand"><div class="logo">✓</div><div><b>Absensi Digital</b><small>Absensi khusus guru</small></div></div><div class="tools"><span class="badge">🔐 SHA-256</span><button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Tema terang" title="Tema terang">🌙</button></div></header>
 <main class="grid">
-<section class="hero">
-<div style="color:#a9ddff;font-size:12px;font-weight:800">SISTEM ABSENSI SEKOLAH</div>
-<h1>Masuk dengan <span>aman & rapi.</span></h1>
-<p>Pilih kelas dan peran terlebih dahulu. Guru dapat merekap kehadiran, sedangkan murid hanya dapat melihat hasil rekap kelasnya.</p>
-<div class="features"><div class="feature"><b>👨‍🏫 Guru</b><small>Mengelola status kehadiran.</small></div><div class="feature"><b>👨‍🎓 Murid</b><small>Melihat rekap tanpa mengubahnya.</small></div><div class="feature"><b>🔐 Hash</b><small>NIS/NISN dan password diverifikasi SHA-256.</small></div></div>
-</section>
-<section class="card">
-<div class="head"><div><h2 id="title">Pilih kelas</h2><p id="subtitle">Tentukan kelas untuk melanjutkan.</p></div><div class="step" id="step">01 / 03</div></div>
-<div class="progress"><span id="bar"></span></div>
-<div id="classStep"><label class="label">Kelas</label><div class="classes" id="classGrid"></div><button class="btn" id="classNext" disabled>Lanjut</button></div>
-<div id="roleStep" class="hidden"><button class="back" id="backRole">← Kembali</button><label class="label">Login sebagai</label><div class="roles"><button class="choice" data-role="guru"><b>👨‍🏫 Guru</b><small>Rekap absensi</small></button><button class="choice" data-role="murid"><b>👨‍🎓 Murid</b><small>Lihat rekap</small></button></div><div class="selected" id="selectedClass"></div><button class="btn" id="roleNext" disabled>Lanjut</button></div>
-<div id="loginStep" class="hidden"><button class="back" id="backLogin">← Kembali</button><div class="selected" id="summary"></div><div id="teacherNameWrap" class="hidden"><label class="label">Nama guru</label><input class="input" id="teacherName" autocomplete="name" placeholder="Masukkan nama guru"></div><label class="label" id="credentialLabel"></label><input class="input" id="credential" autocomplete="off"><button class="btn" id="loginBtn">Verifikasi & masuk</button><div class="error hidden" id="error"></div></div>
-</section>
-</main><div class="foot">Gunakan melalui GitHub Pages/HTTPS agar Web Crypto API tersedia.</div>
+<section class="hero"><div class="eyebrow">SISTEM ABSENSI SEKOLAH</div><h1>Form Login <span>Guru.</span></h1><p>Guru memilih kelas terlebih dahulu, lalu masuk ke dashboard untuk mencatat kehadiran, mengelola data siswa, melakukan rekap, ekspor, dan mencetak laporan bulanan.</p><div class="features"><div class="feature"><b>👨‍🏫 Guru saja</b><small>Login siswa dihapus sesuai kebutuhan.</small></div><div class="feature"><b>📋 Rekap</b><small>Kelola absensi berdasarkan kelas dan tahun ajaran.</small></div><div class="feature"><b>🌓 Tema</b><small>Gelap sebagai tema default, tersedia tema terang.</small></div></div></section>
+<section class="card"><h2>Form Login Guru</h2><p class="sub">Masukkan akun guru dan pilih kelas yang akan direkap.</p>
+<form id="loginForm" autocomplete="off">
+<label class="label" for="username">Username Guru</label><input class="input" id="username" placeholder="Masukkan username guru" autocomplete="username" required>
+<label class="label" for="password">Password</label><input class="input" id="password" type="password" placeholder="Masukkan password" autocomplete="current-password" required>
+<label class="label" for="className">Pilih Kelas</label><select class="select" id="className" required><option value="">-- Pilih kelas --</option></select>
+<div class="btns"><button type="submit" class="btn primary">Login</button><button type="button" class="btn" id="cancel">Batal</button></div>
+<div class="error hidden" id="error"></div>
+<a class="forgot" id="forgotPassword" href="#">Lupa Password?</a>
+</form></section>
+</main>
+<div class="modal hidden" id="resetModal" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+  <div class="modal-box">
+    <h3 id="resetTitle">🔐 Pemulihan Password Guru</h3>
+    <p>Masukkan kode pemulihan yang diberikan oleh admin/sekolah. Jika benar, kamu bisa membuat password baru.</p>
+    <label class="label" for="recoveryCode">Kode Pemulihan</label>
+    <input class="input" id="recoveryCode" type="password" placeholder="Masukkan kode pemulihan" autocomplete="off">
+    <label class="label" for="newPassword">Password Baru</label>
+    <input class="input" id="newPassword" type="password" placeholder="Masukkan password baru" autocomplete="new-password">
+    <label class="label" for="confirmPassword">Konfirmasi Password Baru</label>
+    <input class="input" id="confirmPassword" type="password" placeholder="Ulangi password baru" autocomplete="new-password">
+    <div class="hint">Password baru akan disimpan dalam bentuk SHA-256.</div>
+    <div class="error hidden" id="resetError"></div>
+    <div class="success hidden" id="resetSuccess"></div>
+    <div class="modal-actions"><button type="button" class="btn primary" id="saveNewPassword">Simpan Password</button><button type="button" class="btn" id="closeReset">Batal</button></div>
+  </div>
 </div>
-<script src="config.js"></script><script src="script.js"></script>
-</body>
-</html>
+<div class="foot">Tema gelap aktif secara default • Gunakan HTTPS/GitHub Pages agar Web Crypto API tersedia.</div>
+</div>
+<script src="theme.js"></script><script src="config.js"></script><script src="script.js"></script>
+</body></html>
