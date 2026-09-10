@@ -57,3 +57,13 @@ Backend menyediakan:
 
 ## Catatan edit/hapus siswa
 Tanpa backend, edit/hapus nama siswa disimpan di `localStorage` browser. Dengan backend aktif, perubahan dikirim ke server agar dapat digunakan perangkat lain.
+
+## Catatan penting data kelas
+
+Daftar **Pilih Kelas** di halaman login sekarang **tidak lagi ditulis manual**. Sistem membaca nama kelas yang benar-benar memiliki data dari `data_siswa.json` milik project lama.
+
+Jadi:
+- jangan menghapus atau mengganti `data_siswa.json` lama saat mengunggah file ZIP ini ke GitHub;
+- kelas yang kosong/tidak memiliki siswa tidak akan ditampilkan;
+- dashboard guru juga mengambil kelas dari file data siswa yang sama;
+- kalau `data_siswa.json` tidak ada, login akan menampilkan pesan error, bukan dropdown kelas kosong.
