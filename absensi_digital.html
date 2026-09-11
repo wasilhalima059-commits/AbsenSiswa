@@ -77,7 +77,7 @@ body{margin:0;background:radial-gradient(circle at 10% 0,#163452 0,transparent 3
     <div class="field"><label>Tanggal Absen</label><input class="input" id="date" type="date"></div>
     <div class="field"><label>Cari Siswa</label><input class="input" id="search" placeholder="Cari nama..."></div>
   </div>
-  <div class="actions" style="margin-top:12px">
+  <div class="actions hidden" id="yearActions" style="margin-top:12px">
     <button class="btn warning" id="newAcademicYear">🎓 Kenaikan Kelas / Tahun Ajaran Baru</button>
     <button class="btn" id="backupNow">💾 Backup Data Siswa (CSV)</button>
     <button class="btn success" id="addStudent">➕ Tambah Siswa Baru</button>
@@ -194,14 +194,18 @@ function loadSession(){
   return true;
 }
 
-function currentYear(){return session.academicYear||session.baseAcademicYear||academicYearNow()}
 function academicYearNow(){
   const d=new Date(),base=d.getFullYear()-(d.getMonth()<6?1:0);
   return `${base}/${base+1}`;
 }
+function baseYear(){return session.baseAcademicYear||session.academicYear||academicYearNow()}
+function currentYear(){return session.academicYear||baseYear()}
 function nextAcademicYear(year){
   const n=parseInt(String(year||"").split("/")[0],10);
   return Number.isFinite(n)?`${n+1}/${n+2}`:academicYearNow();
+}
+function isNewAcademicYear(){
+  return currentYear()===nextAcademicYear(baseYear());
 }
 function gradeOf(c){
   const m=String(c||"").trim().match(/^(XII|XI|X)(\b.*)$/i);
@@ -245,7 +249,11 @@ function writeMaster(list){localStorage.setItem(MASTER_KEY,JSON.stringify(list))
 function uniqueStudents(list){
   const seen=new Set(),out=[];
   for(const s of list){
-    const key=s.uid||`${s.kelas}|${s.nama}`;
+    // Siswa yang sama boleh muncul pada tahun ajaran berbeda karena
+    // data historis harus tetap tersimpan setelah kenaikan kelas.
+    const key=s.uid
+      ? `${s.uid}|${s.tahunAjaran||""}`
+      : `${s.kelas}|${s.tahunAjaran||""}|${s.nama}`;
     if(seen.has(key))continue;
     seen.add(key);out.push(s);
   }
@@ -254,15 +262,27 @@ function uniqueStudents(list){
 
 function migrateMaster(){
   let master=readMaster();
-  if(master.length)return master;
-  const year=currentYear();
-  const rows=[];
+  const year=baseYear();
+  const sourceRows=[];
   for(const [className,list] of Object.entries(allData||{})){
     if(!Array.isArray(list))continue;
-    list.forEach((s,i)=>rows.push(normalizeStudent(s,i,className,year)));
+    list.forEach((s,i)=>sourceRows.push(normalizeStudent(s,i,className,year)));
   }
-  master=uniqueStudents(rows);
-  writeMaster(master);
+
+  // First install: import the original roster into the base/current year.
+  if(!master.length){
+    master=uniqueStudents(sourceRows);
+    writeMaster(master);
+    return master;
+  }
+
+  // Repair data created by an earlier version: if the original roster exists
+  // but the base year has no students, merge it back instead of showing 0.
+  const hasBase=master.some(s=>s.tahunAjaran===year);
+  if(!hasBase && sourceRows.length){
+    master=uniqueStudents(master.concat(sourceRows));
+    writeMaster(master);
+  }
   return master;
 }
 
@@ -286,13 +306,18 @@ function studentsFor(className,year=currentYear()){
 }
 
 function fillYears(){
-  const el=$("yearSelect"),now=currentYear(),prev=parseInt(now.split("/")[0],10)-1,next=nextAcademicYear(now);
+  const el=$("yearSelect"),now=baseYear(),prev=parseInt(now.split("/")[0],10)-1,next=nextAcademicYear(now);
   const years=[`${prev}/${prev+1}`,now,next];
   el.innerHTML="";
   [...new Set(years)].forEach(y=>{
     const o=document.createElement("option");o.value=y;o.textContent=y;el.appendChild(o);
   });
-  el.value=now;
+  el.value=currentYear();
+  if(![...el.options].some(o=>o.value===currentYear())){
+    el.value=now;
+    session.academicYear=now;
+    saveSession();
+  }
 }
 function fillClasses(){
   const el=$("classSelect"),classes=classesFromMaster(currentYear());
@@ -300,7 +325,10 @@ function fillClasses(){
   classes.sort(classOrder);
   el.innerHTML="";
   classes.forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;el.appendChild(o)});
-  el.value=session.className;
+  if(classes.includes(session.className))el.value=session.className;
+}
+function updateYearActions(){
+  $("yearActions").classList.toggle("hidden",!isNewAcademicYear());
 }
 
 function saveSession(){sessionStorage.setItem(SESSION_KEY,JSON.stringify(session))}
@@ -334,6 +362,7 @@ function renderHeader(){
   const totalAll=readMaster().length;
   $("notice").textContent=(api()?"Sinkronisasi backend aktif. ":"Mode localStorage aktif. ")+
     `Data siswa tersimpan sebagai Array of Objects di localStorage. Total data siswa: ${totalAll}.`;
+  updateYearActions();
 }
 
 async function stats(){
@@ -446,48 +475,91 @@ function backupStudentMaster(reason="manual"){
 }
 
 function preparePromotion(){
-  const oldYear=currentYear(),newYear=nextAcademicYear(oldYear),master=readMaster();
+  const oldYear=baseYear();
+  const newYear=nextAcademicYear(oldYear);
+  if(!isNewAcademicYear() || currentYear()!==newYear){
+    alert("Pilih tahun ajaran baru terlebih dahulu sebelum menjalankan kenaikan kelas.");
+    return;
+  }
+  const master=readMaster();
   const active=master.filter(s=>s.tahunAjaran===oldYear);
+  const already=master.filter(s=>s.tahunAjaran===newYear);
   const counts={X:0,XI:0,XII:0};
   active.forEach(s=>{const g=gradeOf(s.kelas);if(g)counts[g]++});
+
+  if(!active.length){
+    alert(`Tidak ditemukan data siswa pada tahun ajaran ${oldYear}. Data siswa lama tetap aman dan tidak dihapus.`);
+    return;
+  }
+  if(already.length){
+    alert(`Tahun ajaran ${newYear} sudah memiliki ${already.length} data siswa. Kenaikan tidak dijalankan lagi agar siswa tidak terduplikasi.`);
+    return;
+  }
+
   pendingPromotion={oldYear,newYear};
   $("promotionText").innerHTML=
-    `Tahun ajaran <b>${safe(oldYear)}</b> akan diproses menjadi <b>${safe(newYear)}</b>.<br><br>`+
+    `Tahun ajaran <b>${safe(oldYear)}</b> akan dinaikkan menjadi <b>${safe(newYear)}</b>.<br><br>`+
     `Data yang terdeteksi: <b>${counts.X}</b> siswa kelas X, <b>${counts.XI}</b> siswa kelas XI, dan <b>${counts.XII}</b> siswa kelas XII.`;
   $("promotionModal").classList.remove("hidden");
 }
 
 function closePromotion(){pendingPromotion=null;$("promotionModal").classList.add("hidden")}
 
-function runPromotion(){
+async function runPromotion(){
   if(!pendingPromotion)return;
   const {oldYear,newYear}=pendingPromotion;
   const master=readMaster();
+
   // Backup WAJIB dilakukan sebelum perubahan apa pun.
   backupStudentMaster(`sebelum kenaikan ${oldYear} ke ${newYear}`);
 
   const oldStudents=master.filter(s=>s.tahunAjaran===oldYear);
-  const retained=master.filter(s=>s.tahunAjaran!==oldYear);
+  const already=master.filter(s=>s.tahunAjaran===newYear);
+  if(already.length){
+    closePromotion();
+    alert(`Tahun ajaran ${newYear} sudah memiliki data. Tidak ada perubahan yang dilakukan.`);
+    return;
+  }
+
+  // Data tahun lama TETAP dipertahankan sebagai arsip.
+  // XII lama ditandai Lulus, sementara X dan XI tetap menjadi riwayat aktif.
+  const historical=master.map(s=>{
+    if(s.tahunAjaran!==oldYear)return s;
+    if(gradeOf(s.kelas)==="XII"){
+      return {...s,statusKelulusan:"Lulus",status:"Lulus",lulusPada:newYear};
+    }
+    return {...s,statusKelulusan:"Aktif"};
+  });
+
   const promoted=[];
   for(const s of oldStudents){
     const target=promotedClassName(s.kelas);
-    if(!target)continue; // XII lulus -> tidak dimasukkan lagi.
-    promoted.push({...s,kelas:target,tahunAjaran:newYear});
+    if(!target)continue; // XII lulus -> tidak dibuat salinan di tahun baru.
+    promoted.push({
+      ...s,
+      kelas:target,
+      tahunAjaran:newYear,
+      statusKelulusan:"Aktif",
+      status:"Aktif"
+    });
   }
 
-  // Kelas X sengaja tidak dibuatkan siswa: kosong untuk murid baru.
-  const nextMaster=uniqueStudents(retained.concat(promoted));
-  writeMaster(nextMaster);
+  // Tidak membuat siswa X otomatis: kelas X tahun baru sengaja kosong.
+  writeMaster(uniqueStudents(historical.concat(promoted)));
 
-  // Arahkan dashboard ke kelas hasil kenaikan bila ada.
   session.academicYear=newYear;
+  // Setelah proses, pertahankan kelas yang dipilih jika tersedia.
+  // Jika tidak, arahkan ke kelas hasil kenaikan yang sesuai.
+  const available=classesFromMaster(newYear);
   const targetCurrent=promotedClassName(session.className);
-  session.className=targetCurrent||session.className;
+  if(!available.includes(session.className) && targetCurrent && available.includes(targetCurrent)){
+    session.className=targetCurrent;
+  }
   saveSession();
 
   closePromotion();
-  fillYears();fillClasses();renderHeader();refresh();
-  alert(`Kenaikan kelas berhasil diproses!\\n\\nBackup CSV sudah dibuat terlebih dahulu.\\nX → XI\\nXI → XII\\nXII → Lulus\\nX tahun ajaran baru dikosongkan untuk siswa baru.`);
+  fillYears();fillClasses();renderHeader();await refresh();
+  alert(`Kenaikan kelas berhasil diproses!\n\nBackup CSV sudah dibuat terlebih dahulu.\nX → XI\nXI → XII\nXII → Lulus\n\nData tahun ajaran lama tetap disimpan sebagai riwayat.`);
 }
 
 function promotedClassName(className){return promotedClass(className)}
@@ -525,10 +597,18 @@ async function changeClass(){
   saveSession();renderHeader();await refresh();
 }
 async function changeAcademicYear(){
+  const previousYear=currentYear();
   session.academicYear=$("yearSelect").value;
   const available=classesFromMaster(session.academicYear);
   const promoted=promotedClass(session.className);
-  if(!available.includes(session.className)&&promoted&&available.includes(promoted))session.className=promoted;
+
+  if(!available.includes(session.className)&&promoted&&available.includes(promoted)){
+    session.className=promoted;
+  }else if(!available.includes(session.className)){
+    const first=available[0];
+    if(first)session.className=first;
+  }
+
   saveSession();fillClasses();renderHeader();await refresh();
 }
 
